@@ -15,9 +15,7 @@ services:
       - mongo_data:/data/db
 
   backend:
-      build:
-        context: ./backend
-        dockerfile: Dockerfile
+      build: ./backend
       environment: 
         - DBUSERNAME:simon
         - DBPASSWORD:123
@@ -26,7 +24,7 @@ services:
       networks: 
       - backend
       volumes:
-        - ./data:/app
+        - ./backend/data:/app
 
 
 volumes:
