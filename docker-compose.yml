@@ -1,0 +1,25 @@
+version: '3'
+
+servics: 
+  nodeDatabse:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data/data:/data/db
+
+  backend:
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      environment: 
+        - DBUSERNAME:simon
+        - DBPASSWORD:123
+      ports:
+        - "8080:8080"
+      volumes:
+        - ./data:/app
+
+
+volumes:
+   mongo_data:

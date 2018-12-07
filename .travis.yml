@@ -3,13 +3,18 @@ services:
 #env:
 # - DBUSERNAME=simon DBPASSWORD=123
 before_install:
-  - docker build -t nodeserver ./backend
-  - docker network create node_server
-  - cd database
-  - docker run -p 27017:27017 -d --rm --network node_server -v $PWD/data:/data/db --name nodeDatabase mongo:latest
-  - echo "mongo\ndb.createUser({user:'simon', pwd:'123', roles:[{role:'readWrite', db:'test'}]})\nexit" | docker exec -it nodeDatabase \bin\bash
-
-  - cd ../backend
-  - docker run -p 8080:8080 -it --network node_server -e DBUSERNAME=simon -e DBPASSWORD=123 -v $PWD/backend/data:/app --name nodeServ --rm nodeserver /bin/sh -c "cd /app; npm test"
-#script:
-#  - npm test
+  - docker-compose build
+#  - docker-compose run 
+script:
+  - docker-compose run "cd /app; npm test"
+  
+  
+  #- docker build -t nodeserver ./backend
+  #- docker network create node_server
+  #- cd database
+  #- docker run -p 27017:27017 -d --rm --network node_server -v $PWD/data:/data/db --name nodeDatabase mongo:latest
+  #- echo "mongo\ndb.createUser({user:'simon', pwd:'123', roles:[{role:'readWrite', db:'test'}]})\nexit" | docker exec nodeDatabase \bin\bash
+#
+#  - cd ../backend
+ # - docker run -p 8080:8080 -it --network node_server -e DBUSERNAME=simon -e DBPASSWORD=123 -v $PWD/backend/data:/app --name nodeServ --rm nodeserver /bin/sh -c "cd /app; npm test"
+#   echo "mongo\ndb.createUser({user:'simon', pwd:'123', roles:[{role:'readWrite', db:'test'}]})\nexit" | docker exec nodeDatabase bash
