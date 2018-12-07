@@ -1,0 +1,3 @@
+Entwicklungsnotizen:
+
+Design Pattern MVC
