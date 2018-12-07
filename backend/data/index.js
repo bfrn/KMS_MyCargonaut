@@ -6,11 +6,11 @@ const mongoose = require('mongoose')
 let port = 8080
 /*Start Connection with DB*/
 /*Very dangerous Hardcoded user:pass -> need alternatives*/
-//let dev_db_url = 'mongodb://simon:123@nodeDatabase/test'
+let dev_db_url = 'mongodb://simon:123@nodeDatabase_1/test'
 console.log('log:'+ process.env.DBUSERNAME)
 console.log('log:'+ process.env.DBPASSWORD)
 
-let dev_db_url = 'mongodb://'+process.env.DBUSERNAME+':'+process.env.DBPASSWORD+'@nodeDatabase_1/test'
+//let dev_db_url = 'mongodb://'+process.env.DBUSERNAME+':'+process.env.DBPASSWORD+'@nodeDatabase_1/test'
 
 let mongoDB = process.env.MONGODB_URI || dev_db_url
 mongoose.connect(mongoDB)
