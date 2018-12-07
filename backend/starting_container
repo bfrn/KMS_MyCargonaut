@@ -1,2 +1,2 @@
-docker run -p 8080:8080 -it --network node_server -v /home/Simon/workspace/KMS_MyCargonaut/backend/data:/app --name nodeServ --rm nodeserver
+docker run -p 8080:8080 -it --network node_server -v $PWD/data:/app --name nodeServ --rm nodeserver
 
