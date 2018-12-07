@@ -2,4 +2,4 @@ FROM node:latest
 MAINTAINER Simon Stockhause
 WORKDIR /app
 RUN apt-get update && apt-get install -yqq vim
-CMD /bin/bash
+CMD npm test
