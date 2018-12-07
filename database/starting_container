@@ -1,1 +1,1 @@
-docker run -p 27017:27017 --network node_server -v /home/Simon/workspace/KMS_MyCargonaut/database/data:/data/db --name nodeDatabase mongo:latest
+docker run -p 27017:27017 --rm --network node_server -v $PWD/data:/data/db --name nodeDatabase mongo:latest
