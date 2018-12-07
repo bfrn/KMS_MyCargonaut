@@ -5,8 +5,7 @@ before_install:
   - docker-compose build
 #  - docker-compose run 
 script:
-  - docker-compose --exit-code-from backend
-  - docker stop $(docker ps -qa)
+  - docker-compose up --exit-code-from backend
   
   
   #- docker build -t nodeserver ./backend
