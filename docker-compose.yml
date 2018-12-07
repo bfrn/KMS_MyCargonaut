@@ -3,10 +3,6 @@ version: '3'
 services: 
   nodeDatabase:
     image: mongo:latest
-    environment:
-      MONGODB_USER: "${db_user_env}"
-      MONGODB_DATABASE: "${dbname_env}"
-      MONGODB_PASS: "${db_pass}"
     ports:
       - "27017:27017"
     networks: 
@@ -16,9 +12,6 @@ services:
 
   backend:
       build: ./backend
-      environment: 
-        - DBUSERNAME:simon
-        - DBPASSWORD:123
       ports:
         - "8080:8080"
       networks: 

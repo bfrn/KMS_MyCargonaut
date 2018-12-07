@@ -1,13 +1,12 @@
 services:
     - docker
-env:
- - db_user_env=simon db_pass=123 dbname_env=test
 before_install:
   - docker network create node_server
   - docker-compose build
 #  - docker-compose run 
 script:
-  - docker-compose up
+  - docker-compose --exit-code-from backend
+  - docker stop $(docker ps -qa)
   
   
   #- docker build -t nodeserver ./backend
