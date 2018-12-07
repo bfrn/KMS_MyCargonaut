@@ -36,3 +36,9 @@ exports.delete_user_by_id = (req, res, next) => {
       res.send('User successfully deleted');
   })
 }
+exports.update_user_by_id = function (req, res, next) {
+   User.findByIdAndUpdate(req.params.id, {$set: req.body},(err, user) => {
+       if (err) return next(err)
+       res.send('User successfully udpated')
+   })
+}
