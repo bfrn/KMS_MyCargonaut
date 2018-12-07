@@ -1,3 +1,9 @@
+/**
+ * Routing for /user
+ * 
+ * user_controller defines the functions, which are then used for certain requests
+ */
+
 const express = require('express')
 const router = express.Router()
 
