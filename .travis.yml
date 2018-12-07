@@ -2,12 +2,14 @@ language: node_js
 
 services:
     - docker
-
+env:
+  - DBUSERNAME=simon
+  - DBPASSWORD=123
 before_install:
   - docker build -t nodeserver ./backend
   - docker network create node_server
-  - docker run -p 27017:27017 -d --rm --network node_server -v $PWD/data:/data/db --name nodeDatabase mongo:latest
+  - docker run -p 27017:27017 -d --rm --network node_server -v $PWD/data:/data/db -e MONGO_INITDB_ROOT_USERNAME=$DBUSERNAME, MONGO_INITDB_ROOT_PASSWORD=$DBPASSWORD --name nodeDatabase mongo:latest
   - cd backend
-  - docker run -p 8080:8080 -it --network node_server -v $PWD/data:/app --name nodeServ --rm nodeserver /bin/sh -c "ls;cd /app; ls;npm test"
+  - docker run -p 8080:8080 -it --network node_server -e DBUSERNAME=$DBUSERNAME -e DBPASSWORD=$DBPASSWORD -v $PWD/data:/app --name nodeServ --rm nodeserver /bin/sh -c "cd /app; npm test"
 #script:
 #  - npm test
