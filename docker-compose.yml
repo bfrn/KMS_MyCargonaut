@@ -6,7 +6,7 @@ services:
     ports:
       - "27017:27017"
     networks: 
-      - node_server
+      - backend
     volumes:
       - mongo_data/data:/data/db
 
@@ -20,7 +20,7 @@ services:
       ports:
         - "8080:8080"
       networks: 
-      - node_server
+      - backend
       volumes:
         - ./data:/app
 
@@ -28,6 +28,6 @@ services:
 volumes:
    mongo_data:
 networks:
-  node_server:
-    name: node_server
-    driver: custom-driver-1
+  backend:
+    external:
+      name: node_server
