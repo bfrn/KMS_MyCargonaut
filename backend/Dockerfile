@@ -1,5 +1,5 @@
 FROM node:latest
 MAINTAINER Simon Stockhause
-WORKDIR /app
+COPY ./backend/app ./app
 RUN apt-get update && apt-get install -yqq vim
 CMD npm test
