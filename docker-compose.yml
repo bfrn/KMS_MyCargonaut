@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 
 services: 
   nodeDatabse:
@@ -29,4 +29,5 @@ volumes:
    mongo_data:
 networks:
   node_server:
-    
+    name: node_server
+    driver: custom-driver-1
