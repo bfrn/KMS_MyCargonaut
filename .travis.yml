@@ -3,8 +3,7 @@ language: node_js
 services:
     - docker
 env:
-  - DBUSERNAME=simon
-  - DBPASSWORD=123
+  - DBUSERNAME=simon DBPASSWORD=123
 before_install:
   - docker build -t nodeserver ./backend
   - docker network create node_server
