@@ -48,18 +48,21 @@ describe('Test the User API', ()=> {
                 .end((err, res) => {
                     res.body.should.have.property('success').eql('user successfully created')
                 })
+            setTimeout(1000);
             chai.request(app)
                 .post('/user/register')
                 .send(user2)
                 .end((err, res) => {
                     res.body.should.have.property('success').eql('user successfully created')
                 })
+            setTimeout(1000);
             chai.request(app)
                 .post('/user/register')
                 .send(user3)
                 .end((err, res) => {
                     res.body.should.have.property('success').eql('user successfully created')
                 })
+            setTimeout(1000);
             chai.request(app)
                 .get('/user')
                 .end((err, res) => {
