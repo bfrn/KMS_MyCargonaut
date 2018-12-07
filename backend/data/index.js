@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.get('/', (req,res) => {
    res.send('Hey!')
 })
-app.use('/register', user)
+app.use('/user', user)
 
 
 /*Start Server*/ 
