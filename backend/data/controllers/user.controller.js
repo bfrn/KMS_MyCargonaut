@@ -23,9 +23,16 @@ exports.create_user = (req, res, next) => {
       res.send('User Created successfully')
    })
 }
-exports.get_user = (req, res, next) => {
+exports.get_user_by_id = (req, res, next) => {
    User.findById(req.params.id, function (err, user) {
       if (err) return next(err);
       res.send(user);
+  })
+}
+
+exports.delete_user_by_id = (req, res, next) => {
+   User.findByIdAndDelete(req.params.id, function (err, user) {
+      if (err) return next(err);
+      res.send('User successfully deleted');
   })
 }
