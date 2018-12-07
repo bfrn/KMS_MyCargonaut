@@ -1,5 +1,3 @@
-language: node_js
-
 services:
     - docker
 #env:
@@ -7,8 +5,10 @@ services:
 before_install:
   - docker build -t nodeserver ./backend
   - docker network create node_server
+  - cd database
   - docker run -p 27017:27017 -d --rm --network node_server -v $PWD/data:/data/db --name nodeDatabase mongo:latest
   - docker exec nodeDatabase mongo test /data/db/startup.js
+  - cd ../backend
   - docker run -p 8080:8080 -it --network node_server -e DBUSERNAME=simon -e DBPASSWORD=123 -v $PWD/backend/data:/app --name nodeServ --rm nodeserver /bin/sh -c "cd /app; npm test"
 #script:
 #  - npm test
