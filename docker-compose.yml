@@ -25,6 +25,8 @@ services:
       - backend
       volumes:
         - ./backend/data:/app
+      depends_on: 
+        - nodeDatabse
 
 
 volumes:
