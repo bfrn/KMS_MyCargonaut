@@ -27,6 +27,6 @@ services:
 
 volumes:
    mongo_data:
-networks: 
-  node_server
-
+networks:
+  node_server:
+    
