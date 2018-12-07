@@ -7,7 +7,7 @@ before_install:
   - docker-compose build
 #  - docker-compose run 
 script:
-  - docker-compose run "cd /app; npm test"
+  - docker-compose up
   
   
   #- docker build -t nodeserver ./backend
