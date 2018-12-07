@@ -26,4 +26,4 @@ app.use('/user', user)
 
 
 /*Start Server*/ 
-app.listen(port, () => console.log('Server Running on Port '+ port + '\nOpen http://Localhost:'+ port))
+module.exports  = app.listen(port, () => console.log('Server Running on Port '+ port + '\nOpen http://Localhost:'+ port))

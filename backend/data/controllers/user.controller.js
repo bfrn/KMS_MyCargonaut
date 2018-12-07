@@ -20,25 +20,32 @@ exports.create_user = (req, res, next) => {
       if (err) {
          return next(err)
       }
-      res.send('User Created successfully')
+      res.status(200)
+      res.send({success: 'user successfully created'})
    })
 }
 exports.get_user_by_id = (req, res, next) => {
-   User.findById(req.params.id, function (err, user) {
+   User.findById(req.params.id,(err, user) =>{
+      if (err) return next(err);
+      res.send(user);
+  })
+}
+exports.get_users= (req, res, next) => {
+   User.find({},(err, user) =>{
       if (err) return next(err);
       res.send(user);
   })
 }
 
 exports.delete_user_by_id = (req, res, next) => {
-   User.findByIdAndDelete(req.params.id, function (err, user) {
+   User.findByIdAndDelete(req.params.id, (err, user) =>{
       if (err) return next(err);
-      res.send('User successfully deleted');
+      res.send({sucess: 'User successfully deleted'});
   })
 }
 exports.update_user_by_id = function (req, res, next) {
    User.findByIdAndUpdate(req.params.id, {$set: req.body},(err, user) => {
        if (err) return next(err)
-       res.send('User successfully udpated')
+       res.send({success: 'User successfully udpated'})
    })
 }
