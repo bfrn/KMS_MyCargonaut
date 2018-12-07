@@ -7,6 +7,8 @@ before_install:
   - docker build -t nodeserver ./backend
   - docker network create node_server
   - docker run -p 27017:27017 -d --rm --network node_server -v $PWD/data:/data/db --name nodeDatabase mongo:latest
-  - docker run -p 8080:8080 -it --network node_server -v $PWD/data:/app --name nodeServ --rm nodeserver /bin/sh -c "cd /app; ls; ls ../;npm test"
-script:
-  - npm test
+  - echo $PWD
+  - ls $PWD/data
+  - docker run -p 8080:8080 -it --network node_server -v $PWD/data:/app --name nodeServ --rm nodeserver /bin/sh -c "ls;cd /app; ls;npm test"
+#script:
+#  - npm test
