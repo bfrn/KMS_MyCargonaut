@@ -3,12 +3,16 @@ version: '3'
 services: 
   nodeDatabse:
     image: mongo:latest
+    environment:
+      MONGODB_USER: "${db_user_env}"
+      MONGODB_DATABASE: "${dbname_env}"
+      MONGODB_PASS: "${db_pass}"
     ports:
       - "27017:27017"
     networks: 
       - backend
     volumes:
-      - mongo_data/data:/data/db
+      - mongo_data:/data/db
 
   backend:
       build:
