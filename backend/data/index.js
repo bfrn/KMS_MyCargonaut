@@ -10,7 +10,7 @@ let port = 8080
 console.log('log:'+ process.env.DBUSERNAME)
 console.log('log:'+ process.env.DBPASSWORD)
 
-let dev_db_url = 'mongodb://'+process.env.DBUSERNAME+':'+process.env.DBPASSWORD+'@nodeDatabase/test'
+let dev_db_url = 'mongodb://'+process.env.DBUSERNAME+':'+process.env.DBPASSWORD+'@nodeDatabase_1/test'
 
 let mongoDB = process.env.MONGODB_URI || dev_db_url
 mongoose.connect(mongoDB)
