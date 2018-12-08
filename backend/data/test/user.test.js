@@ -76,6 +76,24 @@ describe('Test the User API', ()=> {
             })
         })
     })
+    describe('\GET /user/:id', ()=>{
+        it('should Get specified user', (done) => {
+            let user1 = new User({
+                username: "simon",
+                password: "123"
+            })
+            user1.save((err, user) => {
+                chai.request(app)
+                    .get('/user/'+user.id)
+                    .end((err,user)=>{
+                        res.body.should.be.a('array')
+                        res.body.length.should.be.eql(1)
+                        res.body[0].should.have.property('username').eql('simon')
+                        res.body[0].should.have.property('password').eql('123')
+                    })
+            })
+        })
+    })
 })
 
 

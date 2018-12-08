@@ -15,3 +15,5 @@ User werden mittels mongoose als schema definiert und können erstellt, geänder
 # Entwicklungsnotizen:
 
 Design Pattern des Server: [MVC](https://de.wikipedia.org/wiki/Model_View_Controller)
+
+TDD Nachträglich
