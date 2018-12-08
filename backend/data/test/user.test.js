@@ -37,7 +37,7 @@ describe('Test the User API', ()=> {
             user1.save((err, user) => {
                 chai.request(app)
                     .get('/user/'+user.id)
-                    .end((err,user)=>{
+                    .end((err,res)=>{
                         res.body.should.be.a('array')
                         res.body.length.should.be.eql(1)
                         res.body[0].should.have.property('username').eql('simon')
@@ -105,7 +105,7 @@ describe('Test the User API', ()=> {
                 chai.request(app)
                     .delete('/user/'+user.id)
                     .end((err,res) => {
-                        res.body.should.have.property('success').eql('User successfully deleted')
+                        res.body.should.have.property('success').eql('user successfully deleted')
                         done()
                     })
             })

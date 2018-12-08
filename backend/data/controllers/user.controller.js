@@ -40,7 +40,7 @@ exports.get_users= (req, res, next) => {
 exports.delete_user_by_id = (req, res, next) => {
    User.findByIdAndDelete(req.params.id, (err, user) =>{
       if (err) return next(err);
-      res.send({sucess: 'user successfully deleted'});
+      res.send({success: 'user successfully deleted'});
   })
 }
 exports.update_user_by_id = function (req, res, next) {
