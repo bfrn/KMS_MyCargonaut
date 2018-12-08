@@ -1,7 +1,7 @@
 FROM node:latest
 MAINTAINER Simon Stockhause
 WORKDIR /app
-RUN ls && ls -al
+RUN echo $PWD
 RUN npm install
 WORKDIR /app
 #RUN apt-get update && apt-get install -yqq vim
