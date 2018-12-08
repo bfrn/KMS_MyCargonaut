@@ -1,8 +1,5 @@
 FROM node:latest
 MAINTAINER Simon Stockhause
 WORKDIR /app
-RUN echo $PWD
-RUN npm install
-WORKDIR /app
 #RUN apt-get update && apt-get install -yqq vim
-CMD npm test
+CMD npm install && npm test
