@@ -8,6 +8,7 @@ Aktuell gibt es nur User die als Daten behandelt werden.
 User bestehen aus:
   * username
   * password
+
 User werden mittels mongoose als schema definiert und können erstellt, geändert, gelöscht oder gelesen werden. Dies geschieht über die Kommunikation mit der MongoDB
 
 
