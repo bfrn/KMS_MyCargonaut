@@ -38,8 +38,6 @@ describe('Test the User API', ()=> {
                 chai.request(app)
                     .get('/user/'+user.id)
                     .end((err,res)=>{
-                        res.body.should.be.a('object')
-                        res.body.length.should.be.eql(1)
                         res.body.should.have.property('username').eql('simon')
                         res.body.should.have.property('password').eql('123')
                         done()
