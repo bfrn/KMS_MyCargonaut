@@ -4,7 +4,7 @@
         <input type="text" placeholder="Email" v-model="item.username" /><br/>
         <input type="test" placeholder="Password" v-model="item.password"><br/>
         <button v-on:click="addUser()" >Sign Up</button><br/>
-        <p>{{responseText}}<p>
+        <p>{{responseText}}</p>
     </div>
 </template>
 
@@ -13,7 +13,7 @@
         data(){
             return {
                 item: { },
-                responseText: ''
+                responseText: 'asdasd'
             }
         },
         methods: {
