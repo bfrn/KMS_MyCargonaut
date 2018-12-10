@@ -18,7 +18,9 @@ mongoose.Promise = global.Promise
 let db = mongoose.connection
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 /*More Init*/
-const app = express()
+const cors = require('cors');
+const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 

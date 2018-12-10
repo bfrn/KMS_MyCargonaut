@@ -18,8 +18,8 @@
         },
         methods: {
             addUser() {
-                this.axios.post('localhost:8080/user/register', this.item).then((response) => {
-                    console.log(response.data)
+                this.axios.post('http://localhost:8080/user/register', this.item).then((response) => {
+                    this.responseText=response.data
                 });
             }
         }
