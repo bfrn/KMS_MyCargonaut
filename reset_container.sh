@@ -1,3 +1,3 @@
 #!/bin/bash
-docker container stop $(docker ps -qa)
+docker container stop nodeDatabase nodeserver_tmp
 
