@@ -1,9 +1,9 @@
 <template>
     <div>
-        <p>Let's create a new account !</p>
+        <p>Let's create a new User !</p>
         <input type="text" placeholder="Email" v-model="item.username" /><br/>
         <input type="test" placeholder="Password" v-model="item.password"><br/>
-        <button v-on:click="addUser()" >Sign Up</button><br/>
+        <button v-on:click="addUser()" >Register</button><br/>
         <p>{{responseText}}</p>
     </div>
 </template>
