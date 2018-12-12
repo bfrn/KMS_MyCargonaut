@@ -13,7 +13,7 @@
         data(){
             return {
                 item: { },
-                responseText: 'asdasd'
+                responseText: ''
             }
         },
         methods: {
