@@ -4,7 +4,7 @@
         <input type="text" placeholder="Email" v-model="item.username" /><br/>
         <input type="test" placeholder="Password" v-model="item.password"><br/>
         <button v-on:click="addUser()" >Register</button><br/>
-        <p>{{responseText}}</p>
+        <p>{{responseText.success}}</p>
     </div>
 </template>
 
