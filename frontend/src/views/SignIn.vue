@@ -27,5 +27,7 @@
 </script>
 
 <style scoped>
-
+    input{
+        margin-bottom: 5px;
+    }
 </style>
