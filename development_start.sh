@@ -12,5 +12,5 @@ docker build -t nodeserver_tmp -f ./backend/Dockerfile_production ./backend
 docker run -p 8080:8080 -d --network node_server -v $PWD/backend/data:/app --name nodeserver_tmp --rm nodeserver_tmp
 
 echo 'Starting Frontend'
-cd frontend && npm install && npm run serve -- --port 4000
+cd frontend && npm install && ng serve --open
 wait
