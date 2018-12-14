@@ -20,7 +20,7 @@ describe('Test the User API', ()=> {
     describe('\GET /api/users', ()=>{
         it('should GET all user, which leads to exactly 0 entrys', (done) => {
             chai.request(app)
-                .get('/api/users/users')
+                .get('/api/users')
                 .end((err, res) => {
                     res.body.should.be.a('array')
                     res.body.length.should.be.eql(0)
@@ -81,7 +81,7 @@ describe('Test the User API', ()=> {
                     .end((err, res) => {
                         res.body.should.have.property('success').eql('user successfully udpated')
                         chai.request(app)
-                            .get('/api/users')
+                            .get('/api/users/')
                             .end((err, res) => {
                                 res.body.should.be.a('array')
                                 res.body.length.should.be.eql(1)
