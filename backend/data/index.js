@@ -23,19 +23,19 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200')
    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE')
    res.setHeader('Access-Control-Allow-Headers', 'X-Request-With, content-type')
    res.setHeader('Access-Control-Allow-Credentials', true)
    next()
-})
+})*/
 
 /*Routes */
 app.get('/', (req,res) => {
    res.send('Hey!')
 })
-app.use('/user', user)
+app.use('/api/users', user)
 
 
 /*Start Server*/ 
