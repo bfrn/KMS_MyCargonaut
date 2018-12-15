@@ -17,10 +17,10 @@ describe('Test the User API', ()=> {
         })
     })
 
-    describe('\GET /user', ()=>{
+    describe('\GET /api/users', ()=>{
         it('should GET all user, which leads to exactly 0 entrys', (done) => {
             chai.request(app)
-                .get('/user')
+                .get('/api/users')
                 .end((err, res) => {
                     res.body.should.be.a('array')
                     res.body.length.should.be.eql(0)
@@ -28,7 +28,7 @@ describe('Test the User API', ()=> {
                 })
         })
     })
-    describe('\GET /user/:id', ()=>{
+    describe('\GET /api/users/:id', ()=>{
         it('should Get specified user', (done) => {
             let user1 = new User({
                 username: "simon",
@@ -36,7 +36,7 @@ describe('Test the User API', ()=> {
             })
             user1.save((err, user) => {
                 chai.request(app)
-                    .get('/user/'+user.id)
+                    .get('/api/users/'+user.id)
                     .end((err,res)=>{
                         res.body.should.have.property('username').eql('simon')
                         res.body.should.have.property('password').eql('123')
@@ -45,19 +45,19 @@ describe('Test the User API', ()=> {
             })
         })
     })
-    describe('\POST /user/register', ()=>{
+    describe('\POST /api/users/register', ()=>{
         it('should create 1 user, which leads to exactly 1 entry with correct properties', (done) => {
             let user1 = {
                 username: "simon",
                 password: "123"
             }
             chai.request(app)
-                .post('/user/register')
+                .post('/api/users/register')
                 .send(user1)
                 .end((err, res) => {
                     res.body.should.have.property('success').eql('user successfully created')
                     chai.request(app)
-                        .get('/user')
+                        .get('/api/users')
                         .end((err, res) => {
                             res.body.should.be.a('array')
                             res.body.length.should.be.eql(1)
@@ -68,7 +68,7 @@ describe('Test the User API', ()=> {
                 })
         })
     })
-    describe('\PUT /user/:id', ()=>{
+    describe('\PUT /api/users/:id', ()=>{
         it('should update specified user to expected values', (done) => {
             let user1 = new User({
                 username: "simon",
@@ -76,12 +76,12 @@ describe('Test the User API', ()=> {
             })
             user1.save((err, user) => {
                 chai.request(app)
-                    .put('/user/'+user.id)
+                    .put('/api/users/'+user.id)
                     .send({username: 'lee', password: '8888'})
                     .end((err, res) => {
                         res.body.should.have.property('success').eql('user successfully udpated')
                         chai.request(app)
-                            .get('/user')
+                            .get('/api/users/')
                             .end((err, res) => {
                                 res.body.should.be.a('array')
                                 res.body.length.should.be.eql(1)
@@ -93,7 +93,7 @@ describe('Test the User API', ()=> {
             })
         })
     })
-    describe('\DELETE /user/:id', ()=>{
+    describe('\DELETE /api/users/:id', ()=>{
         it('should delete user which is specified by id', (done) =>{
             let user1 = new User({
                 username: "simon",
@@ -101,7 +101,7 @@ describe('Test the User API', ()=> {
             })
             user1.save((err, user)=>{
                 chai.request(app)
-                    .delete('/user/'+user.id)
+                    .delete('/api/users/'+user.id)
                     .end((err,res) => {
                         res.body.should.have.property('success').eql('user successfully deleted')
                         done()

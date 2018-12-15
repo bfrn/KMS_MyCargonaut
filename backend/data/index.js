@@ -7,8 +7,6 @@ let port = 8080
 /*Start Connection with DB*/
 /*Very dangerous Hardcoded user:pass -> need alternatives*/
 let dev_db_url = 'mongodb://nodeDatabase/test'
-console.log('log:'+ process.env.DBUSERNAME)
-console.log('log:'+ process.env.DBPASSWORD)
 
 //let dev_db_url = 'mongodb://'+process.env.DBUSERNAME+':'+process.env.DBPASSWORD+'@nodeDatabase_1/test'
 
@@ -20,16 +18,24 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 /*More Init*/
 const cors = require('cors');
 const app = express();
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+/*app.use((req, res, next) => {
+   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200')
+   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE')
+   res.setHeader('Access-Control-Allow-Headers', 'X-Request-With, content-type')
+   res.setHeader('Access-Control-Allow-Credentials', true)
+   next()
+})*/
 
 /*Routes */
 app.get('/', (req,res) => {
    res.send('Hey!')
 })
-app.use('/user', user)
+app.use('/api/users', user)
 
 
 /*Start Server*/ 
