@@ -21,7 +21,7 @@ class App {
     }
     mongoSetup() {
         let mongoDB = process.env.MONGODB_URI || this.mongoURL;
-        mongoose.connect(mongoDB);
+        mongoose.connect(mongoDB, { useNewUrlParser: true });
         mongoose.Promise = global.Promise;
         let db = mongoose.connection;
         db.on('error', console.error.bind(console, 'MongoDB connection error:'));
