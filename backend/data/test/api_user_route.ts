@@ -13,8 +13,10 @@ describe('register user test', () => {
       chai.request(app)
           .post('/api/users/register')
           .send({
-              username: 'Marc-Uwe Kling',
-              password: 'test_123',
+              email: 'marcuwe@webmail.de',
+              password: 'test123',
+              firstName: 'marc-uwe',
+              lastName: 'Kling',
               birthdate: '1982-08-15T22:00:00.000Z',
               bio: 'Ich bin eine Kleinkünstler aus Berlin',
               street: 'Hauptstraße',

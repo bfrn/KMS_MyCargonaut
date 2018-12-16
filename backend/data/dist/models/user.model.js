@@ -5,8 +5,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 let userSchema = new Schema({
-    username: { type: String, required: true },
+    email: { type: String, required: true },
     password: { type: String, required: true },
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
     birthdate: { type: Date, required: true },
     cellPhoneNumber: { type: Number, required: false },
     imgUrl: { type: String, required: false },
@@ -14,7 +16,7 @@ let userSchema = new Schema({
     street: { type: String, required: true },
     houseNumber: { type: String, required: true },
     zip: { type: Number, required: true },
-    city: { type: String, required: true } //Ort
+    city: { type: String, required: true },
 });
 // Export the User model
 module.exports = mongoose.model('User', userSchema);

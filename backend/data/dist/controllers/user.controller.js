@@ -13,8 +13,10 @@ const User = require('../models/user.model');
 class UserController {
     create_user(req, res, next) {
         let user = new User({
-            username: req.body.username,
+            email: req.body.email,
             password: req.body.password,
+            lastName: req.body.lastName,
+            firstName: req.body.firstName,
             birthdate: req.body.birthdate,
             bio: req.body.bio,
             street: req.body.street,
