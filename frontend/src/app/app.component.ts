@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from "@angular/router";
+
+const httpOptions = {
+  // headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Component({
   selector: 'app-root',
@@ -7,4 +12,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+
 }
+
+
