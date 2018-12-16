@@ -6,9 +6,11 @@ import { NewOfferComponent } from './new-offer/new-offer.component';
 import { SearchOfferComponent } from './search-offer/search-offer.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { RegisterComponent } from './register/register.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '', redirectTo: 'homepage', pathMatch: 'full' },
+  { path: 'homepage', component: HomepageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'user', component: UserComponent},
   { path: 'newOffer', component: NewOfferComponent},
