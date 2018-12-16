@@ -12,8 +12,14 @@ class Routes {
         });
         app.route('/api/users/register')
             .post(userController.create_user);
-        //app.use('/api/users', userRoute.UserRoutes)
+        app.route('/api/users')
+            .get(userController.get_users);
+        app.route('/api/users/:id')
+            .get(userController.get_user_by_id)
+            .put(userController.update_user_by_id)
+            .delete(userController.delete_user_by_id);
     }
 }
 exports.Routes = Routes;
+//app.use('/api/users', userRoute.UserRoutes)
 //# sourceMappingURL=main.route.js.map

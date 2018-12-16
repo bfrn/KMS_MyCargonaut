@@ -7,10 +7,9 @@
     "pretty": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./lib"
     },
     "include": [
-        "lib/**/*.ts"
+        "src/**/*.ts"
     ],
     "exclude": [
         "node_modules"

@@ -7,16 +7,19 @@
     "tsc": "tsc",
     "dev": "tsc --watch & nodemon dist",
     "start": "SET NODE_ENV=dev && node index.js",
-    "test": "mocha --timeout 10000 --exit"
+    "test": "mocha -r ts-node/register test/**/*.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/mocha": "^5.2.5",
     "chai": "^3.5.0",
     "chai-http": "^4.2.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "typescript": "^3.2.2"
   },
   "dependencies": {
+    "@types/chai-http": "^3.0.5",
     "@types/express": "^4.16.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",

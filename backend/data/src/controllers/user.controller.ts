@@ -15,7 +15,13 @@ class UserController{
    create_user(req, res, next): void {
       let user = new User({
           username: req.body.username,
-          password: req.body.password
+          password: req.body.password,
+          birthdate: req.body.birthdate,
+          bio: req.body.bio,
+          street: req.body.street,
+          houseNumber: req.body.houseNumber,
+          zip: req.body.zip,
+          city: req.body.city
       })
       user.save((err) => {
          if (err) {
