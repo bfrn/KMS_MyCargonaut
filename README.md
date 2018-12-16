@@ -17,7 +17,7 @@ Benötigt wird ein Frontend sowie Backend, mit einer Datenbank, in welcher die K
 
 ## Mockup
 Im Sinne der Orientierung wurde ein Mockup der Website erstellt. So wurden sich erste Gedanken darüber gemacht, wie die Website grundsätzlich aussehen und welche Funktionalität sie genau bieten soll. Das Mockup dient so allen Entwicklern als Orientierungshilfe, da ein fester Konsens in Bezug auf das finale Layout geschaffen wurde.
-
+![screenshot_Mockup](/images/Profilansicht.png)
 
 
 ## Sprint_1
