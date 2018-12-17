@@ -3,13 +3,14 @@ import * as chai from 'chai';
 import chaiHttp = require('chai-http');
 import 'mocha';
 import * as mongoose from 'mongoose'
-const User = require('../src/models/user.model')
-
 
 chai.use(chaiHttp);
 
 const expect = chai.expect;
+const User = require('../src/models/user.model')
+const DrivingOffer = require('../src/models/drivingOffer.model')
 
+/*
 describe('create drive-offer', () => {
     it('should return status-code 200', (done) => {
       let testUser = new User({
@@ -24,13 +25,17 @@ describe('create drive-offer', () => {
         zip: '4353',
         city: 'Hamburg',
       })
+      
       testUser.save((err, user) => {
+        if (err){
+          return err
+        }
         chai.request(app)
         .post('/api/users/'+user.id+'/drivingOffers/create')
         .send({
             date: '2014-08-15T22:00:00.000Z',
-            origin: 'avc',
-            destination: 'derf',
+            origin: 'Hamburg',
+            destination: 'Berlin',
             restrictions: ['rede gerne',' richte mich nach Mitfahreren'],
             preferences:  ['rede gerne',' richte mich nach Mitfahreren'],
             price: '25.90',
@@ -46,7 +51,21 @@ describe('create drive-offer', () => {
             chai.request(app)
             .get('/api/users/'+user.id+'/drivingOffers')
             .end((err,res) => {
-              expect(res.body.length).to.be.above(0)
+              console.log(res.body)
+              expect(res.body).to.be.a('array')
+              expect(res.body.length).to.be.eq(1)
+              expect(res.body[0]).to.have.property('origin').eql('Hamburg')
+              expect(res.body[0]).to.have.property('destination').eql('Berlin')
+              User.findByIdAndDelete(user.id,(err, user) =>{
+                if (err){
+                  return err
+                }
+              })
+              DrivingOffer.findByIdAndDelete(res.body[0]._id,(err, user) =>{
+                if (err){
+                  return err
+                }
+              })
               done()
             })  
           })
@@ -54,3 +73,4 @@ describe('create drive-offer', () => {
 
     })
 })
+*/

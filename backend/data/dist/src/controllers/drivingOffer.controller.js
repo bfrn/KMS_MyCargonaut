@@ -3,11 +3,13 @@ const DrivingOffer = require('../models/drivingOffer.model');
 const User = require('../models/user.model');
 class DrivingOfferController {
     get_drivingOffers(req, res, next) {
-        DrivingOffer.find({}, (err, drivingOffers) => {
+        DrivingOffer.find({ owner: req.params.userId }, (err, drivingOffers) => {
             if (err) {
+                res.status(500);
                 return next(err);
             }
-            res.send(drivingOffers);
+            res.status(200);
+            res.json(drivingOffers);
         });
     }
     create_drivingOffer(req, res, next) {
