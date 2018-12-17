@@ -2,7 +2,6 @@ import app from '../src/app';
 import * as chai from 'chai';
 import chaiHttp = require('chai-http');
 import 'mocha';
-import { RSA_NO_PADDING } from 'constants';
 
 chai.use(chaiHttp);
 

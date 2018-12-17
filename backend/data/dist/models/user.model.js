@@ -1,8 +1,10 @@
+"use strict";
 /**
  * DB schemes
  * used to define the schemes for server and DB communication.
  */
-const mongoose = require('mongoose');
+Object.defineProperty(exports, "__esModule", { value: true });
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 let userSchema = new Schema({
     email: { type: String, required: true },

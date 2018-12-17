@@ -25,6 +25,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongoose": "^5.4.0",
+    "mongoose-currency": "^0.2.0",
     "nodemon": "^1.18.9",
     "ts-node": "^7.0.1"
   }

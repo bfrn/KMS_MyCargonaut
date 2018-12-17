@@ -3,7 +3,7 @@
  * used to define the schemes for server and DB communication.
  */
 
-const mongoose = require('mongoose')
+import * as mongoose from 'mongoose'
 const Schema = mongoose.Schema;
 
 let userSchema = new Schema({
@@ -20,6 +20,8 @@ let userSchema = new Schema({
    zip: {type: Number, required: true},         //PLZ
    city: {type: String, required: true},       //Ort
 })
+
+
 
 // Export the User model
 module.exports = mongoose.model('User', userSchema)

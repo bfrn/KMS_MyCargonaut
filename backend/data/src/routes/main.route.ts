@@ -1,11 +1,14 @@
 import { Request, Response } from 'express'
 import { NextFunction } from 'connect';
 import UserController  = require('../controllers/user.controller')
+import DrivingOfferController  = require('../controllers/drivingOffer.controller')
+
 
 export class Routes {
     public routes(app): void {
         let userController: UserController = new UserController()
-       
+        let drivingOfferController: DrivingOfferController = new DrivingOfferController()
+        
         //main route
         app.route('/')
         .get( (req: Request, res: Response)=>{
@@ -28,7 +31,10 @@ export class Routes {
         
         //driving-offer routing
         app.route('/api/users/:userId/drivingOffers')
-        app.route('/api/users/:userId/drivingOffers/:drivingOfferId')
+          .get(drivingOfferController.get_drivingOffers)
+          
+        app.route('/api/users/:userId/drivingOffers/create')
+          .post(drivingOfferController.create_drivingOffer)
         
     }   
 }

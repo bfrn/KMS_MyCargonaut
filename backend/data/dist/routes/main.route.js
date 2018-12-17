@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const UserController = require("../controllers/user.controller");
+const DrivingOfferController = require("../controllers/drivingOffer.controller");
 class Routes {
     routes(app) {
         let userController = new UserController();
+        let drivingOfferController = new DrivingOfferController();
         //main route
         app.route('/')
             .get((req, res) => {
@@ -21,8 +23,10 @@ class Routes {
             .put(userController.update_user_by_id)
             .delete(userController.delete_user_by_id);
         //driving-offer routing
-        app.route('/api/users/:userId/drivingOffers');
-        app.route('/api/users/:userId/drivingOffers/:drivingOfferId');
+        app.route('/api/users/:userId/drivingOffers')
+            .get(drivingOfferController.get_drivingOffers);
+        app.route('/api/users/:userId/drivingOffers/create')
+            .post(drivingOfferController.create_drivingOffer);
     }
 }
 exports.Routes = Routes;
