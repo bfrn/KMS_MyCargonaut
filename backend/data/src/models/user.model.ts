@@ -19,6 +19,7 @@ let userSchema = new Schema({
    houseNumber: {type: String, required: true}, //Hausnummer
    zip: {type: Number, required: true},         //PLZ
    city: {type: String, required: true},       //Ort
+   drivingOffers: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingOffer' }],required: false}
 })
 
 

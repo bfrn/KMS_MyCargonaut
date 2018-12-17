@@ -21,7 +21,7 @@ describe('register user test', () => {
               street: 'Hauptstraße',
               houseNumber: '1a',
               zip: '100115',
-              city: 'Berlin'
+              city: 'Berlin',
           })
           .end((err, res) => {
               expect(res).to.have.status(200)
@@ -29,7 +29,7 @@ describe('register user test', () => {
               chai.request(app)
               .get('/api/users')
               .end((err,res) => {
-                expect(res.body.length).to.be.above(1)
+                expect(res.body.length).to.be.above(0)
                 done()
               })  
             })

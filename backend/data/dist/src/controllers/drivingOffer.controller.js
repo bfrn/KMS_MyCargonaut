@@ -11,25 +11,25 @@ class DrivingOfferController {
         });
     }
     create_drivingOffer(req, res, next) {
-        User.findById(req.params.id, (err, user) => {
+        let drivingOffer = new DrivingOffer({
+            date: req.body.date,
+            origin: req.body.origin,
+            destination: req.body.destination,
+            restrictions: req.body.restrictons,
+            preferences: req.body.preferences,
+            price: req.body.price,
+            hasFixedPrice: req.body.hasFixedPrice,
+            cargoWeightInKg: req.body.cargoWeightInKg,
+            loadingSpaceDimensions: req.body.loadingSpaceDimension,
+            personCnt: req.body.personCnt,
+            stops: req.body.stops,
+            owner: req.params.userId,
+        });
+        drivingOffer.save((err) => {
             if (err) {
                 return next(err);
             }
-            let drivingOffer = new DrivingOffer({
-                date: req.body.date,
-                origin: req.body.origin,
-                destination: req.body.destination,
-                restrictions: req.body.restrictons,
-                preferences: req.body.preferences,
-                price: req.body.price,
-                hasFixedPrice: req.body.hasFixedPrice,
-                cargoWeightInKg: req.body.cargoWeightInKg,
-                loadingSpaceDimensions: req.body.loadingSpaceDimension,
-                personCnt: req.body.personCnt,
-                stops: req.body.stops,
-                owner: user
-            });
-            drivingOffer.save((err) => {
+            User.findOneAndUpdate(req.params.userId, { "$push": { "drivingOffers": drivingOffer._id } }, (err, user) => {
                 if (err) {
                     return next(err);
                 }

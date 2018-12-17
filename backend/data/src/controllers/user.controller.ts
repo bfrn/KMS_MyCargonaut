@@ -34,7 +34,7 @@ class UserController{
       })
    }
    get_user_by_id(req, res, next){
-      User.findById(req.params.id,(err, user) =>{
+      User.findById(req.params.userId,(err, user) =>{
          if (err) return next(err);
          res.send(user);
      })
@@ -47,13 +47,13 @@ class UserController{
    }
    
    delete_user_by_id (req, res, next): void {
-      User.findByIdAndDelete(req.params.id, (err, user) =>{
+      User.findByIdAndDelete(req.params.userId, (err, user) =>{
          if (err) return next(err);
          res.send({success: 'user successfully deleted'});
      })
    }
    update_user_by_id(req, res, next) {
-      User.findByIdAndUpdate(req.params.id, {$set: req.body},(err, user) => {
+      User.findByIdAndUpdate(req.params.userId, {$set: req.body},(err, user) => {
           if (err) return next(err)
           res.send({success: 'user successfully udpated'})
       })
