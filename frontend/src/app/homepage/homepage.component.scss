@@ -1,0 +1,40 @@
+
+.image {
+  background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url('../../assets/car-couple-daylight-1254752.jpg') ;
+    height:40em; background-size: cover; width:auto;
+    margin-top: 5%;
+    background-attachment: fixed;
+
+  }
+
+.textGrey {
+  color: dimgrey;
+}
+#searchTrip {
+  position: fixed;
+  margin-top: 20%;
+  color: #2BBBAD;
+}
+
+#welcome {
+  position: fixed;
+  margin-top: 10%;
+}
+
+#loginRequest {
+  position: fixed;
+  margin-top: 35%;
+}
+
+.default-color {
+  color: #2BBBAD;
+}
+
+.btn-default {
+  background-color: #2BBBAD;
+}
+
+.fontO {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+}
