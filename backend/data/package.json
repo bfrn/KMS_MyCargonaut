@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "tsc --watch & nodemon dist",
-    "start": "SET NODE_ENV=dev && node index.js",
+    "start": "node ./dist/index.js",
     "test": "mocha -r ts-node/register test/**/*.ts"
   },
   "author": "",

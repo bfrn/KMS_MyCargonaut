@@ -9,7 +9,7 @@
     "outDir": "./dist",
     },
     "include": [
-        "src/**/*.ts", "test/base_route_test.ts", "test/api_user_driveOffer_route_test.ts", "test/api_user_route_test.ts"
+        "src/**/*.ts", "test/base_route_test.ts", "test/api_user_driveOffer_route_test.ts", "test/api_user_route_test.ts", "index.ts"
     ],
     "exclude": [
         "node_modules"
