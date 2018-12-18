@@ -13,6 +13,7 @@ import { SearchOfferComponent } from './search-offer/search-offer.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { RegisterComponent } from './register/register.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import {UserServiceService} from './services/user-service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material';
@@ -50,6 +51,7 @@ import {MatInputModule} from '@angular/material';
     MatFormFieldModule
   ],
   providers: [
+    UserServiceService
   ],
   bootstrap: [
     AppComponent],
@@ -60,7 +62,8 @@ import {MatInputModule} from '@angular/material';
     SearchOfferComponent,
     NewOfferComponent,
     RatingsComponent,
-    HomepageComponent
+    HomepageComponent,
+    RegisterComponent
   ],
 })
 export class AppModule { }
