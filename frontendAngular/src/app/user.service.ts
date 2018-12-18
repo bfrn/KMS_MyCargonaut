@@ -14,15 +14,15 @@ export class UserService {
     private http: HttpClient,
     private messageService: MessageService) { }
   getUsers(): Observable<User[]>{
-    this.log('UserService: fetched users');
+    this.messageService.add('UserService: fetched heroes');
     return this.http.get<User[]>(this.userURL);
   }
   getUser(id: String): Observable<User>{
-    this.log('UserService: fetched user')
+    this.messageService.add('UserService: fetched heroes');
     return this.http.get<User>(this.userURL + '/' + id);
   }
   /** Log a UserService message with the MessageService */
-  private log(message: string) {
+  /*private log(message: string) {
     this.messageService.add(`UserService: ${message}`);
-  }
+  }*/
 }
