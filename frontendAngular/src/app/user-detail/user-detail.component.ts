@@ -7,7 +7,7 @@ import { UserService} from '../user.service';
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  styleUrls: ['./user-detail.component.scss']
 })
 export class UserDetailComponent implements OnInit {
   @Input() user: User;
@@ -21,7 +21,7 @@ export class UserDetailComponent implements OnInit {
     this.getUser();
   }
   getUser(): void{
-    /*Was macht route.snapshot.paramMap.get(id)??*/ 
+    /*Was macht route.snapshot.paramMap.get(id)??*/
     const id = this.route.snapshot.paramMap.get('id');
     this.userService.getUser(id)
       .subscribe(user => this.user = user);
