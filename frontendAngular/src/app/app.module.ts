@@ -13,10 +13,13 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatInputModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
-import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersComponent } from './components/users/users.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DrivingOffersComponent } from './components/driving-offers/driving-offers.component';
+import { RatingsComponent } from './components/ratings/ratings.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 
 @NgModule({
@@ -26,6 +29,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     UserDetailComponent,
     MessagesComponent,
     DashboardComponent,
+    DrivingOffersComponent,
+    RatingsComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    AppComponent
+    AppComponent,
+    HomepageComponent,
+    DrivingOffersComponent
   ],
 })
 export class AppModule { }
