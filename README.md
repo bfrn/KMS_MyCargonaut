@@ -20,11 +20,20 @@ Benötigt wird ein Frontend sowie Backend, mit einer Datenbank, in welcher die K
 
 ## Mockup
 Im Sinne der Orientierung wurde ein Mockup der Website erstellt. So wurden sich erste Gedanken darüber gemacht, wie die Website grundsätzlich aussehen und welche Funktionalität sie genau bieten soll. Das Mockup dient so allen Entwicklern als Orientierungshilfe, da ein fester Konsens in Bezug auf das finale Layout geschaffen wurde.
+
 ![screenshot_Mockup](/images/Profilansicht.png)
 
 ### Mockup für Appansicht
-Zudem wurde ein Design für die App ausgearbeitet. 
-Das Mockup lässt sich interaktiv mit der HTML-Seite erkunden.
+Es wurde für die mobile Ansicht der App ein Mockup erarbeitet, was folgende Ansichten enthält: 
+- Login-Screen
+- Nutzerprofil (Eigenansicht)
+- Die Formulare zum Erstellen eines Fahrangebots
+- Die Formulare zum Buchen eines Fahrangebots
+- Nutzerbewertungen
+
+Bei der Erstellung des Mockups wurde sich an dem Mockup der Website orientiert, sodass sich ein einheitliches Bild in der Darstellung der Applikation ergibt.
+
+Das Mockup lässt sich interaktiv mit der [HTML-Seite](/Mobile_Mockup/index.html) erkunden.
 
 ![screenshot_MockupApp](/images/Mobilemockup.png)
 
@@ -39,21 +48,12 @@ Die Aufgaben werden innerhalb der Entwickler in der Gruppe verteilt. Zwar ist di
 
 ### Sprint_1 Backend
 
-Das Backend wurde in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden *drivingOffers* nach Klassendiagramm umgesetzt und Create-Delete Routen für drivingOffers implementiert.
+Das Backend wurde in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden *DrivingOffers* und *User* nach Klassendiagramm umgesetzt und es wurden für sie die  Create,Delete und Get Routen implementiert.
 
-In dem ersten Sprint wurden im Backend die Hauptfunktionalitäten von dem User-Manager und von Driving Offers umgesetzt.  Es wurden Routen zu der Profilverwaltung für Backend und Frontendbereich implementiert. 
+Dazu wurden zunächst die Schemas für MongoDB angelegt, welche die Klassen aus dem Klassendiagramm abbilden. Die Implementierung dazu verlief sehr reibungslos, so war es unteranderem möglich mithilfe von [Discriminatorn](https://mongoosejs.com/docs/discriminators.html) die Vereerbungsstruktur zwischen Fahrt und Fahrtangebot darzustellen.
+Jedoch hat sich im Laufe der Entwicklung das Problem ergeben, dass die Änderung im Code nicht mehr beim starten des Servers übernommen wurden, jedoch bei den Unit-Tests ist dieses Verhalten nicht aufgetreten. Dieses Problem konnte nach sehr vielen Stunden der Fehlersuche damit behoben werden, dass man die Datei zum starten des Servers (index.ts) in den Elternordner von `src` verschoben hat. Jedoch ließ sich nicht der genaue Grund für dieses Verhalten ermitteln. 
 
-Umgesetzt wurden die Routen:
-- Registrierung
-- Alle Nutzer anzeigen (get users, nur im Backend-Bereich als Zugang zu der Userliste für Admin)
-- Nutzer nach Id anzeigen, erstellen und löschen (nur im Backend-Bereicht)
-- Fahrt anzeigen
-- Fahrt erstellen
-
-Der Backend wurde nach dem Prinzip der MVC-Darstellung dargestellt, damit man einen gut übersichtlichen Konzept mit klarer Organisation verschaffen kann. Die Einsätze für Users und Driving Offers sind getrennt. 
-Mit dem Konzept wurde ein gutes Überblick auf den Code verschaffen, ohne dass man viel Dokumentationsaufwand hatte. 
-
-Außerdem wurden im Backend Unit-Tests eingesetzt, um die Funktionen während der Entwicklung im Backend testen zu können. Die Unit Tests wurden mit Hilfe von JavaScript Test Frameworks Chai und Mocha umgesetzt und überprüfen, ob bei bestimmten Routen die Einsätze wie erwartet rausgegeben werden und ob die Verbindung mit der Datenbank durchläuft.
+Außerdem wurden im Backend Unit-Tests implementiert, um die Funktionen während der Entwicklung im Backend testen zu können. Die Unit Tests wurden mit Hilfe von TypeScript Test Frameworks [Chai](https://www.chaijs.com/plugins/chai-http/) und Mocha umgesetzt und überprüfen, die implementierten Http-Requests die erwarteten Ergebnisse zurückliefern.
 
 ### Sprint_1 Frontend
 
