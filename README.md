@@ -21,8 +21,9 @@ Im Sinne der Orientierung wurde ein Mockup der Website erstellt. So wurden sich 
 
 ### Mockup für Appansicht
 Zudem wurde ein Design für die App ausgearbeitet. 
-![screenshot_MockupApp](/images/Mobilemockup.png)
 Das Mockup lässt sich interaktiv mit der HTML-Seite erkunden.
+
+![screenshot_MockupApp](/images/Mobilemockup.png)
 
 
 ## Sprint_1
