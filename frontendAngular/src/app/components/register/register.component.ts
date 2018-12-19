@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
   // _id: string;
   // email: string;
   public password: string = '';
-  public firstName: string = 'Paulina';
+  public firstName: string = '';
   public lastName: string = '';
   // birthdate: Date;
   // cellPhoneNumber: number;

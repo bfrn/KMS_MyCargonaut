@@ -7,11 +7,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 let userSchema = new Schema({
-    email: { type: String, required: true },
+    email: { type: String, required: false },
     password: { type: String, required: true },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    birthdate: { type: Date, required: true },
+    birthdate: { type: Date, required: false },
     cellPhoneNumber: { type: Number, required: false },
     imgUrl: { type: String, required: false },
     bio: { type: String, required: true },

@@ -1,2 +1,4 @@
 /database/data/*
 node_modules/
+.idea
+.xml
