@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserServiceService} from '../services/user-service.service';
 import { User } from '../classes/User';
 
 @Component({
@@ -15,12 +14,12 @@ export class RegisterComponent implements OnInit {
 
   public user: User;
 
-  constructor(public userservice: UserServiceService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  add(): void {
+  /*add(): void {
     let newUser: User = new User(
       this.firstname,
       this.lastname,
@@ -35,6 +34,6 @@ export class RegisterComponent implements OnInit {
         (err) => {
           console.log("Error add().user.component.ts", err)
         });
-  }
+  }*/
 
 }

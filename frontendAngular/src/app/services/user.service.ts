@@ -3,26 +3,56 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../classes/user'
 import { Observable, of } from 'rxjs'
 import { MessageService} from './message.service'
+import { DrivingOffers } from '../classes/drivingOffers';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  // _id: string;
+  // email: string;
+  password: string = '';
+  firstName: string = '';
+  lastName: string = '';
+  // birthdate: Date;
+  // cellPhoneNumber: number;
+  // imgUrl: string;
+  bio: string = '';
+  street: string = '';
+  houseNumber: number;
+  zip: number;
+  city: string = '';
+  // drivingOffers: DrivingOffers;
+
   /** URL to web api */
   private userURL = 'http://localhost:8080/api/users';
+  private UserURL = '';
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
-  getUsers(): Observable<User[]>{
-    this.log('UserService: fetched users');
+
+  user: User;
+
+    getUsers(): Observable<User[]>{
+    //this.log('UserService: fetched users');
     return this.http.get<User[]>(this.userURL);
   }
+
   getUser(id: String): Observable<User>{
-    this.log('UserService: fetched user');
+    //this.log('UserService: fetched user');
     return this.http.get<User>(this.userURL + '/' + id);
   }
+
+  addUser(user: User): Observable<User>{
+    //this.log('UserService: added new user');
+    console.log("User in Service:", user);
+    const url = `${this.userURL}/register`;
+    return this.http.post<User>(url, user);
+  }
+
   /** Log a UserService message with the MessageService */
-  private log(message: string) {
+ private log(message: string) {
     this.messageService.add(`UserService: ${message}`);
   }
 }

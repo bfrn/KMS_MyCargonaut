@@ -20,6 +20,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DrivingOffersComponent } from './components/driving-offers/driving-offers.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { RegisterComponent } from './components/register/register.component';
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     DrivingOffersComponent,
     RatingsComponent,
     HomepageComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,12 +50,13 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     MatMomentDateModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
   entryComponents: [
     AppComponent,
     HomepageComponent,
-    DrivingOffersComponent
+    DrivingOffersComponent,
+    RegisterComponent
   ],
 })
 export class AppModule { }

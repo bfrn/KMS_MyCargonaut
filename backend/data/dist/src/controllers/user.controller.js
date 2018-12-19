@@ -13,11 +13,11 @@ const User = require('../models/user.model');
 class UserController {
     create_user(req, res, next) {
         let user = new User({
-            email: req.body.email,
+            //email: req.body.email,
             password: req.body.password,
             lastName: req.body.lastName,
             firstName: req.body.firstName,
-            birthdate: req.body.birthdate,
+            //birthdate: req.body.birthdate,
             bio: req.body.bio,
             street: req.body.street,
             houseNumber: req.body.houseNumber,
@@ -29,7 +29,8 @@ class UserController {
                 return next(err);
             }
             res.status(200);
-            res.send({ success: 'user successfully created' });
+            //res.send({success: 'user successfully created'} )
+            res.send(JSON.stringify(user));
         });
     }
     get_user_by_id(req, res, next) {
