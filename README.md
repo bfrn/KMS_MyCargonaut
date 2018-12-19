@@ -39,4 +39,22 @@ Die Aufgaben werden innerhalb der Entwickler in der Gruppe verteilt. Zwar ist di
 
 ### Sprint_1 Backend
 
-Das Backend wurde in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden *drivingOffers* nach Klassendiagramm umgesetzt und Create-Delete Routen für drivingOffers implementiert.  
+Das Backend wurde in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden *drivingOffers* nach Klassendiagramm umgesetzt und Create-Delete Routen für drivingOffers implementiert.
+
+In dem ersten Sprint wurden im Backend die Hauptfunktionalitäten von dem User-Manager und von Driving Offers umgesetzt.  Es wurden Routen zu der Profilverwaltung für Backend und Frontendbereich implementiert. 
+
+Umgesetzt wurden die Routen:
+- Registrierung
+- Alle Nutzer anzeigen (get users, nur im Backend-Bereich als Zugang zu der Userliste für Admin)
+- Nutzer nach Id anzeigen, erstellen und löschen (nur im Backend-Bereicht)
+- Fahrt anzeigen
+- Fahrt erstellen
+
+Der Backend wurde nach dem Prinzip der MVC-Darstellung dargestellt, damit man einen gut übersichtlichen Konzept mit klarer Organisation verschaffen kann. Die Einsätze für Users und Driving Offers sind getrennt. 
+Mit dem Konzept wurde ein gutes Überblick auf den Code verschaffen, ohne dass man viel Dokumentationsaufwand hatte. 
+
+Außerdem wurden im Backend Unit-Tests eingesetzt, um die Funktionen während der Entwicklung im Backend testen zu können. Die Unit Tests wurden mit Hilfe von JavaScript Test Frameworks Chai und Mocha umgesetzt und überprüfen, ob bei bestimmten Routen die Einsätze wie erwartet rausgegeben werden und ob die Verbindung mit der Datenbank durchläuft.
+
+### Sprint_1 Frontend
+
+In der Frontend-Entwicklung wurde die Design-Entwicklung hauptsächlich nach dem vorher entwickelten Mockup orientiert. Die folgende Darstellung gilt als Prototyp, um dem Kunde eine Überblick auf den Produkt zu verschaffen. Im Frontend-Prototyp wurden die Hauptfunktionalitäten der Seite für die Nutzersicht dargestellt, dazu gehören Registrierungsvorgang, Anmeldung und Darstellung von der Fahrtsuche
