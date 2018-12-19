@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const main_route_1 = require("./routes/main.route");
 const mongoose = require("mongoose");
+const cors = require("cors");
 class App {
     constructor() {
         this.router = new main_route_1.Routes();
@@ -18,6 +19,7 @@ class App {
         this.app.use(bodyParser.urlencoded({
             extended: false,
         }));
+        this.app.use(cors());
     }
     mongoSetup() {
         let mongoDB = process.env.MONGODB_URI || this.mongoURL;

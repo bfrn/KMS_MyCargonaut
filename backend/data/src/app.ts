@@ -2,6 +2,7 @@ import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import { Routes } from './routes/main.route'
 import * as mongoose from 'mongoose'
+import * as cors from 'cors'
 
 class App{
     public app: express.Application
@@ -19,6 +20,7 @@ class App{
         this.app.use(bodyParser.urlencoded({
             extended: false,
         }))
+        this.app.use(cors())
     }
     private mongoSetup(): void{
         let mongoDB = process.env.MONGODB_URI || this.mongoURL
