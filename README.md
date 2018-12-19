@@ -32,3 +32,7 @@ Entwickelt wird im Sinne von Scrum. Das Ziel des 1. Sprints, welcher bis Donners
 - der User soll nach einer Fahrt filtern können
 
 Die Aufgaben werden innerhalb der Entwickler in der Gruppe verteilt. Zwar ist diese Aufteilung nicht vollkommen strikt, jedoch erhält jedes Gruppenmitglied einen Bereich, auf den es sich fokussieren kann.
+
+### Sprint_1 Backend
+
+Das Backend wurde in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden *drivingOffers* nach Klassendiagramm umgesetzt und Create-Delete Routen für drivingOffers implementiert.  
