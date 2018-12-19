@@ -1,2 +1,4 @@
-/database/data/*
+/frontendAngular
+/backend
+/database/
 node_modules/

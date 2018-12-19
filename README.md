@@ -19,6 +19,11 @@ Benötigt wird ein Frontend sowie Backend, mit einer Datenbank, in welcher die K
 Im Sinne der Orientierung wurde ein Mockup der Website erstellt. So wurden sich erste Gedanken darüber gemacht, wie die Website grundsätzlich aussehen und welche Funktionalität sie genau bieten soll. Das Mockup dient so allen Entwicklern als Orientierungshilfe, da ein fester Konsens in Bezug auf das finale Layout geschaffen wurde.
 ![screenshot_Mockup](/images/Profilansicht.png)
 
+### Mockup für Appansicht
+Zudem wurde ein Design für die App ausgearbeitet. 
+![screenshot_MockupApp](/images/Mobilemockup.png)
+Das Mockup lässt sich interaktiv mit der HTML-Seite erkunden.
+
 
 ## Sprint_1
 Entwickelt wird im Sinne von Scrum. Das Ziel des 1. Sprints, welcher bis Donnerstag den 20.12 um 8 Uhr morgens läuft, ist die Umsetzung einer grundlegenden Projekt-Infrastruktur. Der Kunde soll die Möglichkeit haben, sich einen ersten Eindruck von der Applikation verschaffen zu können. Daher soll die Applikation zum einen visuell dem Mockup entsprechen und zum anderen folgende Funktionalität aufweisen:
