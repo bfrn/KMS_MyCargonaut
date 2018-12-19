@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>285</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*/User/*
+--
+# userId: String
+# email: String
+# password: String
+--
++ &lt;&lt;create&gt;&gt; User (email: String, password: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>360</y>
+      <w>15</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>525</y>
+      <w>210</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>*Administrator*
+--
+
+--
++ &lt;&lt;create&gt;&gt; Administrator (email: String, password: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>415</x>
+      <y>360</y>
+      <w>200</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;380.0;90.0;380.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>525</x>
+      <y>525</y>
+      <w>210</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>*Customer*
+--
+- vorname: String
+- nachname: String
+- geburtsdatum: Date
+- handynummer: Number
+- imgUrl: String
+- bio: String
+- straße: String
+- hausnummer: String
+- plz: Number
+- ort: String
+--
++ &lt;&lt;create&gt;&gt; Kunde(email: String, password:String,
+   vorname: String, nachname:String, geburtsdatum: Date,
+   bio: String,straße:String, hausnummer: String, 
+   plz: Number,ort:String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1145</x>
+      <y>90</y>
+      <w>245</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>*/Fahrt/*
+--
+# fahrtId: Number
+# datum: Date
+# standort: String
+# zielort: String
+# einschraenkungen: Array&lt;String&gt;
+# hinweise: Array&lt;String&gt;
+# preis: Number
+# festpreisIstGesetzt: Boolean
+# maxLadungsgewicht: Number
+# stauraumMaße: Array&lt;Number&gt;
+# personenAnzahl: Number
+--
++ &lt;&lt;create&gt;&gt;(standort: String, zielort: String,
+  einschraenkungen: Array&lt;String&gt;, hinweise: Array&lt;String&gt;,
+  preis: Number, festpreisIstGesetzt: Boolean,
+  maxLadungsgewicht: Number, stauraumMaße: Array&lt;Number&gt;,
+  stauraumMaße: Array&lt;Number&gt;, personenAnzahl: Number)
+   </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>310</y>
+      <w>280</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>*Fahrtangebot*
+--
+- zwischenziele: Array&lt;String&gt;
+- standort: String
+--
++ &lt;&lt;create&gt;&gt; Fahrtangebot(standort: String, zielort: String,
+  einschraenkungen: Array&lt;String&gt;, hinweise: Array&lt;String&gt;,
+  preis: Number, festpreisIstGesetzt: Boolean,
+  maxLadungsgewicht: Number, stauraumMaße: Array&lt;Number&gt;,
+  stauraumMaße: Array&lt;Number&gt;, personenAnzahl: Number,
+  zwischenziele: Array&lt;String&gt;, standort: String)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1230</x>
+      <y>240</y>
+      <w>15</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1320</x>
+      <y>310</y>
+      <w>265</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>*Fahrtgesuch*
+--
+
+--
++ &lt;&lt;create&gt;&gt; Fahrtgesuch(standort: String, zielort: String,
+  einschraenkungen: Array&lt;String&gt;, hinweise: Array&lt;String&gt;,
+  preis: Number, festpreisIstGesetzt: Boolean,
+  maxLadungsgewicht: Number, stauraumMaße: Array&lt;Number&gt;,
+  stauraumMaße: Array&lt;Number&gt;, personenAnzahl: Number)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1330</x>
+      <y>240</y>
+      <w>15</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>370</y>
+      <w>320</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..*
+bietet an &gt;</panel_attributes>
+    <additional_attributes>10.0;310.0;10.0;110.0;300.0;110.0;300.0;10.0;620.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1240</x>
+      <y>545</y>
+      <w>280</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>*Buchung*
+--
+- buchungsId: Number
+- betrag: Number
+- datum: Date
+- zahlungsmethode: String
+- vermittlungsgebühr: Number
+- storniert: Boolean
+--
++ &lt;&lt;create&gt;&gt; Buchung(fahrtangebot: Fahrtangebot, fahrtgesuch: Fahrtgesuch,
+  zahlungsmethode: String)
++ &lt;&lt;create&gt;&gt; Buchung(fahrtangebot: Fahrtangebot, fahrtgesuch: Fahrtgesuch,
+  zahlungsmethode: String, zahlungsinformation:Zahlungsinformation)
++ stornieren(): Boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1345</x>
+      <y>425</y>
+      <w>105</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=1
+&lt; ist Teil von</panel_attributes>
+    <additional_attributes>10.0;240.0;10.0;150.0;180.0;150.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1155</x>
+      <y>425</y>
+      <w>125</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..1
+m2=1
+ist Teil von &gt;</panel_attributes>
+    <additional_attributes>200.0;240.0;200.0;150.0;10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1715</x>
+      <y>85</y>
+      <w>290</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>*/Bewertung/*
+--
+# sterne: Number
+# puenktlichkeit: Number
+# einhaltungVonAbmachungen: Number
+# wohlfuehlfaktor: Number 
+--
++ &lt;&lt;create&gt;&gt; Bewertung (sterne: Number, puenktlichkeit: Number, 
+  einhaltungVonAbmachungen: Number, wohlfuehlfaktor: Number)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1680</x>
+      <y>310</y>
+      <w>180</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>*Fahrerbewertung*
+--
+zustandDerFracht: Number
+--
++ &lt;&lt;create&gt;&gt; Bewertung (sterne: Number, 
+  puenktlichkeit: Number, 
+  einhaltungVonAbmachungen: Number, 
+  wohlfuehlfaktor: Number,
+  zustandDerFracht: Number)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1875</x>
+      <y>310</y>
+      <w>180</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>*Mitfahrerbewertung*
+--
+
+--
++ &lt;&lt;create&gt;&gt; Bewertung (sterne: Number, 
+  puenktlichkeit: Number, 
+  einhaltungVonAbmachungen: Number, 
+  wohlfuehlfaktor: Number)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>585</x>
+      <y>905</y>
+      <w>235</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>*Cargonautverwaltungssystem*
+--
+
+--
++ &lt;&lt;create&gt;&gt; Cargonautverwaltungssystem()
++ createCustomer(): String
++ deleteCustomer(): Boolean
++ getCustomer(userId: String): Customer
++ createAdmin(): String
++ deleteAdmin(): String
++ getAdmin(userId: String): Customer
++ createFahrtGesuch(userId: String, fahrtgesuch: Fahrtgesuch): boolean
++ createFahrtAngebot(userId: String, fahrtgesuch: Fahrtgesuch): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>720</y>
+      <w>85</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=0..*
+verwaltet &gt;</panel_attributes>
+    <additional_attributes>10.0;370.0;10.0;200.0;130.0;200.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>345</x>
+      <y>565</y>
+      <w>260</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=
+&lt; verwaltet</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;400.0;500.0;400.0;500.0;680.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1760</x>
+      <y>210</y>
+      <w>15</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1980</x>
+      <y>210</y>
+      <w>15</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1515</x>
+      <y>425</y>
+      <w>230</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=1
+besitzt &gt;</panel_attributes>
+    <additional_attributes>10.0;280.0;430.0;280.0;430.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1515</x>
+      <y>425</y>
+      <w>450</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=1
+besitzt &gt;</panel_attributes>
+    <additional_attributes>10.0;370.0;870.0;370.0;870.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1250</x>
+      <y>790</y>
+      <w>205</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*Zahlungsinformationen*
+--
+iban: String
+bic: String
+bankname: String
+--
++ &lt;&lt;create&gt;&gt; Zahlungsinformation(iban: String, bic: String, 
+   bankname: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1270</x>
+      <y>695</y>
+      <w>95</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=0..1
+hat &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0;140.0;80.0;140.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>745</x>
+      <y>580</y>
+      <w>505</w>
+      <h>335</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=0..*
+verwaltet &gt;</panel_attributes>
+    <additional_attributes>10.0;650.0;10.0;460.0;650.0;460.0;650.0;10.0;990.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>0</y>
+      <w>875</w>
+      <h>535</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..*
+erstellt &gt;</panel_attributes>
+    <additional_attributes>10.0;1050.0;10.0;20.0;1710.0;20.0;1710.0;620.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>970</x>
+      <y>135</y>
+      <w>105</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>*&lt;&lt;enumeration&gt;&gt;*
+*Fahrzeug*
+--
+Pkw
+Lkw
+Transporter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>180</y>
+      <w>90</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=1..3
+&lt; hat </panel_attributes>
+    <additional_attributes>160.0;260.0;160.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
