@@ -13,7 +13,7 @@ Um eine abstrakte Übersicht der Funktionalität zu gewährleisten, wurde ein UM
 ![Domänendiagramm](/images/Domaenendiagramm.PNG)
 
 ### Klassendiagramm
-![Klassendiagramm](/images/class-diagramm.PNG)
+[![Klassendiagramm](/images/class-diagramm.PNG)](/images/class-diagramm.PNG)
 
 ## Auswahl der Entwicklungsumgebung
 Benötigt wird ein Frontend sowie Backend, mit einer Datenbank, in welcher die Kunden- sowie Fahrtdaten gespeichert werden können. Daher wurden verschiedene Frameworks und Services (in Kombination miteinander) getestet. In der näheren Auswahl lag Googles Firebase als Lösung für eine Realtime Database. Auch vue.js schien ein vielversprechendes Framework zu sein. Schlussendlich wurde sich jedoch für Angular JS sowie MongoDB entschieden. Der Vorteil besteht darin, dass bereits Erfahrungen in der Arbeit mit diesen Technologien besteht und so die Zeitspanne bis zur Abgabe des Projektes, mehr für die praktische Entwicklung als für die theoretische Einarbeitung genutzt werden kann. Das Backend besteht aus einem Express Server. Für die continous Integration werden Travis CI sowie Hound CI verwendet. Docker dient dem CD.
