@@ -33,7 +33,7 @@ Es wurde für die mobile Ansicht der App ein Mockup erarbeitet, was folgende Ans
 
 Bei der Erstellung des Mockups wurde sich an dem Mockup der Website orientiert, sodass sich ein einheitliches Bild in der Darstellung der Applikation ergibt.
 
-Das Mockup lässt sich interaktiv mit der [HTML-Seite](/Mobile_Mockup/index.html) erkunden.
+Das Mockup lässt sich interaktiv mit der [HTML-Seite](https://github.com/Bfrn/KMS_MyCargonaut/tree/Doku/Mobile_Mockup) erkunden oder die [PDF-Datei](/Mobile_Mockup/Mobilemockup.pdf) gibt auch eine Übersicht zu den einzelnen Ansichten des Mockups.
 
 ![screenshot_MockupApp](/images/Mobilemockup.png)
 
