@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
+      <x>125</x>
       <y>285</y>
       <w>180</w>
       <h>80</h>
@@ -21,7 +21,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>290</x>
+      <x>135</x>
       <y>360</y>
       <w>15</w>
       <h>175</h>
@@ -32,7 +32,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>270</x>
+      <x>115</x>
       <y>525</y>
       <w>210</w>
       <h>45</h>
@@ -47,7 +47,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>415</x>
+      <x>260</x>
       <y>360</y>
       <w>200</w>
       <h>175</h>
@@ -58,7 +58,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>525</x>
+      <x>370</x>
       <y>525</y>
       <w>210</w>
       <h>200</h>
@@ -85,7 +85,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1145</x>
+      <x>990</x>
       <y>90</y>
       <w>245</w>
       <h>155</h>
@@ -115,7 +115,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>990</x>
+      <x>835</x>
       <y>310</y>
       <w>280</w>
       <h>120</h>
@@ -137,7 +137,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
+      <x>1075</x>
       <y>240</y>
       <w>15</w>
       <h>80</h>
@@ -148,7 +148,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1320</x>
+      <x>1165</x>
       <y>310</y>
       <w>265</w>
       <h>120</h>
@@ -167,7 +167,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1330</x>
+      <x>1175</x>
       <y>240</y>
       <w>15</w>
       <h>80</h>
@@ -178,7 +178,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>680</x>
+      <x>525</x>
       <y>370</y>
       <w>320</w>
       <h>165</h>
@@ -192,7 +192,7 @@ bietet an &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1240</x>
+      <x>1085</x>
       <y>545</y>
       <w>280</w>
       <h>155</h>
@@ -216,7 +216,7 @@ bietet an &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1345</x>
+      <x>1190</x>
       <y>425</y>
       <w>105</w>
       <h>130</h>
@@ -230,7 +230,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1155</x>
+      <x>1000</x>
       <y>425</y>
       <w>125</w>
       <h>130</h>
@@ -244,7 +244,7 @@ ist Teil von &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1715</x>
+      <x>1560</x>
       <y>85</y>
       <w>290</w>
       <h>130</h>
@@ -264,7 +264,7 @@ ist Teil von &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1680</x>
+      <x>1525</x>
       <y>310</y>
       <w>180</w>
       <h>120</h>
@@ -284,7 +284,7 @@ zustandDerFracht: Number
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1875</x>
+      <x>1720</x>
       <y>310</y>
       <w>180</w>
       <h>120</h>
@@ -303,7 +303,7 @@ zustandDerFracht: Number
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>585</x>
+      <x>430</x>
       <y>905</y>
       <w>235</w>
       <h>105</h>
@@ -326,7 +326,7 @@ zustandDerFracht: Number
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
+      <x>485</x>
       <y>720</y>
       <w>85</w>
       <h>195</h>
@@ -340,7 +340,7 @@ verwaltet &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>345</x>
+      <x>190</x>
       <y>565</y>
       <w>260</w>
       <h>350</h>
@@ -354,7 +354,7 @@ m2=
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1760</x>
+      <x>1605</x>
       <y>210</y>
       <w>15</w>
       <h>110</h>
@@ -365,7 +365,7 @@ m2=
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1980</x>
+      <x>1825</x>
       <y>210</y>
       <w>15</w>
       <h>110</h>
@@ -376,7 +376,7 @@ m2=
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1515</x>
+      <x>1360</x>
       <y>425</y>
       <w>230</w>
       <h>150</h>
@@ -390,7 +390,7 @@ besitzt &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1515</x>
+      <x>1360</x>
       <y>425</y>
       <w>450</w>
       <h>195</h>
@@ -404,16 +404,16 @@ besitzt &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1250</x>
+      <x>1095</x>
       <y>790</y>
       <w>205</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>*Zahlungsinformationen*
 --
-iban: String
-bic: String
-bankname: String
+- iban: String
+- bic: String
+- bankname: String
 --
 + &lt;&lt;create&gt;&gt; Zahlungsinformation(iban: String, bic: String, 
    bankname: String)</panel_attributes>
@@ -422,7 +422,7 @@ bankname: String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1270</x>
+      <x>1115</x>
       <y>695</y>
       <w>95</w>
       <h>105</h>
@@ -436,7 +436,7 @@ hat &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>745</x>
+      <x>590</x>
       <y>580</y>
       <w>505</w>
       <h>335</h>
@@ -450,7 +450,7 @@ verwaltet &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
+      <x>475</x>
       <y>0</y>
       <w>875</w>
       <h>535</h>
@@ -464,7 +464,7 @@ erstellt &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>970</x>
+      <x>815</x>
       <y>135</y>
       <w>105</w>
       <h>50</h>
@@ -480,7 +480,7 @@ Transporter</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1010</x>
+      <x>855</x>
       <y>180</y>
       <w>90</w>
       <h>140</h>
