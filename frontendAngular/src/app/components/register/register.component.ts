@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../classes/user';
-import { UserService } from '../../services/user.service'
+import { UserService } from '../../services/user.service';
 import { DrivingOffers } from '../../classes/drivingOffers';
 
 @Component({
@@ -10,7 +10,7 @@ import { DrivingOffers } from '../../classes/drivingOffers';
 })
 export class RegisterComponent implements OnInit {
   // _id: string;
-  // email: string;
+  public username: string = '';
   public password: string = '';
   public firstName: string = '';
   public lastName: string = '';
@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
       return;
     }*/
     let user: User = new User(
+      this.username,
       this.password,
       this.firstName,
       this.lastName,

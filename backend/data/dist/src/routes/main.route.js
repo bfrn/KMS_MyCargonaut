@@ -6,13 +6,8 @@ class Routes {
     routes(app) {
         let userController = new UserController();
         let drivingOfferController = new DrivingOfferController();
-        //main route
-        app.route('/')
-            .get((req, res) => {
-            res.status(200).send({
-                message: `/GET request successfull`
-            });
-        });
+        app.route('api/users/login')
+            .get(userController.login);
         //user-routing
         app.route('/api/users/register')
             .post(userController.create_user);

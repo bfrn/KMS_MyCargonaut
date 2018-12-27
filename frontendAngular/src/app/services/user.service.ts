@@ -10,7 +10,7 @@ import { DrivingOffers } from '../classes/drivingOffers';
 })
 export class UserService {
   // _id: string;
-  // email: string;
+  username: string = '';
   password: string = '';
   firstName: string = '';
   lastName: string = '';
@@ -26,13 +26,19 @@ export class UserService {
 
   /** URL to web api */
   private userURL = 'http://localhost:8080/api/users';
-  private UserURL = '';
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
 
   user: User;
+
+    login(data) {
+    //this.log('UserService: added new user');
+    console.log("User is being logged in.");
+    const url = `${this.userURL}/login`;
+    return this.http.get(url, data);
+  }
 
     getUsers(): Observable<User[]>{
     //this.log('UserService: fetched users');

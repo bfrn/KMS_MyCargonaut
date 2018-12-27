@@ -12,12 +12,29 @@ const User = require('../models/user.model');
  *    password:value 
  */
 class UserController{
+
+    login(req, res, next){
+
+        db.users.find({username: req.body.username, password: req.body.password},(err, user) =>{
+            if (err) {
+                console.log("Error im Server.");
+                return next(err);
+            } else if (!username) {
+                console.log("No username found.");
+            } else if (!password) {
+                console.log("No password found.");
+            }
+            console.log("User:" + user);
+            res.send(user);
+        })
+    }
+
    create_user(req, res, next): void {
       let user = new User({
-          //email: req.body.email,
+          username: req.body.username,
           password: req.body.password,
-          lastName: req.body.lastName,
           firstName: req.body.firstName,
+          lastName: req.body.lastName,
           //birthdate: req.body.birthdate,
           bio: req.body.bio,
           street: req.body.street,

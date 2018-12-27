@@ -2,7 +2,7 @@ import { DrivingOffers } from './drivingOffers'
 
 export class User {
  // _id: string;
-  // email: string;
+  username: string;
   password: string;
   firstName: string;
   lastName: string;
@@ -16,9 +16,9 @@ export class User {
   city: string;
   // drivingOffers: DrivingOffers;
 
-  constructor(password?: string, firstName?: string, lastName?: string, bio?: string, street?: string, houseNumber?: number, zip?: number, city?: string) {
+  constructor(username?: string, password?: string, firstName?: string, lastName?: string, bio?: string, street?: string, houseNumber?: number, zip?: number, city?: string) {
   //  this._id = _id;
-   // this.email = email;
+   this.username = username;
     this.password = password;
     this.firstName = firstName;
     this.lastName = lastName;
