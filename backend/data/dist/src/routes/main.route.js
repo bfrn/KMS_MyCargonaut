@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const UserController = require("../controllers/user.controller");
 const DrivingOfferController = require("../controllers/drivingOffer.controller");
+const User = require('../models/user.model');
 class Routes {
     routes(app) {
         let userController = new UserController();
