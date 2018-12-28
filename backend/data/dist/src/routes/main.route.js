@@ -7,13 +7,13 @@ class Routes {
     routes(app) {
         let userController = new UserController();
         let drivingOfferController = new DrivingOfferController();
-        app.route('api/users/login')
-            .get(userController.login);
         //user-routing
-        app.route('/api/users/register')
-            .post(userController.create_user);
         app.route('/api/users')
             .get(userController.get_users);
+        app.route('/api/users/login')
+            .post(userController.login);
+        app.route('/api/users/register')
+            .post(userController.create_user);
         app.route('/api/users/:userId')
             .get(userController.get_user_by_id)
             .put(userController.update_user_by_id)

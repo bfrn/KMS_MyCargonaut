@@ -12,20 +12,22 @@ const User = require('../models/user.model');
  *    password:value 
  */
 class UserController{
-
-    login(req, res, next){
-
-        User.find({username: req.body.username, password: req.body.password},(err, user) =>{
+    login(req, res, next): void{
+        /**
+         * findOne returns a query(JSON-Document) or null  
+         * looking for key:value pairs
+         */
+        User.findOne({'username':req.body.username, 'password':req.body.password},(err, user) =>{
             if (err) {
-                console.log("Error im Server.");
                 return next(err);
-            } else if (!username) {
-                console.log("No username found.");
-            } else if (!password) {
-                console.log("No password found.");
-            }
-            console.log("User:" + user);
-            res.send(user);
+            } 
+            let user_obj = JSON.parse(JSON.stringify(user))
+            if(user_obj == null){ // if user_obj IS NULL
+                res.sendStatus(403); //send statuscode 403 and errormessage: forbidden
+                return; // return since we are done here
+            };
+            console.log("User:\n" + JSON.stringify(user_obj)); // print the user_obj in JSON
+            res.send({success: 'user successfully loggedin'}) // responde with success
         })
     }
 
@@ -51,7 +53,7 @@ class UserController{
           res.send(JSON.stringify(user));
       })
    }
-   get_user_by_id(req, res, next){
+   get_user_by_id(req, res, next):void{
       User.findById(req.params.userId,(err, user) =>{
          if (err) return next(err);
          res.send(user);
@@ -70,7 +72,7 @@ class UserController{
          res.send({success: 'user successfully deleted'});
      })
    }
-   update_user_by_id(req, res, next) {
+   update_user_by_id(req, res, next):void{
       User.findByIdAndUpdate(req.params.userId, {$set: req.body},(err, user) => {
           if (err) return next(err);
           res.send({success: 'user successfully udpated'})
