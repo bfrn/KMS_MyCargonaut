@@ -7,9 +7,9 @@ require("mocha");
 chai.use(chaiHttp);
 const expect = chai.expect;
 const User = require('../src/models/user.model');
-const DrivingOffer = require('../src/models/drivingOffer.model');
-describe('create drivinig-offer test', () => {
-    it('create a user and a driving-offer for him', (done) => {
+const DrivingRequest = require('../src/models/drivingRequest.model');
+describe('create drivinig-request test', () => {
+    it('create a user and a driving-request for him', (done) => {
         let testUser = new User({
             username: 'jan123',
             password: 'test123',
@@ -26,7 +26,7 @@ describe('create drivinig-offer test', () => {
                 return err;
             testUser = user;
         });
-        let testDrivingOffer = new DrivingOffer({
+        let testDrivingRequest = new DrivingRequest({
             date: '2014-08-15T22:00:00.000Z',
             origin: 'Hamburg',
             destination: 'Berlin',
@@ -41,25 +41,25 @@ describe('create drivinig-offer test', () => {
         });
         //console.log(testDrivingOffer)
         chai.request(app_1.default)
-            .post('/api/users/' + testUser.id + '/drivingOffers/create')
-            .send(testDrivingOffer)
+            .post('/api/users/' + testUser.id + '/drivingRequests')
+            .send(testDrivingRequest)
             .end((err, res) => {
             expect(res).to.have.status(200);
             //check if the data in the database match with the data which was send to the server
             chai.request(app_1.default)
-                .get('/api/users/' + testUser.id + '/drivingOffers')
+                .get('/api/users/' + testUser.id + '/drivingRequests')
                 .end((err, res) => {
-                console.log(res.body);
+                //console.log(res.body)
                 expect(res.body).to.be.a('array');
                 //expect(res.body.length).to.be.eq(1)
                 expect(res.body[0]).to.have.property('origin').eql('Hamburg');
                 expect(res.body[0]).to.have.property('destination').eql('Berlin');
-                console.log(testUser);
                 User.findByIdAndDelete(testUser.id, (err, user) => {
+                    //console.log(user)
                     if (err)
                         return err;
                 });
-                DrivingOffer.findByIdAndDelete(res.body[0]._id, (err, user) => {
+                DrivingRequest.findByIdAndDelete(res.body[0]._id, (err, user) => {
                     if (err)
                         return err;
                 });
@@ -68,4 +68,4 @@ describe('create drivinig-offer test', () => {
         });
     });
 });
-//# sourceMappingURL=api_user_driveOffer_route_test.js.map
+//# sourceMappingURL=api_user_drivingRequest_route_test.js.map

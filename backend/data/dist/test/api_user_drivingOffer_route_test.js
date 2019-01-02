@@ -41,7 +41,7 @@ describe('create drivinig-offer test', () => {
         });
         //console.log(testDrivingOffer)
         chai.request(app_1.default)
-            .post('/api/users/' + testUser.id + '/drivingOffers/create')
+            .post('/api/users/' + testUser.id + '/drivingOffers')
             .send(testDrivingOffer)
             .end((err, res) => {
             expect(res).to.have.status(200);
@@ -49,13 +49,13 @@ describe('create drivinig-offer test', () => {
             chai.request(app_1.default)
                 .get('/api/users/' + testUser.id + '/drivingOffers')
                 .end((err, res) => {
-                console.log(res.body);
+                //console.log(res.body)
                 expect(res.body).to.be.a('array');
                 //expect(res.body.length).to.be.eq(1)
                 expect(res.body[0]).to.have.property('origin').eql('Hamburg');
                 expect(res.body[0]).to.have.property('destination').eql('Berlin');
-                console.log(testUser);
                 User.findByIdAndDelete(testUser.id, (err, user) => {
+                    //console.log(user)
                     if (err)
                         return err;
                 });
@@ -68,4 +68,4 @@ describe('create drivinig-offer test', () => {
         });
     });
 });
-//# sourceMappingURL=api_user_driveOffer_route_test.js.map
+//# sourceMappingURL=api_user_drivingOffer_route_test.js.map

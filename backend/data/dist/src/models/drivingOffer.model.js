@@ -7,7 +7,6 @@ const User = require('../models/user.model');
 Drive.discriminator('DrivingOffer', new Schema({
     stops: { type: [String], required: true },
     currLocation: { type: String, required: false },
-    owner: { type: Schema.Types.ObjectId, ref: 'User', required: false },
 }));
 module.exports = mongoose.model('DrivingOffer');
 //# sourceMappingURL=drivingOffer.model.js.map

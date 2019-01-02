@@ -12,7 +12,7 @@ const User = require('../models/user.model');
  *    password:value 
  */
 class UserController{
-    login(req, res, next): void{
+    login(req, res, next): void {
         /**
          * findOne returns a query(JSON-Document) or null  
          * looking for key:value pairs
@@ -37,20 +37,20 @@ class UserController{
           password: req.body.password,
           firstName: req.body.firstName,
           lastName: req.body.lastName,
-          //birthdate: req.body.birthdate,
+          birthdate: req.body.birthdate,
           bio: req.body.bio,
           street: req.body.street,
           houseNumber: req.body.houseNumber,
           zip: req.body.zip,
           city: req.body.city
       });
-      user.save((err) => {
+      user.save((err,user) => {
          if (err) {
             return next(err)
          }
          res.status(200);
          //res.send({success: 'user successfully created'} )
-          res.send(JSON.stringify(user));
+          res.send(user);
       })
    }
    get_user_by_id(req, res, next):void{
