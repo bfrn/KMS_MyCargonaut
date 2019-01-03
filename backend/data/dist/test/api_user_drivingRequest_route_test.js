@@ -37,7 +37,6 @@ describe('create drivinig-request test', () => {
             cargoWeightInKg: 445,
             loadingSpaceDimensions: [432, 534, 332],
             personCnt: 32,
-            stops: ['Fried', 'Bauheim', 'Lin']
         });
         //console.log(testDrivingOffer)
         chai.request(app_1.default)
@@ -55,11 +54,13 @@ describe('create drivinig-request test', () => {
                 expect(res.body[0]).to.have.property('origin').eql('Hamburg');
                 expect(res.body[0]).to.have.property('destination').eql('Berlin');
                 User.findByIdAndDelete(testUser.id, (err, user) => {
-                    //console.log(user)
                     if (err)
                         return err;
+                    //console.log(user)
+                    expect(user.drivingRequests[0].toString()).to.be.eql(res.body[0]._id);
+                    expect(user.id).to.be.eql(res.body[0].owner);
                 });
-                DrivingRequest.findByIdAndDelete(res.body[0]._id, (err, user) => {
+                DrivingRequest.findByIdAndDelete(res.body[0]._id, (err, drivingRequest) => {
                     if (err)
                         return err;
                 });
