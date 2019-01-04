@@ -4,6 +4,7 @@ import { User } from '../classes/user'
 import { Observable, of } from 'rxjs'
 import { MessageService} from './message.service'
 import { DrivingOffers } from '../classes/drivingOffers';
+import { tap, catchError, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -37,10 +38,7 @@ export class UserService {
     //this.log('UserService: added new user');
     console.log("User is being logged in.");
     const url = `${this.userURL}/login`;
-    let result = this.http.post(url, data).subscribe(
-      data => console.log(JSON.stringify(data)),
-      error => console.log(error)
-    );
+    this.http.post(url, data);
   }
 
     getUsers(): Observable<User[]>{

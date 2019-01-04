@@ -23,8 +23,6 @@ export class HomepageComponent implements OnInit {
   login(): void {
     console.log("Username: " + this.username + "Password: " + this.password);
     let data: Object = {username: this.username, password: this.password};
-    this.userService.login(data).subscribe((data) => {
-      console.log("getUser()", data);
-    })
+    this.userService.login(data);
   }
 }
