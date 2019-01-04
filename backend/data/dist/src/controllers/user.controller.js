@@ -12,7 +12,7 @@ const User = require('../models/user.model');
  */
 class UserController {
     login(req, res, next) {
-        db.users.find({ username: req.body.username, password: req.body.password }, (err, user) => {
+        User.find({ username: req.body.username, password: req.body.password }, (err, user) => {
             if (err) {
                 console.log("Error im Server.");
                 return next(err);
