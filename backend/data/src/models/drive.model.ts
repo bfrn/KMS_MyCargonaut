@@ -16,6 +16,8 @@ const drive = mongoose.model('Drive', new Schema({
    cargoWeightInKg: {type: Number,required: true},
    loadingSpaceDimensions:  {type: [Number],required:true},
    personCnt: {type: Number, required: true} ,
+   owner: { type: Schema.Types.ObjectId, ref: 'User' ,required: false},
+   bookings: {type:[{ type: Schema.Types.ObjectId, ref: 'Booking' }],required: false },
 },baseOptions))
 
 module.exports = mongoose.model('Drive')

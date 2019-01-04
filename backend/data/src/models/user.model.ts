@@ -16,10 +16,11 @@ let userSchema = new Schema({
    imgUrl: {type: String, required: false},
    bio: {type:String,required: true},           
    street: {type: String, required: true},      //Straße
-   houseNumber: {type: Number, required: true}, //Hausnummer
+   houseNumber: {type: String, required: true}, //Hausnummer
    zip: {type: Number, required: true},         //PLZ
    city: {type: String, required: true},       //Ort
-   drivingOffers: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingOffer' }],required: false}
+   drivingOffers: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingOffer' }],required: false },
+   drivingRequests: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingRequest' }],required: false}, 
 });
 
 // Export the User model

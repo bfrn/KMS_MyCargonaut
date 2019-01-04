@@ -3,8 +3,8 @@ const User = require('../models/user.model')
 
 
 class DrivingOfferController {
-    get_drivingOffers(req,res,next) :void {
-        DrivingOffer.find({owner: req.params.userId},(err,drivingOffers)=>{
+    get_drivingOffers(req,res,next): void {
+        DrivingOffer.find({owner: req.params.userId}, (err,drivingOffers) => {
             if(err){
                 res.status(500)
                 return next(err)
@@ -19,29 +19,39 @@ class DrivingOfferController {
                 date: req.body.date,
                 origin: req.body.origin,
                 destination: req.body.destination,
-                restrictions: req.body.restrictons,
+                restrictions: req.body.restrictions,
                 preferences: req.body.preferences,
                 price: req.body.price,
                 hasFixedPrice: req.body.hasFixedPrice,
                 cargoWeightInKg: req.body.cargoWeightInKg,
-                loadingSpaceDimensions: req.body.loadingSpaceDimension,
+                loadingSpaceDimensions: req.body.loadingSpaceDimensions,
                 personCnt: req.body.personCnt,
                 stops: req.body.stops,
                 owner: req.params.userId,
             })
-            drivingOffer.save((err) => {
+
+            drivingOffer.save((err,drivingOffer) => {
                 if (err) {
+                    res.status(500)
                     return next(err)
                 }
-                User.findOneAndUpdate(req.params.userId, {"$push": { "drivingOffers": drivingOffer._id }},(err, user) => {
+    
+                User.findById(req.params.userId,(err, user)=>{
                     if (err){
+                        res.status(500)
                         return next(err)
                     }
-                    res.status(200)
-                    res.send ({success: 'drivingOffer successfully created'})
+                    user.drivingOffers.push(drivingOffer._id)
+                    user.save((err,user)=>{
+                        if (err){
+                            res.status(500)
+                            return next(err)
+                        }
+                        res.status(200)
+                        res.send ({success: 'drivingOffer successfully created'})
+                    })
                 })
             })
-        
     }
 }
 

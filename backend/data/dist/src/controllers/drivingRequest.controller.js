@@ -1,19 +1,19 @@
 "use strict";
-const DrivingOffer = require('../models/drivingOffer.model');
+const DriviningRequest = require('../models/drivingRequest.model');
 const User = require('../models/user.model');
-class DrivingOfferController {
-    get_drivingOffers(req, res, next) {
-        DrivingOffer.find({ owner: req.params.userId }, (err, drivingOffers) => {
+class DriviningRequestController {
+    get_drivingRequests(req, res, next) {
+        DriviningRequest.find({ owner: req.params.userId }, (err, driviningRequests) => {
             if (err) {
                 res.status(500);
                 return next(err);
             }
             res.status(200);
-            res.json(drivingOffers);
+            res.json(driviningRequests);
         });
     }
-    create_drivingOffer(req, res, next) {
-        let drivingOffer = new DrivingOffer({
+    create_drivingRequest(req, res, next) {
+        let drivingRequest = new DriviningRequest({
             date: req.body.date,
             origin: req.body.origin,
             destination: req.body.destination,
@@ -24,12 +24,10 @@ class DrivingOfferController {
             cargoWeightInKg: req.body.cargoWeightInKg,
             loadingSpaceDimensions: req.body.loadingSpaceDimensions,
             personCnt: req.body.personCnt,
-            stops: req.body.stops,
             owner: req.params.userId,
         });
-        drivingOffer.save((err, drivingOffer) => {
+        drivingRequest.save((err, drivingRequest) => {
             if (err) {
-                res.status(500);
                 return next(err);
             }
             User.findById(req.params.userId, (err, user) => {
@@ -37,18 +35,18 @@ class DrivingOfferController {
                     res.status(500);
                     return next(err);
                 }
-                user.drivingOffers.push(drivingOffer._id);
+                user.drivingRequests.push(drivingRequest._id);
                 user.save((err, user) => {
                     if (err) {
                         res.status(500);
                         return next(err);
                     }
                     res.status(200);
-                    res.send({ success: 'drivingOffer successfully created' });
+                    res.send({ success: 'drivingRequest successfully created' });
                 });
             });
         });
     }
 }
-module.exports = DrivingOfferController;
-//# sourceMappingURL=drivingOffer.controller.js.map
+module.exports = DriviningRequestController;
+//# sourceMappingURL=drivingRequest.controller.js.map
