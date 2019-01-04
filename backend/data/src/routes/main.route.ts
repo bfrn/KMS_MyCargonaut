@@ -11,12 +11,13 @@ export class Routes {
     let userController: UserController = new UserController();
     let drivingOfferController: DrivingOfferController = new DrivingOfferController();
     let drivingRequestController: DriviningRequestController = new DriviningRequestController();
-    let bookingController: BookingController = new BookingController()
-    //user-routing
+    let bookingController: BookingController = new BookingController();
+
+      //user-routing
     app.route('/api/users')
       .get(userController.get_users);
     app.route('/api/users/login')
-      .post(userController.login);
+      .get(userController.login);
     app.route('/api/users/register')
       .post(userController.create_user);
       
@@ -36,7 +37,7 @@ export class Routes {
       .post(drivingRequestController.create_drivingRequest);
     //booking-request routing
     app.route('/api/bookings')
-      .post(bookingController.create_booking)
+      .post(bookingController.create_booking);
     app.route('/api/bookings/:bookingId')
       .get(bookingController.get_booking_by_id)     
   }   

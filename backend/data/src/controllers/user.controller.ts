@@ -12,22 +12,25 @@ const User = require('../models/user.model');
  *    password:value 
  */
 class UserController{
-    login(req, res, next): void {
+
+    login(req, res, next) {
         /**
          * findOne returns a query(JSON-Document) or null  
          * looking for key:value pairs
          */
         User.findOne({'username':req.body.username, 'password':req.body.password},(err, user) =>{
             if (err) {
+                console.log("Error.");
                 return next(err);
             } 
-            let user_obj = JSON.parse(JSON.stringify(user))
+            let user_obj = JSON.parse(JSON.stringify(user));
             if(user_obj == null){ // if user_obj IS NULL
+                console.log("No user found.");
                 res.sendStatus(403); //send statuscode 403 and errormessage: forbidden
                 return; // return since we are done here
-            };
+            }
             console.log("User:\n" + JSON.stringify(user_obj)); // print the user_obj in JSON
-            res.send({success: 'user successfully loggedin'}) // responde with success
+            res.send(user_obj); // responde with success
         })
     }
 
@@ -37,7 +40,7 @@ class UserController{
           password: req.body.password,
           firstName: req.body.firstName,
           lastName: req.body.lastName,
-          birthdate: req.body.birthdate,
+          //birthdate: req.body.birthdate,
           bio: req.body.bio,
           street: req.body.street,
           houseNumber: req.body.houseNumber,

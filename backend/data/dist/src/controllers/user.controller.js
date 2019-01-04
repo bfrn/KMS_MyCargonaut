@@ -18,16 +18,17 @@ class UserController {
          */
         User.findOne({ 'username': req.body.username, 'password': req.body.password }, (err, user) => {
             if (err) {
+                console.log("Error.");
                 return next(err);
             }
             let user_obj = JSON.parse(JSON.stringify(user));
             if (user_obj == null) { // if user_obj IS NULL
+                console.log("No user found.");
                 res.sendStatus(403); //send statuscode 403 and errormessage: forbidden
                 return; // return since we are done here
             }
-            ;
             console.log("User:\n" + JSON.stringify(user_obj)); // print the user_obj in JSON
-            res.send({ success: 'user successfully loggedin' }); // responde with success
+            res.send(user_obj); // responde with success
         });
     }
     create_user(req, res, next) {

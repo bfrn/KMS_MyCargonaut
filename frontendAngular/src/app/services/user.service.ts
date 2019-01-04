@@ -4,6 +4,7 @@ import { User } from '../classes/user'
 import { Observable, of } from 'rxjs'
 import { MessageService} from './message.service'
 import { DrivingOffers } from '../classes/drivingOffers';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -33,11 +34,25 @@ export class UserService {
 
   user: User;
 
-    login(data) {
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.log(`${operation} failed: ${error.message}`); // transforming error for better user consumption
+      return of(result as T); // Let the app keep running by returning an empty result.
+    };
+  }
+
+    login(data: any): Observable<User> {
     //this.log('UserService: added new user');
-    console.log("User is being logged in.");
+    console.log("User is being logged in." + data);
     const url = `${this.userURL}/login`;
-    return this.http.get(url, data);
+    return this.http.get<User>(url, data)
+      .pipe(
+      tap((user) => {
+        console.log("User from Database is:", user);
+        return user;
+      }),
+      catchError(this.handleError<User>(`User nicht gefunden`))
+    );
   }
 
     getUsers(): Observable<User[]>{

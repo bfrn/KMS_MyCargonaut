@@ -15,7 +15,7 @@ class Routes {
         app.route('/api/users')
             .get(userController.get_users);
         app.route('/api/users/login')
-            .post(userController.login);
+            .get(userController.login);
         app.route('/api/users/register')
             .post(userController.create_user);
         app.route('/api/users/:userId')

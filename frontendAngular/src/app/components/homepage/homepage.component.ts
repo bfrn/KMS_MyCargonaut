@@ -14,7 +14,8 @@ export class HomepageComponent implements OnInit {
 
   public user: User;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit() {
   }
@@ -22,7 +23,8 @@ export class HomepageComponent implements OnInit {
   login(): void {
     console.log("Username: " + this.username + "Password: " + this.password);
     let data: Object = {username: this.username, password: this.password};
-    this.userService.login(data);
+    this.userService.login(data).subscribe((data) => {
+      console.log("getUser()", data);
+    })
   }
-
 }

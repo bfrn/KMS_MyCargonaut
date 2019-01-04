@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const baseOptions = {
    discriminatorKey: '__type',
-}
+};
 
 const drive = mongoose.model('Drive', new Schema({
    date: {type: Date, required: true},
@@ -18,6 +18,6 @@ const drive = mongoose.model('Drive', new Schema({
    personCnt: {type: Number, required: true} ,
    owner: { type: Schema.Types.ObjectId, ref: 'User' ,required: false},
    bookings: {type:[{ type: Schema.Types.ObjectId, ref: 'Booking' }],required: false },
-},baseOptions))
+},baseOptions));
 
-module.exports = mongoose.model('Drive')
+module.exports = mongoose.model('Drive');

@@ -11,7 +11,7 @@ let userSchema = new Schema({
     password: { type: String, required: true },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    birthdate: { type: Date, required: false },
+    //birthdate: {type: Date, required: false},
     cellPhoneNumber: { type: Number, required: false },
     imgUrl: { type: String, required: false },
     bio: { type: String, required: true },

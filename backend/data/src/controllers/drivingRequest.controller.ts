@@ -1,14 +1,14 @@
-const DriviningRequest = require('../models/drivingRequest.model')
-const User = require('../models/user.model')
+const DriviningRequest = require('../models/drivingRequest.model');
+const User = require('../models/user.model');
 
 class DriviningRequestController {
     get_drivingRequests(req,res,next): void {
         DriviningRequest.find({owner: req.params.userId}, (err, driviningRequests) => {
             if(err) {
-                res.status(500)
+                res.status(500);
                 return next(err)
             }
-            res.status(200)
+            res.status(200);
             res.json(driviningRequests)
         })
     }
@@ -26,7 +26,7 @@ class DriviningRequestController {
             loadingSpaceDimensions: req.body.loadingSpaceDimensions,
             personCnt: req.body.personCnt,
             owner: req.params.userId,
-        })
+        });
 
         drivingRequest.save((err,drivingRequest) => {
             if (err) {
@@ -35,16 +35,16 @@ class DriviningRequestController {
 
             User.findById(req.params.userId,(err, user)=>{
                 if (err){
-                    res.status(500)
+                    res.status(500);
                     return next(err)
                 }
-                user.drivingRequests.push(drivingRequest._id)
+                user.drivingRequests.push(drivingRequest._id);
                 user.save((err,user)=>{
                     if (err){
-                        res.status(500)
+                        res.status(500);
                         return next(err)
                     }
-                    res.status(200)
+                    res.status(200);
                     res.send ({success: 'drivingRequest successfully created'})
                 })
             })

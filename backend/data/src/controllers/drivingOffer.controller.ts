@@ -1,15 +1,15 @@
-const DrivingOffer = require('../models/drivingOffer.model')
-const User = require('../models/user.model')
+const DrivingOffer = require('../models/drivingOffer.model');
+const User = require('../models/user.model');
 
 
 class DrivingOfferController {
     get_drivingOffers(req,res,next): void {
         DrivingOffer.find({owner: req.params.userId}, (err,drivingOffers) => {
             if(err){
-                res.status(500)
+                res.status(500);
                 return next(err)
             }
-            res.status(200)
+            res.status(200);
             res.json(drivingOffers)
         })
     }
@@ -28,26 +28,26 @@ class DrivingOfferController {
                 personCnt: req.body.personCnt,
                 stops: req.body.stops,
                 owner: req.params.userId,
-            })
+            });
 
             drivingOffer.save((err,drivingOffer) => {
                 if (err) {
-                    res.status(500)
+                    res.status(500);
                     return next(err)
                 }
     
                 User.findById(req.params.userId,(err, user)=>{
                     if (err){
-                        res.status(500)
+                        res.status(500);
                         return next(err)
                     }
-                    user.drivingOffers.push(drivingOffer._id)
+                    user.drivingOffers.push(drivingOffer._id);
                     user.save((err,user)=>{
                         if (err){
-                            res.status(500)
+                            res.status(500);
                             return next(err)
                         }
-                        res.status(200)
+                        res.status(200);
                         res.send ({success: 'drivingOffer successfully created'})
                     })
                 })
