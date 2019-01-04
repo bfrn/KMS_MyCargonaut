@@ -33,11 +33,14 @@ export class UserService {
 
   user: User;
 
-    login(data) {
+    login(data: any): void {
     //this.log('UserService: added new user');
     console.log("User is being logged in.");
     const url = `${this.userURL}/login`;
-    return this.http.get(url, data);
+    let result = this.http.post(url, data).subscribe(
+      data => console.log(JSON.stringify(data)),
+      error => console.log(error)
+    );
   }
 
     getUsers(): Observable<User[]>{
