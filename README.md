@@ -59,4 +59,52 @@ Außerdem wurden im Backend Unit-Tests implementiert, um die Funktionen während
 
 In der Frontend-Entwicklung wurde die Design-Entwicklung hauptsächlich nach dem vorher entwickelten Mockup orientiert. Die folgende Darstellung gilt als Prototyp, um dem Kunde eine Überblick auf den Produkt zu verschaffen. Im Frontend-Prototyp wurden die Hauptfunktionalitäten der Seite für die Nutzersicht dargestellt, dazu gehören Registrierungsvorgang und Login.
 
-### Review & Retrospective
+### Review & Retrospective Sprint_1
+
+Einige unserer definierten Ziele konnten nicht im ersten Sprint umgesetzt werden. Der organisatorische Aspekt wurde oft aufgeschoben. Die Kommunikation innerhalb der Gruppe war sehr gut. Es entstanden oft konstruktive Diskussionen.
+
+## Sprint_2
+
+Die grundlegenden Schemata der Datenverwaltung wurden nach Klassendiagramms implementiert. Das Backend verfügt über CRUD-Funktionalitäten im Bezug auf den Benutzer. Ausserdem diverse Möglichkeiten Buchungsdaten und Fahrgesuch bzw. Fahrangebot zu verwalten.
+
+Das Routing fasst die Funktionalitäten des Backend zusammen:
+
+```
+//user-routing
+
+    app.route('/api/users')
+      .get(userController.get_users);
+
+    app.route('/api/users/login')
+      .post(userController.login);
+
+    app.route('/api/users/register')
+      .post(userController.create_user);
+      
+    app.route('/api/users/:userId')
+      .get(userController.get_user_by_id)
+      .put(userController.update_user_by_id)
+      .delete(userController.delete_user_by_id);
+        
+//driving-offer routing
+    app.route('/api/users/:userId/drivingOffers')
+      .get(drivingOfferController.get_drivingOffers)
+      .post(drivingOfferController.create_drivingOffer);    
+
+//driving-request routing
+    app.route('/api/users/:userId/drivingRequests')
+      .get(drivingRequestController.get_drivingRequests)
+      .post(drivingRequestController.create_drivingRequest);
+
+//booking-request routing
+    app.route('/api/bookings')
+      .post(bookingController.create_booking);
+    app.route('/api/bookings/:bookingId')
+      .get(bookingController.get_booking_by_id) 
+
+``` 
+
+Das Frontend ist in der Lage den Login anzusprechen. Auch eine Registrierung ist möglich. Diese Registrierung erfragt alle nötigen Informationen und speichert diese in die Datenbank. Das Password wird dabei verschlüsselt. Der Login kann diese Verschlüsselung behandeln. 
+
+
+### Review & Retrospective Sprint_2
