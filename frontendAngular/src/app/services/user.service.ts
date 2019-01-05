@@ -34,11 +34,12 @@ export class UserService {
 
   user: User;
 
-    login(data: any): void {
+  /** login function that passes the username and password within a data object to the login route */
+    login(data: any) {
     //this.log('UserService: added new user');
     console.log("User is being logged in.");
     const url = `${this.userURL}/login`;
-    this.http.post(url, data);
+    return this.http.post(url, data);
   }
 
     getUsers(): Observable<User[]>{
@@ -51,6 +52,7 @@ export class UserService {
     return this.http.get<User>(this.userURL + '/' + id);
   }
 
+  /** register function that passes the user data within an object to the register route */
   addUser(user: User): Observable<User>{
     //this.log('UserService: added new user');
     console.log("User in Service:", user);

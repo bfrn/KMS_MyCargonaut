@@ -41,7 +41,7 @@ class UserController {
         User.findOne({ 'username': req.body.username })
             .then(function (user) {
             return bcrypt.compare(password, user.password);
-        }).then(function (samePassword) {
+        }).then(function (samePassword, user) {
             if (!samePassword) {
                 res.status(403).send();
                 console.clear();
@@ -50,7 +50,7 @@ class UserController {
             //let user_obj = JSON.parse(JSON.stringify(user));
             console.clear();
             console.log("Eingeloggt.");
-            res.status(200).send();
+            res.status(200).send(JSON.stringify(user));
         }).catch(function (error) {
             console.clear();
             console.log("Error authenticating user: ");
