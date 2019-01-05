@@ -5,7 +5,10 @@
 const User = require('../models/user.model');
 let bcrypt = require('bcrypt');
 
+let sessionId: string;
+
 class UserController{
+
 
     /**
      * login without encryption
@@ -43,6 +46,8 @@ class UserController{
 
         User.findOne({'username':req.body.username})
             .then(function(user) {
+                req.session.username = user.username;
+                console.log(req.session.username);
             return bcrypt.compare(password, user.password)
         }).then(function(samePassword, user) {
             if(!samePassword) {
@@ -51,9 +56,14 @@ class UserController{
                 console.log("Password didn't match.");
             }
             //let user_obj = JSON.parse(JSON.stringify(user));
-            console.clear();
-            console.log("Eingeloggt.");
-            res.status(200).send(JSON.stringify(user));
+            //sessionId = req.session.id;
+            //console.clear();
+            console.log("Eingeloggt." + req.session.username);
+            res.status(200);
+            res.send(JSON.stringify(req.session.username));
+           // return req.session.username;
+            //res.send(JSON.stringify(sessionId));
+            //return (sessionId);
 
         }).catch(function(error){
             console.clear();
@@ -63,6 +73,16 @@ class UserController{
             });
     };
 
+    checklogin (req, res) {
+        let response: boolean = false;
+        if (req.session.username) {
+            console.log("checkLogin: "+ req.session.username);
+            response = true;
+            return response;
+        }
+        res.redirect('/homepage');
+        return response;
+    }
 
     /**
      * route without encryption

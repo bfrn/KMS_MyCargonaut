@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
+const session = require("express-session");
 const bodyParser = require("body-parser");
 const main_route_1 = require("./routes/main.route");
 const mongoose = require("mongoose");
@@ -20,13 +21,13 @@ class App {
             extended: false,
         }));
         this.app.use(cors());
-        /*//--- session management -----------------------------------------------------
+        //--- session management -----------------------------------------------------
         this.app.use(session({
-            resave: true,    // save session even if not modified
-            saveUninitialized: true,    // save session even if not used
-            rolling: true,    // forces cookie set on every response
+            resave: true,
+            saveUninitialized: true,
+            rolling: true,
             secret: "secret" // encrypt session-id in cookie using "secret"
-        }));*/
+        }));
     }
     mongoSetup() {
         let mongoDB = process.env.MONGODB_URI || this.mongoURL;

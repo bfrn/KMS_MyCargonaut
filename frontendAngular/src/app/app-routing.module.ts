@@ -6,12 +6,13 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { DrivingOffersComponent } from './components/driving-offers/driving-offers.component';
 import { RegisterComponent} from './components/register/register.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full'},
   { path: 'users', component: UsersComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'detail/:id', component: UserDetailComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'detail/:id', component: UserDetailComponent, canActivate: [AuthGuard]},
   { path: 'homepage', component: HomepageComponent},
   { path: 'drivingOffers', component: DrivingOffersComponent},
   { path: 'register', component: RegisterComponent},

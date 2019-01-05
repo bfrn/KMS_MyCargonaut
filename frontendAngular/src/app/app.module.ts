@@ -25,6 +25,7 @@ import { AlertComponent } from './components/alert/alert.component';
 
 import { UserService } from './services/user.service';
 import { AlertService } from './services/alert.service';
+import { AuthGuard } from './guard/auth.guard';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { AlertService } from './services/alert.service';
   ],
   providers: [
     UserService,
-    AlertService
+    AlertService,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [

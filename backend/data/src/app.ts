@@ -24,13 +24,13 @@ class App{
         }));
         this.app.use(cors());
 
-        /*//--- session management -----------------------------------------------------
+        //--- session management -----------------------------------------------------
         this.app.use(session({
             resave: true,    // save session even if not modified
             saveUninitialized: true,    // save session even if not used
             rolling: true,    // forces cookie set on every response
             secret: "secret" // encrypt session-id in cookie using "secret"
-        }));*/
+        }));
 
     }
     private mongoSetup(): void{

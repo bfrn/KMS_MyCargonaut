@@ -37,11 +37,12 @@ export class HomepageComponent implements OnInit {
     let data: Object = {username: this.username, password: this.password};
     this.userService.login(data).subscribe(
       (data) => {
-        console.log("User was logged in successfully.");
+        console.log("User was logged in successfully." + data);
         this.alertService.success("Eingeloggt.", true);
-        //this.router.navigate(['/register']); //muss angepasst werden
-        this.loggedIn = true;
-        return this.loggedIn;
+        this.router.navigate(['/register']); //muss angepasst werden
+        //this.loggedIn = true;
+        //console.log(sessionId);
+        //return sessionId;
       },
       (error) => {
         console.log("Error logging in the user:");
