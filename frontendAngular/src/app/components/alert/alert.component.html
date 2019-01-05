@@ -1,0 +1,5 @@
+<div class="mt-3">
+<div *ngIf="message"
+     [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }"
+     (close)="message = null">{{message.text}}</div>
+</div>

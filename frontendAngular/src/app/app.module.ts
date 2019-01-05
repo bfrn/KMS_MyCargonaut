@@ -21,7 +21,10 @@ import { DrivingOffersComponent } from './components/driving-offers/driving-offe
 import { RatingsComponent } from './components/ratings/ratings.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AlertComponent } from './components/alert/alert.component';
+
 import { UserService } from './services/user.service';
+import { AlertService } from './services/alert.service';
 
 
 @NgModule({
@@ -35,6 +38,7 @@ import { UserService } from './services/user.service';
     RatingsComponent,
     HomepageComponent,
     RegisterComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,10 @@ import { UserService } from './services/user.service';
     MatMomentDateModule,
     MatInputModule
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    AlertService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     AppComponent,
