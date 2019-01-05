@@ -1,12 +1,13 @@
+<div id="userDetail">
 <div *ngIf="user">
-    <h2>{{user.firstName | uppercase}} Details</h2>
+    <h2>{{user.firstName}}'s Profil</h2>
     <div><span>_id: </span>{{user._id}}</div>
-    <div>
-      <label>firstName:
-        <input [(ngModel)]="user.firstName" placeholder="name">
-      </label>
-    </div>
-    <div><span>pass: </span>{{user.password}}</div>
+  <div><span>firstname: </span>{{user.firstName}}</div>
+  <div><span>lastname: </span>{{user.lastName}}</div>
+  <div><span>username: </span>{{user.username}}</div>
+  <div><span>password: </span>{{user.password}}</div>
 
-</div>   
-<button (click)="goBack()">go back</button>
+</div>
+<button (click)="goBack()" class="mr-2">Go back</button>
+  <button (click)="deleteUser()">Delete user</button>
+</div>

@@ -19,7 +19,7 @@ let userSchema = new Schema({
     houseNumber: { type: String, required: true },
     zip: { type: Number, required: true },
     city: { type: String, required: true },
-    drivingOffers: { type: [{ type: Schema.Types.ObjectId, ref: 'DrivingOffer' }], required: false }
+    drivingOffers: { type: [{ type: Schema.Types.ObjectId, ref: 'DrivingOffer' }], required: false },
 });
 // Export the User model
 module.exports = mongoose.model('User', userSchema);

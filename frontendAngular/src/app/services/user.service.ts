@@ -60,6 +60,10 @@ export class UserService {
     return this.http.post<User>(url, user);
   }
 
+  deleteUser (id: String) {
+    return this.http.delete<User>(this.userURL + '/' + id);
+  }
+
   /** Log a UserService message with the MessageService */
  private log(message: string) {
     this.messageService.add(`UserService: ${message}`);

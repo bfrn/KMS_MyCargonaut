@@ -4,6 +4,7 @@
  */
 
 import * as mongoose from 'mongoose'
+import { isBoolean } from 'util';
 const Schema = mongoose.Schema;
 
 let userSchema = new Schema({
@@ -20,7 +21,7 @@ let userSchema = new Schema({
    zip: {type: Number, required: true},         //PLZ
    city: {type: String, required: true},       //Ort
    drivingOffers: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingOffer' }],required: false },
-   drivingRequests: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingRequest' }],required: false}, 
+   drivingRequests: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingRequest' }],required: false},
 });
 
 // Export the User model

@@ -15,8 +15,10 @@ export class User {
   zip: number;
   city: string;
   // drivingOffers: DrivingOffers;
+  loggedIn: boolean = false;
 
-  constructor(username?: string, password?: string, firstName?: string, lastName?: string, bio?: string, street?: string, houseNumber?: number, zip?: number, city?: string) {
+  constructor(username?: string, password?: string, firstName?: string, lastName?: string, bio?: string, street?: string,
+              houseNumber?: number, zip?: number, city?: string, loggedIn?: boolean) {
   //  this._id = _id;
    this.username = username;
     this.password = password;
@@ -31,5 +33,6 @@ export class User {
     this.zip = zip;
     this.city = city;
     // this.drivingOffers = drivingOffers;
+    this.loggedIn = loggedIn;
   }
 }

@@ -1,4 +1,10 @@
-/* HeroDetailComponent's private CSS styles */
+#userDetail {
+  margin-top: 3%;
+  margin-left: 3%;
+  position: fixed;
+  color: dimgrey;
+}
+
 label {
     display: inline-block;
     width: 3em;
@@ -14,7 +20,7 @@ label {
   button {
     margin-top: 20px;
     font-family: Arial;
-    background-color: #eee;
+    background-color: #2BBBAD;
     border: none;
     padding: 5px 10px;
     border-radius: 4px;

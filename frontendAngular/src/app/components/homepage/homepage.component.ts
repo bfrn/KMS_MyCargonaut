@@ -28,17 +28,20 @@ export class HomepageComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
+  loggedIn: boolean = false;
 
   login(): void {
     console.log("Username: " + this.username + "Password: " + this.password);
     let data: Object = {username: this.username, password: this.password};
     this.userService.login(data).subscribe(
       (data) => {
-        console.log("User was logged in successfully."),
+        console.log("User was logged in successfully.");
         this.alertService.success("Eingeloggt.", true);
-        this.router.navigate(['/register']) //muss angepasst werden
+        //this.router.navigate(['/register']); //muss angepasst werden
+        this.loggedIn = true;
+        return this.loggedIn;
       },
       (error) => {
         console.log("Error logging in the user:");

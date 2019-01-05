@@ -137,9 +137,10 @@ class UserController {
     }
     delete_user_by_id(req, res, next) {
         User.findByIdAndDelete(req.params.userId, (err, user) => {
-            if (err)
+            if (err) {
                 return next(err);
-            res.send({ success: 'user successfully deleted' });
+            }
+            res.send({ success: 'User successfully deleted.' });
         });
     }
     update_user_by_id(req, res, next) {

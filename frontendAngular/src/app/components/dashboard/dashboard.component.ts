@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../classes/user';
 import { UserService} from '../../services/user.service';
+import { AlertService} from '../../services/alert.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -8,13 +10,20 @@ import { UserService} from '../../services/user.service';
 })
 export class DashboardComponent implements OnInit {
   users: User[];
-  constructor(private userService: UserService) { }
+  public username: string = '';
+  public password: string = '';
+
+  admin: boolean = false;
+
+  constructor(private userService: UserService, private alertService: AlertService) { }
 
   ngOnInit() {
     this.getUsers();
   }
+
+
   getUsers(): void {
     this.userService.getUsers()
-      .subscribe(users => this.users = users.slice(0, 4));
+      .subscribe(users => this.users = users.slice(0));
   }
 }

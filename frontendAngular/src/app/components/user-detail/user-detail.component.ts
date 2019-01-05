@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../classes/user';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserService} from '../../services/user.service';
 
@@ -14,7 +14,8 @@ export class UserDetailComponent implements OnInit {
     constructor(
       private route: ActivatedRoute,
       private userService: UserService,
-      private location: Location
+      private location: Location,
+      private router: Router
     ) { }
 
   ngOnInit() {
@@ -26,6 +27,19 @@ export class UserDetailComponent implements OnInit {
     this.userService.getUser(id)
       .subscribe(user => this.user = user);
   }
+
+  deleteUser(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.userService.deleteUser(id).subscribe(
+      () => {
+        console.log("User successfully deleted.");
+        this.router.navigate(['/dashboard']);
+      },
+      error => {
+        console.log("Error deleting user.", error)
+      })
+  }
+
   goBack(): void{
     this.location.back();
   }
