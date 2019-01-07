@@ -5,9 +5,7 @@
 const User = require('../models/user.model');
 let bcrypt = require('bcrypt');
 
-
 class UserController{
-
 
     /**
      * login without encryption
@@ -31,6 +29,8 @@ class UserController{
             res.send(user_obj); // responde with success
         })
     }*/
+
+
 
     /**
      * findOne returns a query(JSON-Document) or null
@@ -57,6 +57,7 @@ class UserController{
             //let user_obj = JSON.parse(JSON.stringify(user));
             //sessionId = req.session.id;
             //console.clear();
+
             console.log("Eingeloggt." + req.session.username);
             res.status(200);
             res.send(JSON.stringify(req.session.username));
@@ -72,18 +73,6 @@ class UserController{
             });
     };
 
-    checklogin (req, res): void {
-        let response: boolean = true;
-        if (1 == 1) {
-            //console.log("checkLogin: "+ req.session.username);
-            res.json({
-                response
-            });
-        }
-        console.log("Fehler checklogin.");
-        res.redirect('/homepage');
-        res.json({});
-    }
 
     /**
      * route without encryption

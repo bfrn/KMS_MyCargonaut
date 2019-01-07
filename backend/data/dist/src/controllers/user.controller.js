@@ -66,18 +66,6 @@ class UserController {
         });
     }
     ;
-    checklogin(req, res) {
-        let response = true;
-        if (1 == 1) {
-            //console.log("checkLogin: "+ req.session.username);
-            res.json({
-                response
-            });
-        }
-        console.log("Fehler checklogin.");
-        res.redirect('/homepage');
-        res.json({});
-    }
     /**
      * route without encryption
      */

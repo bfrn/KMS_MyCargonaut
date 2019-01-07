@@ -5,6 +5,7 @@ import DriviningRequestController  = require('../controllers/drivingRequest.cont
 import BookingController = require('../controllers/booking.controller')
 
 const User = require('../models/user.model');
+let bcrypt = require('bcrypt');
 
 export class Routes {
   public routes(app): void {
@@ -13,12 +14,11 @@ export class Routes {
     let drivingRequestController: DriviningRequestController = new DriviningRequestController();
     let bookingController: BookingController = new BookingController();
 
+
       //user-routing
     app.route('/api/users')
       .get(userController.get_users);
-    app.route('api/users/checklogin')
-        .get(userController.checklogin);
-    app.route('/api/users/login')
+   app.route('/api/users/login')
       .post(userController.login);
     app.route('/api/users/register')
       .post(userController.create_user);

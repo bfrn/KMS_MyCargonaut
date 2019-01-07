@@ -18,15 +18,18 @@ class App {
     config() {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({
-            extended: false,
+            extended: true,
         }));
         this.app.use(cors());
         //--- session management -----------------------------------------------------
         this.app.use(session({
-            resave: true,
-            saveUninitialized: true,
+            resave: false,
+            saveUninitialized: false,
             rolling: true,
-            secret: "secret" // encrypt session-id in cookie using "secret"
+            secret: 'secret',
+            cookie: {
+                expires: 600000
+            }
         }));
     }
     mongoSetup() {

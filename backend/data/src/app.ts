@@ -1,6 +1,5 @@
 import * as express from 'express'
-import * as session from "express-session";
-import * as passport from "passport";
+import * as session from 'express-session'
 import * as bodyParser from 'body-parser'
 import { Routes } from './routes/main.route'
 import * as mongoose from 'mongoose'
@@ -20,17 +19,21 @@ class App{
     private config(): void {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({
-            extended: false,
+            extended: true,
         }));
         this.app.use(cors());
 
         //--- session management -----------------------------------------------------
         this.app.use(session({
-            resave: true,    // save session even if not modified
-            saveUninitialized: true,    // save session even if not used
+            resave: false,    // do not save session if not modified
+            saveUninitialized: false,    // do not save session if not used
             rolling: true,    // forces cookie set on every response
-            secret: "secret" // encrypt session-id in cookie using "secret"
+            secret: 'secret', // encrypt session-id in cookie using "secret"
+            cookie: {
+                expires: 600000
+            }
         }));
+
 
     }
     private mongoSetup(): void{

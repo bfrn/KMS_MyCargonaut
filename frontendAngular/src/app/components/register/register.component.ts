@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   public password: string = '';
   public firstName: string = '';
   public lastName: string = '';
-  public birthdate: Date;
+  public birthdate: string;
   // cellPhoneNumber: number;
   public img: string;
   public bio: string = '';

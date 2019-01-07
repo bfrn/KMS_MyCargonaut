@@ -5,6 +5,7 @@ const DrivingOfferController = require("../controllers/drivingOffer.controller")
 const DriviningRequestController = require("../controllers/drivingRequest.controller");
 const BookingController = require("../controllers/booking.controller");
 const User = require('../models/user.model');
+let bcrypt = require('bcrypt');
 class Routes {
     routes(app) {
         let userController = new UserController();
@@ -14,8 +15,6 @@ class Routes {
         //user-routing
         app.route('/api/users')
             .get(userController.get_users);
-        app.route('api/users/checklogin')
-            .get(userController.checklogin);
         app.route('/api/users/login')
             .post(userController.login);
         app.route('/api/users/register')
