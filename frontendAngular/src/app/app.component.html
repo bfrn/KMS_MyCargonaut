@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+<div id="navbar">
+  <nav class="navbar navbar-expand-lg default-color fixed-top">
+    <a class="navbar-brand" href="">
+      <img src="../assets/semi_androidMyCargonaut.svg" width=90 height=100 alt="" class="img-fluid">
+    </a>
+    <ul class="nav navbar-nav ml-auto float-right">
+      <li><a class="nav-link mr-3" href="/" ngbTooltip="Menü"><i class="fa fa-bars"></i></a></li>
+      <li><a class="nav-link mr-3" href="/user" ngbTooltip="Profilseite"><i class="fa fa-user"></i></a></li>
+      <li><a class="nav-link" href="/" ngbTooltip="Startseite"><i class="fa fa-home"></i></a></li>
+    </ul>
+  </nav>
+  <div id="background" class="w-100 h-100"></div>
+
+  <div class="footer-fix w-100 h-100 content">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
+    <alert></alert>
+    <router-outlet></router-outlet>
+    <app-messages></app-messages>
+  </div>
+</div>
+
+
+<!--<h1>{{title}}</h1>
+<nav>
+    <a routerLink="/users">Users</a>
+    <a routerLink="/dashboard">Dashboard</a>
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages>-->

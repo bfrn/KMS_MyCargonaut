@@ -1,0 +1,13 @@
+<div id="userDetail">
+<div *ngIf="user">
+    <h2>{{user.firstName}}'s Profil</h2>
+    <div><span>_id: </span>{{user._id}}</div>
+  <div><span>firstname: </span>{{user.firstName}}</div>
+  <div><span>lastname: </span>{{user.lastName}}</div>
+  <div><span>username: </span>{{user.username}}</div>
+  <div><span>password: </span>{{user.password}}</div>
+
+</div>
+<button (click)="goBack()" class="mr-2">Go back</button>
+  <button (click)="deleteUser()">Delete user</button>
+</div>

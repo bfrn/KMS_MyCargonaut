@@ -1,0 +1,97 @@
+<div id="welcome" class="container-fluid mt-sm-6">
+  <div class="row">
+    <div class="col default-color fontO">
+      <h3>Willkommen bei MyCargonaut</h3>
+      <h2>Trage hier bitte deine Kontaktdaten ein.</h2>
+    </div>
+  </div>
+</div>
+
+<div id="registerRight" class="container-fluid">
+  <div class="row mt-2">
+    <form>
+
+      <div class="form-row">
+        <div class="col-lg md-form default-color">
+          <input id="username" class="form-control form-control-sm " type="text" placeholder="Username" [(ngModel)]="username" name="username">
+        </div>
+        <div class="col-lg md-form default-color">
+          <input id="password" class="form-control form-control-sm ml-lg-4" type="password" placeholder="Password" [(ngModel)]="password" name="password">
+        </div>
+      </div>
+      <br>
+
+
+      <div class="form-row">
+        <div class="col-lg md-form default-color">
+          <input id="firstname" class="form-control form-control-sm " type="text" placeholder="Vorname" [(ngModel)]="firstName" name="firstName">
+        </div>
+        <div class="col-lg md-form default-color">
+          <input id="lastname" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Nachname" [(ngModel)]="lastName" name="lastName">
+        </div>
+      </div>
+      <br>
+
+      <div class="form-row">
+        <div class="col-lg md-form default-color">
+          <input id="street" class="form-control form-control-sm " type="text" placeholder="Straße" [(ngModel)]="street" name="street">
+        </div>
+        <div class="col-lg md-form default-color">
+          <input id="number" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Hausnummer" [(ngModel)]="houseNumber" name="houseNumber">
+        </div>
+      </div>
+      <br>
+
+      <div class="form-row">
+        <div class="col-lg md-form default-color">
+          <input id="city" class="form-control form-control-sm " type="text" placeholder="Stadt" [(ngModel)]="city" name="city">
+        </div>
+        <div class="col-lg md-form default-color">
+          <input id="zip" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Postleitzahl" [(ngModel)]="zip" name="zip">
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-lg form-sm default-color">
+          <input id="bio" class="form-control form-control-lg " type="text" placeholder="Erzähl der Community etwas über dich" [(ngModel)]="bio" name="bio">
+        </div>
+      </div>
+      <br>
+    </form>
+  </div>
+  <button id="registerBtn" class="btn default-color btn-md ml-lg-3" data-toggle="button" (click)="addUser()">Registrier dich!</button>
+  <br>
+</div>
+
+<div id="registerLeft" class="container-fluid">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input mr-lg-2" id="PKW">
+    <label class="custom-control-label" for="PKW">Besitzt du einen PKW?</label>
+  </div>
+
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="LKW">
+    <label class="custom-control-label" for="LKW">Vielleicht einen LKW?</label>
+  </div>
+
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="Transporter">
+    <label class="custom-control-label" for="Transporter">Oder einen Transporter?</label>
+  </div>
+
+  <form>
+    <div class="form-group mt-lg-5">
+      <label for="exampleFormControlFile1">Lade ein Profilbild hoch.</label>
+      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+  </form>
+
+  <mat-form-field class="mt-lg-4">
+    <input matInput [matDatepicker]="picker" placeholder="Geburtsdatum">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+
