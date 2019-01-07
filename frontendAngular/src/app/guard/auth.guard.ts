@@ -18,15 +18,13 @@ export class AuthGuard implements CanActivate {
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     const url = `${this.userURL}/checklogin`;
-    return this.http.get(url).toPromise().then((response) => {
-      if (response != true) {
+    return this.http.get<boolean>(url).toPromise().then((res) => {
+      if (res["response"] != null) {
+        return true;
+      }
         this.alertService.error("Bitte zuerst einloggen.", true);
         this.router.navigate(['/homepage']);
         return false;
-      }
-      else {
-        return true;
-      }
 
     }).catch((err) => {
       console.error("Authguard Error:"+ err);

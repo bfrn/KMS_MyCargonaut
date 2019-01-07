@@ -11,6 +11,9 @@ import {MatFormFieldModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatInputModule} from '@angular/material';
+import {MatRadioModule} from '@angular/material';
+import { MatSelectModule } from '@angular/material';
+
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -53,7 +56,9 @@ import { AuthGuard } from './guard/auth.guard';
     MatFormFieldModule,
     MatNativeDateModule,
     MatMomentDateModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [
     UserService,

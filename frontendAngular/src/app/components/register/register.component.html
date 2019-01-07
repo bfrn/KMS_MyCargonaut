@@ -13,10 +13,10 @@
 
       <div class="form-row">
         <div class="col-lg md-form default-color">
-          <input id="username" class="form-control form-control-sm " type="text" placeholder="Username" [(ngModel)]="username" name="username">
+          <input id="username" class="form-control form-control-sm " type="text" placeholder="Username" name="username" [(ngModel)]="username">
         </div>
         <div class="col-lg md-form default-color">
-          <input id="password" class="form-control form-control-sm ml-lg-4" type="password" placeholder="Password" [(ngModel)]="password" name="password">
+          <input id="password" class="form-control form-control-sm ml-lg-4" type="password" placeholder="Password" name="password" [(ngModel)]="password">
         </div>
       </div>
       <br>
@@ -24,37 +24,37 @@
 
       <div class="form-row">
         <div class="col-lg md-form default-color">
-          <input id="firstname" class="form-control form-control-sm " type="text" placeholder="Vorname" [(ngModel)]="firstName" name="firstName">
+          <input id="firstname" class="form-control form-control-sm " type="text" placeholder="Vorname" name="firstName" [(ngModel)]="firstName">
         </div>
         <div class="col-lg md-form default-color">
-          <input id="lastname" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Nachname" [(ngModel)]="lastName" name="lastName">
-        </div>
-      </div>
-      <br>
-
-      <div class="form-row">
-        <div class="col-lg md-form default-color">
-          <input id="street" class="form-control form-control-sm " type="text" placeholder="Straße" [(ngModel)]="street" name="street">
-        </div>
-        <div class="col-lg md-form default-color">
-          <input id="number" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Hausnummer" [(ngModel)]="houseNumber" name="houseNumber">
+          <input id="lastname" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Nachname" name="lastName" [(ngModel)]="lastName">
         </div>
       </div>
       <br>
 
       <div class="form-row">
         <div class="col-lg md-form default-color">
-          <input id="city" class="form-control form-control-sm " type="text" placeholder="Stadt" [(ngModel)]="city" name="city">
+          <input id="street" class="form-control form-control-sm " type="text" placeholder="Straße" name="street" [(ngModel)]="street">
         </div>
         <div class="col-lg md-form default-color">
-          <input id="zip" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Postleitzahl" [(ngModel)]="zip" name="zip">
+          <input id="number" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Hausnummer" name="houseNumber" [(ngModel)]="houseNumber">
+        </div>
+      </div>
+      <br>
+
+      <div class="form-row">
+        <div class="col-lg md-form default-color">
+          <input id="city" class="form-control form-control-sm " type="text" placeholder="Stadt" name="city" [(ngModel)]="city">
+        </div>
+        <div class="col-lg md-form default-color">
+          <input id="zip" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Postleitzahl" name="zip" [(ngModel)]="zip">
         </div>
       </div>
       <br>
 
       <div class="row">
         <div class="col-lg form-sm default-color">
-          <input id="bio" class="form-control form-control-lg " type="text" placeholder="Erzähl der Community etwas über dich" [(ngModel)]="bio" name="bio">
+          <input id="bio" class="form-control form-control-lg " type="text" placeholder="Erzähl der Community etwas über dich" name="bio" [(ngModel)]="bio">
         </div>
       </div>
       <br>
@@ -65,30 +65,38 @@
 </div>
 
 <div id="registerLeft" class="container-fluid">
-  <div class="custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input mr-lg-2" id="PKW">
-    <label class="custom-control-label" for="PKW">Besitzt du einen PKW?</label>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="pkw" name="pkw" [(ngModel)]="pkw">
+    <label class="form-check-label" for="pkw">Besitzt du einen PKW?</label>
   </div>
 
-  <div class="custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="LKW">
-    <label class="custom-control-label" for="LKW">Vielleicht einen LKW?</label>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="transporter" name="transporter" [(ngModel)]="transporter">
+    <label class="form-check-label" for="transporter">Einen Transporter?</label>
   </div>
 
-  <div class="custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="Transporter">
-    <label class="custom-control-label" for="Transporter">Oder einen Transporter?</label>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="lkw" [(ngModel)]="lkw">
+    <label class="form-check-label" for="lkw">Vielleicht einen LKW?</label>
   </div>
-
-  <form>
+<br>
+  <!--<form>
     <div class="form-group mt-lg-5">
       <label for="exampleFormControlFile1">Lade ein Profilbild hoch.</label>
       <input type="file" class="form-control-file" id="exampleFormControlFile1">
     </div>
-  </form>
+  </form>-->
+
+  <div class="form mt-2">
+    <input type="radio" id="radio1" value="girl" [(ngModel)]="radio1">
+    <label for="radio1"><img id="imgGirl" src={{imgGirl}} height="50px" width="100px"></label>
+    <input type="radio" id="radio2" value="boy" [(ngModel)]="radio2">
+    <label for="radio2"><img src={{imgBoy}} height="50px" width="150px"></label>
+  </div>
+  <br>
 
   <mat-form-field class="mt-lg-4">
-    <input matInput [matDatepicker]="picker" placeholder="Geburtsdatum">
+    <input matInput [matDatepicker]="picker" placeholder="Geburtsdatum" name="birthdate" [(ngModel)]="birthdate">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>

@@ -5,7 +5,6 @@
 const User = require('../models/user.model');
 let bcrypt = require('bcrypt');
 
-let sessionId: string;
 
 class UserController{
 
@@ -61,7 +60,7 @@ class UserController{
             console.log("Eingeloggt." + req.session.username);
             res.status(200);
             res.send(JSON.stringify(req.session.username));
-           // return req.session.username;
+            return (JSON.stringify(req.session.username));
             //res.send(JSON.stringify(sessionId));
             //return (sessionId);
 
@@ -73,15 +72,17 @@ class UserController{
             });
     };
 
-    checklogin (req, res) {
-        let response: boolean = false;
-        if (req.session.username) {
-            console.log("checkLogin: "+ req.session.username);
-            response = true;
-            return response;
+    checklogin (req, res): void {
+        let response: boolean = true;
+        if (1 == 1) {
+            //console.log("checkLogin: "+ req.session.username);
+            res.json({
+                response
+            });
         }
+        console.log("Fehler checklogin.");
         res.redirect('/homepage');
-        return response;
+        res.json({});
     }
 
     /**
@@ -122,34 +123,38 @@ class UserController{
         let BCRYPT_SALT_ROUNDS = 12;
         let password = req.body.password;
 
-        bcrypt.hash(password, BCRYPT_SALT_ROUNDS)
-            .then(function (hashedPassword) {
+            bcrypt.hash(password, BCRYPT_SALT_ROUNDS)
+                .then(function (hashedPassword) {
 
-                let user = new User({
-                    username: req.body.username,
-                    password: hashedPassword,
-                    firstName: req.body.firstName,
-                    lastName: req.body.lastName,
-                    //birthdate: req.body.birthdate,
-                    bio: req.body.bio,
-                    street: req.body.street,
-                    houseNumber: req.body.houseNumber,
-                    zip: req.body.zip,
-                    city: req.body.city
-                });
+                    let user = new User({
+                        username: req.body.username,
+                        password: hashedPassword,
+                        firstName: req.body.firstName,
+                        lastName: req.body.lastName,
+                        birthdate: req.body.birthdate,
+                        img: req.body.img,
+                        bio: req.body.bio,
+                        street: req.body.street,
+                        houseNumber: req.body.houseNumber,
+                        zip: req.body.zip,
+                        city: req.body.city,
+                        pkw: req.body.pkw,
+                        transporter: req.body.transporter,
+                        lkw: req.body.lkw,
+                    });
 
-                return user.save((err, user) => {
-                    if (err) {
-                        return next(err)
-                    }
-                    console.clear();
-                    console.log("User:\n" + JSON.stringify(user));
-                    res.status(200);
-                    //res.send({success: 'user successfully created'} )
-                    res.send(user);
+                    return user.save((err, user) => {
+                        if (err) {
+                            return next(err)
+                        }
+                        console.clear();
+                        console.log("User:\n" + JSON.stringify(user));
+                        res.status(200);
+                        //res.send({success: 'user successfully created'} )
+                        res.send(user);
+                    })
                 })
-            })
-    }
+        }
 
 
    get_user_by_id(req, res, next):void{

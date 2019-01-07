@@ -5,7 +5,6 @@
  */
 const User = require('../models/user.model');
 let bcrypt = require('bcrypt');
-let sessionId;
 class UserController {
     /**
      * login without encryption
@@ -56,7 +55,7 @@ class UserController {
             console.log("Eingeloggt." + req.session.username);
             res.status(200);
             res.send(JSON.stringify(req.session.username));
-            // return req.session.username;
+            return (JSON.stringify(req.session.username));
             //res.send(JSON.stringify(sessionId));
             //return (sessionId);
         }).catch(function (error) {
@@ -68,14 +67,16 @@ class UserController {
     }
     ;
     checklogin(req, res) {
-        let response = false;
-        if (req.session.username) {
-            console.log("checkLogin: " + req.session.username);
-            response = true;
-            return response;
+        let response = true;
+        if (1 == 1) {
+            //console.log("checkLogin: "+ req.session.username);
+            res.json({
+                response
+            });
         }
+        console.log("Fehler checklogin.");
         res.redirect('/homepage');
-        return response;
+        res.json({});
     }
     /**
      * route without encryption
@@ -120,12 +121,16 @@ class UserController {
                 password: hashedPassword,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
-                //birthdate: req.body.birthdate,
+                birthdate: req.body.birthdate,
+                img: req.body.img,
                 bio: req.body.bio,
                 street: req.body.street,
                 houseNumber: req.body.houseNumber,
                 zip: req.body.zip,
-                city: req.body.city
+                city: req.body.city,
+                pkw: req.body.pkw,
+                transporter: req.body.transporter,
+                lkw: req.body.lkw,
             });
             return user.save((err, user) => {
                 if (err) {
