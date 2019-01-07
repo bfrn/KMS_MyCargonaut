@@ -39,7 +39,9 @@ export class UserService {
     //this.log('UserService: added new user');
     console.log("User is being logged in.");
     const url = `${this.userURL}/login`;
-    return this.http.post(url, data);
+    return this.http.post(url, data,{
+      withCredentials: true  // <=========== important!
+    });
   }
 
     getUsers(): Observable<User[]>{

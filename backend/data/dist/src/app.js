@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const main_route_1 = require("./routes/main.route");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const MongoStore = require('connect-mongo')(session);
 class App {
     constructor() {
         this.router = new main_route_1.Routes();
@@ -13,20 +15,27 @@ class App {
         this.app = express();
         this.config();
         this.router.routes(this.app);
-        this.mongoSetup();
+        this.db = this.mongoSetup();
     }
     config() {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({
             extended: false,
         }));
-        this.app.use(cors());
+        this.app.use(cors({ origin: [
+                "http://localhost:4200"
+            ], credentials: true }));
+        this.app.use(cookieParser());
         //--- session management -----------------------------------------------------
         this.app.use(session({
+            maxAge: 1000 * 60 * 15,
+            httpOnly: true,
+            signed: false,
             resave: true,
-            saveUninitialized: true,
-            rolling: true,
-            secret: "secret" // encrypt session-id in cookie using "secret"
+            saveUninitialized: false,
+            //rolling: true,    // forces cookie set on every response
+            secret: "secret",
+            store: new MongoStore({ url: this.mongoURL })
         }));
     }
     mongoSetup() {
@@ -35,6 +44,7 @@ class App {
         mongoose.Promise = global.Promise;
         let db = mongoose.connection;
         db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+        return db;
     }
 }
 exports.default = new App().app;

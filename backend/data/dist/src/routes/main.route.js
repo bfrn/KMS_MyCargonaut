@@ -14,7 +14,7 @@ class Routes {
         //user-routing
         app.route('/api/users')
             .get(userController.get_users);
-        app.route('api/users/checklogin')
+        app.route('/api/users/checklogin')
             .get(userController.checklogin);
         app.route('/api/users/login')
             .post(userController.login);
@@ -37,6 +37,8 @@ class Routes {
             .post(bookingController.create_booking);
         app.route('/api/bookings/:bookingId')
             .get(bookingController.get_booking_by_id);
+        app.route('/api/setcookie')
+            .get(userController.setCookie);
     }
 }
 exports.Routes = Routes;

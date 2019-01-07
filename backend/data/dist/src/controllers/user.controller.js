@@ -4,6 +4,7 @@
  * defines the functions, which are used when route is /user
  */
 const User = require('../models/user.model');
+const Cookie = require('../models/cookie.model');
 let bcrypt = require('bcrypt');
 let sessionId;
 class UserController {
@@ -41,10 +42,8 @@ class UserController {
         let password = req.body.password;
         User.findOne({ 'username': req.body.username })
             .then(function (user) {
-            req.session.username = user.username;
-            console.log(req.session.username);
             return bcrypt.compare(password, user.password);
-        }).then(function (samePassword, user) {
+        }).then(function (samePassword) {
             if (!samePassword) {
                 res.status(403).send();
                 console.clear();
@@ -53,10 +52,12 @@ class UserController {
             //let user_obj = JSON.parse(JSON.stringify(user));
             //sessionId = req.session.id;
             //console.clear();
-            console.log("Eingeloggt." + req.session.username);
+            //console.log("Eingeloggt." + req.cookies);
+            req.session.username = req.body.username;
+            req.session.sessionID = req.session.id;
             res.status(200);
-            res.send(JSON.stringify(req.session.username));
-            // return req.session.username;
+            console.log("check in Login: " + req.session.sessionID);
+            res.send(JSON.stringify(req.session.username)); //JSON.stringify(req.cookies['session']));           // return req.session.username;
             //res.send(JSON.stringify(sessionId));
             //return (sessionId);
         }).catch(function (error) {
@@ -68,14 +69,13 @@ class UserController {
     }
     ;
     checklogin(req, res) {
-        let response = false;
-        if (req.session.username) {
-            console.log("checkLogin: " + req.session.username);
-            response = true;
-            return response;
+        console.log("Debug: SessionID Checklog=> " + req.session.sessionID);
+        if (!req.session.sessionID) {
+            res.send({ success: false });
         }
-        res.redirect('/homepage');
-        return response;
+        else {
+            res.send({ success: true });
+        }
     }
     /**
      * route without encryption
@@ -167,6 +167,13 @@ class UserController {
                 return next(err);
             res.send({ success: 'user successfully udpated' });
         });
+    }
+    setCookie(req, res) {
+        console.log(req.cookies);
+        // Set cookie var
+        req.session.name = "simon";
+        req.session.sessionID = req.session.id;
+        res.send('cookie set');
     }
 }
 module.exports = UserController;
