@@ -37,6 +37,49 @@ Das Mockup lässt sich interaktiv mit der [HTML-Seite](https://github.com/Bfrn/K
 
 ![screenshot_MockupApp](/images/Mobilemockup.png)
 
+## OWASP Top 10
+
+### Injection
+Da wir für die aktuell implementierten Routen ausschließlich Schemas von Mongoose verwenden, werden einfach Injection-Angriffe abgewehrt. Den die vom Angreifer gesendeten Queries, werden in die Datentyp des jeweiligen Feldes umgewandelt.
+
+Um dies zu überprüfen haben wir eine Anfrage aufgesetzt die ein Query enthält, das auf die auf die Daten des ersten gespeicherten Users zugreifen soll.
+![owasp_1_2](/images/OWASP_1_2.PNG)
+Jedoch schlägt diese Anfrage fehl, da ;Mongoose keinen User mit dem Namen `{$gt:""}` finden kann. Denn das vom Angreifer gesendete Query wird zunächst escaped und dann in einen String umgewandelt, da im Schema des Users die Attribute username und password als Strings definiert sind.
+
+![owasp_1_2](/images/OWASP_1_1.PNG)
+
+### Broken Authentication
+**TODO**
+### Sensitive Data Exposure
+Derzeitig verschlüsseln wir wichtige Daten, wie Passwörter mithilfe von Bcrypt innerhalb unserer Datenbank. Diese Methode ist relativ sicher, und sie beugt Brute-Force- und Dictionary-Attacken vor.
+
+Bei der Übertragung von Daten besteht derzeit noch eine starke Sicherheitslücke, da wir alle Daten mithilfe von Http in Klartext übertragen.
+
+### XML External Entities (XXE)
+Dieses Risiko stellt für unsere Applikation keine Gefahr da, denn wir verwenden in keiner Form das XML Datenformat oder das SOAP-Protokoll.
+
+### Broken Access Control
+**TODO**
+### Security Misconfiguration
+Bei den von uns verwendeten Frameworks, haben wir keine eigene Konfiguration der Sicherheitseinstellungen vorgenommen und wir filtern auch nicht die Error-Nachrichten, die wir an den Client senden. Jedoch enthält die Applikation keine vor angelegten Accounts und es werden nur die Ports verwendet, die auch wirklich benötigt werden.
+
+### Cross-Site Scripting (XSS)
+In unserer Applikation findet  durch Angular eine Vorbeugung von XSS statt. Denn das Framework betrachtet alle Daten, die in den DOM eingefügt werden als potenziell gefährlich und säubert bzw. escaped diese Werte. Jedoch werden sonst keine Maßnahmen von uns ergriffen um XSS vorzubeugen.
+
+### Insecure Deserialization
+Wir überprüfen derzeit nicht die Integrität der von uns verarbeiteten Usereingaben. Der User hat bei seinen Eingaben lediglich die Regeln für den MongoDB-Datentyp einzuhalten, welchen wir zuvor für das jeweilige Attribut festgelegt haben.
+
+### Using Components with Known Vulnerabilities
+Zum Stand des sechsten Januars 2019 wird durch die Verwendung des `@angualar-devkit/build-anuglar` Pakets eine Sicherheitsverletzung in unserer Software hervorgerufen.
+
+![owasp_9_1](/images/OWASP_9_1.PNG)
+
+Dieses Problem wird auch im folgendem [Git-Hub Issue](https://github.com/angular/angular-cli/issues/13342) diskutiert und es wurde bereits ein [Pull-Request](https://github.com/angular/angular-cli/pull/13347) gestellt, welcher dieses Problem mit dem Erscheinen des nächsten Patches für die angular-cli beheben sollte.
+
+Wir konnten ansonsten keine weiteren Sicherheitslücken bei den von uns verwendeten Softwarepaketen entdecken. Jedoch besteht immer noch die Möglichkeit, dass zukünftig entdeckte Sicherheitslücken, bei den von uns verwendeten Software-Dependencies, in unsere Applikation ausgenutzt werden. Denn wir verfügen aktuell über keine automatische Sicherheitsüberprüfungen unserer  Software-Dependencies.
+
+### Insufficient Logging & Monitoring
+Derzeit wird in unserer Applikation kein Logging statt, wie z.B. von Fehlern oder fehlgeschlagenen Logins. Daher besteht hier ein Risiko, wodurch sich Angreifer Zugang zu sensiblen Daten verschaffen könnte.
 
 ## Sprint_1
 Entwickelt wird im Sinne von Scrum. Das Ziel des 1. Sprints, welcher bis Donnerstag den 20.12 um 8 Uhr morgens läuft, ist die Umsetzung einer grundlegenden Projekt-Infrastruktur. Der Kunde soll die Möglichkeit haben, sich einen ersten Eindruck von der Applikation verschaffen zu können. Daher soll die Applikation zum einen visuell dem Mockup entsprechen und zum anderen folgende Funktionalität aufweisen:
