@@ -75,7 +75,7 @@ class UserController{
     };
 
     checklogin (req, res):void  {
-        console.log("Debug: SessionID Checklog=> "+ req.session.sessionID)
+        console.log("Debug: SessionID Checklog=> "+ req.session.sessionID);
         if (!req.session.sessionID) {
             res.send({success: false});
         }
@@ -185,7 +185,7 @@ class UserController{
       })
    }
    setCookie(req,res){
-        console.log(req.cookies)
+        console.log(req.cookies);
         // Set cookie var
         req.session.name = "simon";
         req.session.sessionID = req.session.id;

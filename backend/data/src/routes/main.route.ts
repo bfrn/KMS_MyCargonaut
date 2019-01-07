@@ -41,7 +41,7 @@ export class Routes {
     app.route('/api/bookings')
       .post(bookingController.create_booking);
     app.route('/api/bookings/:bookingId')
-      .get(bookingController.get_booking_by_id)     
+      .get(bookingController.get_booking_by_id);
 
     app.route('/api/setcookie')
       .get(userController.setCookie)
