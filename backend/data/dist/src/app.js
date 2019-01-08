@@ -28,10 +28,10 @@ class App {
         this.app.use(cookieParser());
         //--- session management -----------------------------------------------------
         this.app.use(session({
-            maxAge: 1000 * 60 * 15,
+            maxAge: 1000 * 60,
             httpOnly: true,
             signed: false,
-            resave: true,
+            resave: false,
             saveUninitialized: false,
             //rolling: true,    // forces cookie set on every response
             secret: "secret",

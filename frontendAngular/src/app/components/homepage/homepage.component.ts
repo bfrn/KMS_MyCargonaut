@@ -30,20 +30,24 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {}
 
-  loggedIn: boolean = false;
 
   login(): void {
     let data: Object = {username: this.username, password: this.password};
     this.userService.login(data).subscribe(
       (data) => {
+        data = JSON.parse(JSON.stringify(data));
         console.log("User was logged in successfully: " + data);
         this.alertService.success("Eingeloggt.", true);
-        //this.router.navigate(['/dashboard']); //muss angepasst werden
+        //this.router.navigate(['/profile']); //muss angepasst werden
 
       },
       (error) => {
         console.log("Error logging in the user:");
         this.alertService.error("Fehler beim Einloggen.", error)
     })
+  }
+
+  logout() {
+    this.userService.logout();
   }
 }

@@ -37,11 +37,18 @@ class UserController {
      * the given password is being hashed, the stored password is being restored to its former hash using
      * the original salt (which was stored together with the password in the db)
      * if the passwords match the user is being authenticated correctly
+     *
+     * returns the user
      */
     login(req, res, next) {
         let password = req.body.password;
         User.findOne({ 'username': req.body.username })
             .then(function (user) {
+            let userId = user._id;
+            req.session.sessionID = req.session.id;
+            req.session.username = req.body.username;
+            console.log(req.session.username + ", Session id: " + req.session.sessionID);
+            res.send(JSON.stringify(user));
             return bcrypt.compare(password, user.password);
         }).then(function (samePassword) {
             if (!samePassword) {
@@ -57,8 +64,8 @@ class UserController {
             req.session.username = req.body.username;
             req.session.sessionID = req.session.id;
             res.status(200);
-            console.log("check in Login: " + req.session.sessionID);
-            res.send(JSON.stringify(req.session.username)); //JSON.stringify(req.cookies['session']));           // return req.session.username;
+            console.log("Login, check: " + req.session.username);
+            //res.send(JSON.stringify(req.session.username), );//JSON.stringify(req.cookies['session']));           // return req.session.username;
         }).catch(function (error) {
             console.clear();
             console.log("Error authenticating user: ");
@@ -68,7 +75,7 @@ class UserController {
     }
     ;
     checkAdmin(req, res) {
-        console.log("Debug: SessionID Checklog=> " + req.session.username);
+        console.log("Debug: Session Username Checklog=> " + req.session.username);
         if (req.session.username == "admin") {
             console.log("Admin logged in");
             res.send({ success: true });
@@ -161,6 +168,16 @@ class UserController {
             res.send(user);
         });
     }
+    get_user_Profile(req, res) {
+        User.findOne({ 'username': req.session.username }, (err, user) => {
+            if (err) {
+                res.send();
+                console.log("No user found");
+            }
+            res.send(user);
+            console.log("User found" + user);
+        });
+    }
     get_users(req, res, next) {
         User.find({}, (err, user) => {
             if (err)
@@ -189,6 +206,16 @@ class UserController {
         req.session.name = "simon";
         req.session.sessionID = req.session.id;
         res.send('cookie set');
+    }
+    logout(req, res) {
+        req.session.sessionID = null;
+        req.session.username = null;
+        res.send({ success: true });
+        console.log("Logged out correctly");
+        if (req.session.sessionID = null) {
+            res.clearCookie();
+            res.send();
+        }
     }
 }
 module.exports = UserController;
