@@ -241,33 +241,38 @@
       </div>
     </div>
 
+      <div class="col-3 mt-4"><span>Diese Fahrzeuge besitzt du:</span>
+        <div class="form-check mt-2" *ngIf="user.pkw != 'false'">
+          <input type="radio" class="form-check-input" id="pkw" name="materialExampleRadios">
+          <label class="form-check-label" for="pkw">PKW</label>
+        </div>
+        <div class="form-check mt-2" *ngIf="user.transporter != 'false'">
+          <input type="radio" class="form-check-input" id="transporter" name="materialExampleRadios">
+          <label class="form-check-label" for="transporter">Transporter</label>
+        </div>
+        <div class="form-check mt-2" *ngIf="user.lkw != 'false'">
+          <input type="radio" class="form-check-input" id="lkw" name="materialExampleRadios">
+          <label class="form-check-label" for="lkw">LKW</label>
+        </div>
+        <button id="deleteCarBtn" class="btn default-color btn-link btn-sm mt-5" style="color:gray" ng-click="deleteUser(user)">
+          Auswahl löschen</button>
+      </div>
 
-      <div id="cars" class="col-4 mr-2">
-        <div id="checkbox" class="form-row">
-          <div class="md-form default-color">
-              <div class="custom-control custom-checkbox">
-                <label class="container">PKW
-                  <input type="checkbox" id="PKW" [(ngModel)]="user.pkw">
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <label class="container">LKW
-                  <input type="checkbox" id="LKW" [(ngModel)]="user.lkw">
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <label class="container">Transporter
-                  <input type="checkbox" id="Transporter" [(ngModel)]="user.transporter">
-                  <span class="checkmark"></span>
-                </label>
-              </div>
-            <br>
-            <br>
-          </div>
+      <div class="col-3 mt-4"><span>Weitere Fahrzeuge hinzufügen:</span>
+        <div class="form-check mt-2">
+          <input type="checkbox" class="form-check-input" id="pkwNew" name="materialExampleRadios">
+          <label class="form-check-label" for="pkwNew">PKW</label>
+        </div>
+        <div class="form-check mt-2">
+          <input type="checkbox" class="form-check-input" id="transporterNew" name="materialExampleRadios">
+          <label class="form-check-label" for="transporterNew">Transporter</label>
+        </div>
+        <div class="form-check mt-2">
+          <input type="checkbox" class="form-check-input" id="lkwNew" name="materialExampleRadios">
+          <label class="form-check-label" for="lkwNew">LKW</label>
         </div>
       </div>
+
     </div>
   <div class="row">
     <div id="buttons" class="col-2 mt-4 btn-group">
