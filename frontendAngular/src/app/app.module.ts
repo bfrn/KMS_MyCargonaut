@@ -77,7 +77,8 @@ import { ProfilepageComponent } from './components/profilepage/profilepage.compo
     AppComponent,
     HomepageComponent,
     DrivingOffersComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfilepageComponent
   ],
 })
 export class AppModule { }

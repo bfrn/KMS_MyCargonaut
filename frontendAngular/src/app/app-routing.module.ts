@@ -13,12 +13,12 @@ import { AdminGuard } from './guard/admin.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full'},
   { path: 'users', component: UsersComponent},
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AdminGuard]},
   { path: 'detail/:id', component: UserDetailComponent, canActivate: [AdminGuard]},
   { path: 'homepage', component: HomepageComponent},
   { path: 'drivingOffers', component: DrivingOffersComponent, canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent},
-  { path: 'profile', component: ProfilepageComponent},
+  { path: 'profile', component: ProfilepageComponent, canActivate: [AuthGuard] },
 
 ];
 @NgModule({

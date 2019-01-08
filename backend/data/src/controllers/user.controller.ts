@@ -99,8 +99,9 @@ class UserController{
        }
    }
 
-    checklogin (req, res): void  {
+    checklogin (req, res, user): void  {
         console.log("Debug: SessionID Checklog=> "+ req.session.sessionID);
+        console.log("Session User Id " + req.session.username);
         if (!req.session.sessionID) {
             res.send({success: false});
         }
@@ -231,15 +232,15 @@ class UserController{
    }
 
     logout(req, res) {
-        req.session.sessionID = null;
-        req.session.username = null;
-        res.send({success: true});
-        console.log("Logged out correctly");
+        User.findByIdAndDelete(req.session.id, (err) => {
+            if (err) {
+                console.log("Logout not possible. " + err);
+            } else {
+                console.log("Logged out successfully.");
+                res.clearCookie();
+                res.send({success: true});
+            }
+        })
+}}
 
-        if (req.session.sessionID = null) {
-            res.clearCookie();
-            res.send();
-        }
-    }
-}
-export = UserController 
+export = UserController

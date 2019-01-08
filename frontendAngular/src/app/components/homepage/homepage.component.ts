@@ -48,6 +48,18 @@ export class HomepageComponent implements OnInit {
   }
 
   logout() {
-    this.userService.logout();
+    return this.userService.logout().toPromise().then((response) => {
+      response = JSON.parse(JSON.stringify(response)).success;
+      console.log("Response" + response);
+      if (response == true) {
+        this.alertService.success("Erfolgreich ausgeloggt.", true);
+        this.router.navigate(['/homepage']);
+        return true;
+      }}).catch((err) => {
+      console.error("Logout Error:" + err);
+      this.alertService.error("Logout konnte nicht erfolgreich durchgeführt werden.", true);
+      this.router.navigate(['/homepage']);
+      return false;
+    });
   }
 }

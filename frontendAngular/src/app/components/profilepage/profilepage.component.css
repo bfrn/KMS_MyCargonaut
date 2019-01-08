@@ -97,6 +97,12 @@
   color: #0062cc;
 }*/
 
+#welcome {
+  position: fixed;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
 
 .default-color {
   color: #2BBBAD;
@@ -106,17 +112,16 @@
   background-color: #2BBBAD;
 }
 
+#buttons {
+  margin-top: 10%;
+  margin-left: 75%;
+}
+
 .fontO {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 700;
 }
-#name {
-  border-bottom: 2px;
-}
-#bio{
-  border: #607D8B;
-  border: 3px;
-}
+
 #profilname {
   position: fixed;
   margin-top: 5%;
@@ -124,20 +129,44 @@
   color: #2BBBAD;
   width: 40%
 }
-#profildaten {
+#input {
   position: fixed;
-  margin-top: 10%;
-  margin-left: 35%;
-  color: #2BBBAD;
-  width: 40%
+  margin-top: 20%;
+  margin-left: 25%;
+  width: 25%;
+  float : left;
+}
+#profildatenright {
+  position: fixed;
+  margin-top: 2%;
+  margin-left: 25%;
+  width: 25%;
+  float : left;
+}
+#profildatenleft {
+  position: fixed;
+  margin-top: 2%;
+  margin-right: 25%;
+  width: 25%;
+  float: right;
+}
+
+#deleteBtn {
+  margin-left: -15%;
+  float: left;
+}
+#editBtn {
+  margin-right: 5%;
+  float: right;
 }
 
 
-#buttons {
+#checkbox {
   position: fixed;
-  margin-right: 15%;
-  float: right;
-
+  margin-top: 10%;
+  margin-left: 10%;
+  color: #2BBBAD;
+  width: 40%
 }
 .container {
   display: block;
@@ -205,4 +234,3 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-

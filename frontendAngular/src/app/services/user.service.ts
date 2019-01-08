@@ -41,7 +41,6 @@ export class UserService {
 
   /** login function that passes the username and password within a data object to the login route */
     login(data: any) {
-
     //this.log('UserService: added new user');
     console.log("User is being logged in.");
     const url = `${this.userURL}/login`;
@@ -54,19 +53,7 @@ export class UserService {
       const url = `${this.userURL}/logout`;
       return this.http.get(url, {
         withCredentials: true  // <=========== important!
-  }).toPromise().then((response) => {
-        response = JSON.parse(JSON.stringify(response)).success;
-        console.log("Response" + response);
-        if (response == true) {
-          this.alertService.success("Erfolgreich ausgeloggt.", true);
-          this.router.navigate(['/homepage']);
-          return true;
-      }}).catch((err) => {
-        console.error("Logout Error:" + err);
-        this.alertService.error("Logout konnte nicht erfolgreich durchgeführt werden.", true);
-        this.router.navigate(['/homepage']);
-        return false;
-      });
+  });
   }
 
     getUsers(): Observable<User[]>{
