@@ -81,6 +81,54 @@ Wir konnten ansonsten keine weiteren Sicherheitslücken bei den von uns verwende
 ### Insufficient Logging & Monitoring
 Derzeit wird in unserer Applikation kein Logging statt, wie z.B. von Fehlern oder fehlgeschlagenen Logins. Daher besteht hier ein Risiko, wodurch sich Angreifer Zugang zu sensiblen Daten verschaffen könnte.
 
+## Beispiel für ein Code-Refactoring  
+Im Rahmen eines Code-Smells wurden die bisher implementierten Models überprüft, die die 
+Klassen aus dem Klassendiagramm abbilden. Beim überprüfen des Driving-Request Models ist aufgefallen, dass es keine eigenen Attribute besitzt und lediglich die Attribute vom Drive Model erbt. 
+``` typescript
+Drive.discriminator('DrivingRequest',new Schema ({
+
+}));
+```
+Daher wurde überprüft ob das Model überhaupt noch vonnöten ist, jedoch ist dabei schnell eine Unstimmigkeit im API-Design entdeckt worden. Denn sowohl das Model Driving-Request als auch das Model Driving-Offer erben vom Drive Model das Attribut bookings, ein Array aus Object_IDs welches die Assoziation zu mehreren Buchungen darstellt.
+```typescript
+const drive = mongoose.model('Drive', new Schema({
+   date: {type: Date, required: true},
+   origin: {type: String, required: true},//startort
+   destination: {type: String, required:true},//zielort
+   restrictions: {type: [String], required: true},
+   preferences: {type: [String],required: true},//hinweise
+   price: {type: String,required: true},
+   hasFixedPrice: {type: Boolean,required: true},
+   cargoWeightInKg: {type: Number,required: true},
+   loadingSpaceDimensions:  {type: [Number],required:true},
+   personCnt: {type: Number, required: true},
+   owner: { type: Schema.Types.ObjectId, ref: 'User' ,required: false},
+   bookings: {type:[{ type: Schema.Types.ObjectId, ref: 'Booking' }],required: false },
+}, baseOptions));  
+```
+Bei den Driving-Offers macht dies auch durchaus Sinn, da es Usern möglich ist nur einen Teil des verfügbaren Frachtraums bzw. einen Teil der verfügbaren Plätze zu buchen. Jedoch ist dies bei den Driving-Requests nicht sinnvoll, da diese immer nur einer Buchung zugeordnet werden sollte. Denn eine Fracht kann nicht von zwei Fahrzeugen parallel transportiert werden. Daher wurde zunächst die Assoziation innerhalb des UML-Klassendiagramms abgeändert, sodass ein Fahrtgesuch nur noch eine Buchung kennt.
+![refactor_uml_1](/images/refactor_uml_1.PNG)
+Danach wurde diese Änderung in den Code übertragen, indem das Attribut bookings aus dem Model Drive entfernt wurde und im Model Driving-Offer eingefügt. 
+
+```typescript
+Drive.discriminator('DrivingOffer',new Schema ({
+    stops: {type: [String], required: true},
+    currLocation: {type: String, required: false},
+    bookings: {type:[{ type: Schema.Types.ObjectId, ref: 'Booking' }],required: false },
+}));
+```
+
+Weiterhin wurde das Attribut booking in das Model Driving-Request eingefügt, was dazu dient eine Object_Id für ein Booking zu speichern.
+
+```typescript
+Drive.discriminator('DrivingRequest',new Schema ({
+    booking: { type: Schema.Types.ObjectId, ref: 'Booking' ,required: false},
+}));
+```
+
+Diese Änderungen wurden mithilfe des schon bereits vorhandenen Unit-Tests `api_booking_test.ts` verifiziert, welcher eine Buchung erstellt und überprüft ob die Assoziationen zwischen Buchung, Fahrtgesuch und Fahrtangebot übereinstimmen. Somit hat der Code-Smell und das anschließende Refactoring ermöglicht einen tieferen Logikfehler im Design der Applikation aufzudecken und zu beheben.
+
+
 ## Sprint_1
 Entwickelt wird im Sinne von Scrum. Das Ziel des 1. Sprints, welcher bis Donnerstag den 20.12 um 8 Uhr morgens läuft, ist die Umsetzung einer grundlegenden Projekt-Infrastruktur. Der Kunde soll die Möglichkeit haben, sich einen ersten Eindruck von der Applikation verschaffen zu können. Daher soll die Applikation zum einen visuell dem Mockup entsprechen und zum anderen folgende Funktionalität aufweisen:
 - der User soll sich registrieren können und auf der Website einloggen können
