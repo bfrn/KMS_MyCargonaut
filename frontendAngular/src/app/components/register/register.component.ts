@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   public password: string = '';
   public firstName: string = '';
   public lastName: string = '';
-  public birthdate: string;
+  public birthdate: string = '';
   // cellPhoneNumber: number;
   public img: string;
   public bio: string = '';
@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
       this.password,
       this.firstName,
       this.lastName,
-      this.birthdate.toString(),
+      this.birthdate,
       this.img,
       this.bio,
       this.street,

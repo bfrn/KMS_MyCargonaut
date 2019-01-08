@@ -6,7 +6,7 @@ export class User {
   password: string;
   firstName: string;
   lastName: string;
-  birthdate: Date;
+  birthdate: string;
   // cellPhoneNumber: number;
  img: string;
   bio: string;
@@ -20,7 +20,7 @@ export class User {
   // drivingOffers: DrivingOffers;
   loggedIn: boolean = false;
 
-  constructor(username?: string, password?: string, firstName?: string, lastName?: string, birthdate?: Date, img?: string, bio?: string, street?: string,
+  constructor(username?: string, password?: string, firstName?: string, lastName?: string, birthdate?: string, img?: string, bio?: string, street?: string,
               houseNumber?: number, zip?: number, city?: string, pkw?: string, transporter?: string, lkw?: string, loggedIn?: boolean) {
   //  this._id = _id;
    this.username = username;

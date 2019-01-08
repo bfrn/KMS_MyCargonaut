@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../classes/user';
 import { UserService} from '../../services/user.service';
 import { AlertService} from '../../services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,9 @@ export class DashboardComponent implements OnInit {
 
   admin: boolean = false;
 
-  constructor(private userService: UserService, private alertService: AlertService) { }
+  constructor(private userService: UserService,
+              private alertService: AlertService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getUsers();

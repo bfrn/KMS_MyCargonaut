@@ -1,4 +1,3 @@
-
 <div id="user">
 <h3>Liste aller user</h3>
 <div class="grid grid-pad">
@@ -10,3 +9,65 @@
   </a>
 </div>
 </div>
+
+<!--<div class="grid grid-pad">
+  <a *ngFor="let user of users" class="col-1-4">
+    <!-- routerLink="/detail/{{user._id}}"> -->
+   <!--<div class ="module user">
+      <h4>{{user.firstName}}</h4>
+    </div>
+  </a>
+</div>
+<div id="usertable" class="container-fluid">
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>
+        <input type="text" class="form-control" ng-model="search.userid" placeholder="Filter by id" />
+      </th>
+      <th></th>
+    </tr>
+    <tr>
+      <th ng-click="setSort('userid')">User Id<span class="pull-right arrow-up" ng-show="sort==='userid' && reverse"></span>
+        <span class="pull-right arrow-down" ng-show="sort==='firstName' && !reverse"></span>
+      </th>
+      <th ng-click="setSort('firstName')">First Name<span class="pull-right arrow-up" ng-show="sort==='firstName' && reverse"></span>
+        <span class="pull-right arrow-down" ng-show="sort==='firstName' && !reverse"></span>
+      </th>
+      <th ng-click="setSort('lastName')">Last Name<span class="pull-right arrow-up" ng-show="sort === 'lastName' && reverse"></span>
+        <span class="pull-right arrow-down" ng-show="sort === 'lastName' && !reverse"></span>
+      </th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in users | filter:search | orderBy:sort:reverse | startFrom:currentPage*selectedPageSize | limitTo:selectedPageSize track by $index">
+      <td ng-click="editUser(user)">
+        <span ng-hide="user.editMode">{{user.userId}}</span>
+        <input type="text" name="firstName" ng-show="user.editMode" class="form-control" ng-model="user.userId" placeholder="User Id" required="" />
+      </td>
+      <td ng-click="editUser(user)">
+        <span ng-hide="user.editMode">{{user.firstName}}</span>
+        <input type="text" name="firstName" ng-show="user.editMode" class="form-control" ng-model="user.firstName" placeholder="First Name" required="" />
+      </td>
+      <td ng-click="editUser(user)">
+        <span ng-hide="user.editMode">{{user.lastName}}</span>
+        <input type="text" ng-show="user.editMode" name="lastName" class="form-control" ng-model="user.lastName" placeholder="Last Name" required="" />
+      </td>
+      <td>
+        <a href="" ng-hide="user.editMode" ng-click="editUser(user)">Edit</a>
+        <br>
+        <a href="" ng-hide="user.editMode" ng-click="delete(user,$index)">Delete</a>
+        <br>
+        <a href="" ng-show="user.editMode" ng-click="saveUser(user,$index)">Update</a>
+        <br>
+        <a href="" ng-show="user.editMode" ng-click="cancel(user)">Cancel</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div id = "BtnLeft" class="container-fluid">
+    <button id="getalluserBtn" class="btn btn-success" data-toggle="button" (click)="getUsers()">Get all users</button>
+    <button id="deletealluserBtn" class="btn btn-danger" data-toggle="button" (click)="deleteUsers">delete all users</button>
+  </div>
+</div>-->

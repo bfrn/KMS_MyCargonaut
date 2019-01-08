@@ -53,18 +53,19 @@ class UserController{
                 console.clear();
                 console.log("Password didn't match.");
             }
-            //let user_obj = JSON.parse(JSON.stringify(user));
-            //sessionId = req.session.id;
-            //console.clear();
-            //console.log("Eingeloggt." + req.cookies);
+
+            /*if(req.body.username == "admin") {
+                console.log("Admin logged in");
+                let response: string = "true";
+                res.send(response);
+            }*/
             req.session.username = req.body.username;
             req.session.sessionID = req.session.id;
             res.status(200);
             console.log("check in Login: "+ req.session.sessionID);
 
             res.send(JSON.stringify(req.session.username));//JSON.stringify(req.cookies['session']));           // return req.session.username;
-            //res.send(JSON.stringify(sessionId));
-            //return (sessionId);
+
 
         }).catch(function(error){
             console.clear();
@@ -74,13 +75,26 @@ class UserController{
             });
     };
 
-    checklogin (req, res):void  {
+   checkAdmin (req, res): void {
+       console.log("Debug: SessionID Checklog=> "+ req.session.username);
+       if (req.session.username == "admin") {
+           console.log("Admin logged in");
+           res.send({success: true});
+       }
+       else {
+           console.log("Admin not logged in");
+           res.send({success: false});
+       }
+   }
+
+    checklogin (req, res): void  {
         console.log("Debug: SessionID Checklog=> "+ req.session.sessionID);
         if (!req.session.sessionID) {
             res.send({success: false});
         }
-        else{
+        else {
             res.send({success: true});
+            console.log("Eingeloggt: " + req.session.username);
         }
     }
 
