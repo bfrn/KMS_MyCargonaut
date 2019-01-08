@@ -36,7 +36,7 @@ class BookingController {
                             res.status(500);
                             return next(err);
                         }
-                        drivingRequest.bookings.push(booking._id);
+                        drivingRequest.booking = booking._id;
                         drivingRequest.save((err) => {
                             if (err) {
                                 res.status(500);

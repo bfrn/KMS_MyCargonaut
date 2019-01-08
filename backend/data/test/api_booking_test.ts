@@ -98,27 +98,22 @@ describe('create booking test', () => {
 
         })
         .end((err, res) => {
-            //console.log(res.body)
             expect(res).to.have.status(200);
             expect(res.body.costs).to.be.eql('25.90');
             expect(res.body.drivingRequest).to.be.eql(testDrivingRequest.id);
             expect(res.body.drivingOffer).to.be.eql(testDrivingOffer.id);
             User.findByIdAndDelete(testUser1.id,(err, user) =>{
                 if (err) return err;
-                //console.log(user)
             });
             User.findByIdAndDelete(testUser2.id,(err, user) =>{
                 if (err) return err;
-                //console.log(user)
             });
             DrivingRequest.findByIdAndDelete(testDrivingRequest.id,(err, drivingRequest) =>{
                 if (err) return err;
-                //console.log(drivingRequest)
-                expect(res.body._id).to.be.eql(drivingRequest.bookings[0].toString())
+                expect(res.body._id).to.be.eql(drivingRequest.booking.toString())
             });
             DrivingOffer.findByIdAndDelete(testDrivingOffer.id, (err, drivingOffer) =>{
                 if (err) return err;
-                //console.log(drivingOffer)
                 expect(res.body._id).to.be.eql(drivingOffer.bookings[0].toString())
             });
             done()

@@ -17,7 +17,6 @@ const drive = mongoose.model('Drive', new Schema({
     loadingSpaceDimensions: { type: [Number], required: true },
     personCnt: { type: Number, required: true },
     owner: { type: Schema.Types.ObjectId, ref: 'User', required: false },
-    bookings: { type: [{ type: Schema.Types.ObjectId, ref: 'Booking' }], required: false },
 }, baseOptions));
 module.exports = mongoose.model('Drive');
 //# sourceMappingURL=drive.model.js.map
