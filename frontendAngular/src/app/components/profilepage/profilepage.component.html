@@ -1,0 +1,183 @@
+<!--<div id="content">
+<div class="container emp-profile">
+  <form method="post">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile-img">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="profile picture" type="rounded"/>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="profile-head" >
+          <input id="username" class="form-control form-control-sm " type="text" placeholder="Username" name="username">
+          <input class="mt-lg-2 form-control form-control-sm" type="text" placeholder="Bio" style="outline-color: #2BBBAD">
+
+        </div>
+      </div>
+      <div class="col-md-2">
+        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="profile-work pt-5 pl-7">
+          <input class="form-control form-control-sm" value="27 Jahre alt">
+        </div>
+      </div>
+    </div>
+      <div class="col-md-12">
+        <div class="tab-content profile-tab ml-8" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="row">
+              <div class="col-md-6">
+                <label>User Id</label>
+              </div>
+              <div class="col-md-6">
+                <p>Kshiti123</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Name</label>
+              </div>
+              <div class="col-md-6">
+                <p>Kshiti Ghelani</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Email</label>
+              </div>
+              <div class="col-md-6">
+                <p>kshitighelani@gmail.com</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Phone</label>
+              </div>
+              <div class="col-md-6">
+                <p>123 456 7890</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Profession</label>
+              </div>
+              <div class="col-md-6">
+                <p>Web Developer and Designer</p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="row">
+              <div class="col-md-6">
+                <label>Experience</label>
+              </div>
+              <div class="col-md-6">
+                <p>Expert</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Hourly Rate</label>
+              </div>
+              <div class="col-md-6">
+                <p>10$/hr</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Total Projects</label>
+              </div>
+              <div class="col-md-6">
+                <p>230</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>English Level</label>
+              </div>
+              <div class="col-md-6">
+                <p>Expert</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Availability</label>
+              </div>
+              <div class="col-md-6">
+                <p>6 months</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label>Your Bio</label><br/>
+                <p>Your detail description</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </form>
+</div>
+</div>-->
+<div *ngIf="user">
+<div id="profilname" class="container">
+  <form class="form-inline>">
+    <img src="{{user.img}}" class="img-responsive" style="width:10%" alt="Image">
+    <div id ="name" class="input-group-text col-lg-12">Name:  {{user.firstName}} , {{user.lastName}}</div>
+  </form>
+  <div id="bio" class="input-group-text col-lg-12">Bio:  {{user.bio}}</div>
+</div>
+
+<div id="profildaten" class="container">
+  <form class = form-inline>
+      <span>{{user.street}}{{user.houseNumber}}
+        <input type="text" name="street" class="form-control" placeholder="street" />
+        <input type="text" name="houseNumber" class="form-control" placeholder="houseNumber" />
+      </span>
+    <span >{{user.zip}}{{user.city}}<span></span>
+        <input type="text" name="zip" class="form-control" placeholder="zip" required="" />
+        <input type="text" name="city" class="form-control" laceholder="City" required="" />
+      </span>
+  </form>
+  <form class = form-inline>
+      <span >{{user.cellphonenumber}}<span class="pull-right arrow-up" ng-show="cellphonenumber"></span>
+        <input type="text" name="phonenumber" ng-show="user.editMode" class="form-control" ng-model="user.phonenumber" placeholder="Phone" required="" />
+      </span>
+    <span >{{user.email}}<span class="pull-right arrow-up" ng-show="email"></span>
+        <input type="text" name="email" ng-show="user.editMode" class="form-control" ng-model="user.email" placeholder="Email" required="" />
+    </span>
+  </form>
+  <form class="form-inline">
+    <div class="custom-control custom-checkbox">
+      <label class="container">PKW
+        <input type="checkbox" checked="checked" id="PKW">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="custom-control custom-checkbox">
+      <label class="container">LKW
+        <input type="checkbox" checked="checked" id="LKW">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="custom-control custom-checkbox">
+      <label class="container">Transporter
+        <input type="checkbox" checked="checked" id="Transporter">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </form>
+  <div id = "buttons" class = "container">
+    <button id="editBtn" class="btn default-color btn-md ml-lg-3"  (click)="logout()">Logout</button>
+    <br>
+    <button id="saveBtn" class="btn btn-outline-success"  ng-show="user.editMode" ng-click="saveUser(user,$index)">Update</button>
+    <br>
+    <button id="canceltBtn" class="btn btn-outline-danger"  ng-show="user.editMode" ng-click="cancel(user)">Cancel</button>
+    <br>
+  </div>
+
+</div>
+</div>
