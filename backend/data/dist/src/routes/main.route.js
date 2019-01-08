@@ -18,6 +18,8 @@ class Routes {
             .get(userController.checklogin);
         app.route('/api/users/login')
             .post(userController.login);
+        app.route('/api/users/logout')
+            .post(userController.logout);
         app.route('/api/users/register')
             .post(userController.create_user);
         app.route('/api/users/:userId')

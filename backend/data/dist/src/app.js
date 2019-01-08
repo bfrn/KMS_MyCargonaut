@@ -29,7 +29,7 @@ class App {
         //--- session management -----------------------------------------------------
         this.app.use(session({
             maxAge: 1000 * 60 * 15,
-            httpOnly: true,
+            httpOnly: false,
             signed: false,
             resave: true,
             saveUninitialized: false,

@@ -77,6 +77,17 @@ class UserController {
             res.send({ success: true });
         }
     }
+    ;
+    logout(req, res, next) {
+        console.log("Debug: SessionID LOGOUT Checklog=> " + req.session.sessionID);
+        if (!req.session.sessionID) {
+            res.send({ success: false });
+        }
+        else {
+            req.session.destroy();
+            res.send({ success: true });
+        }
+    }
     /**
      * route without encryption
      */

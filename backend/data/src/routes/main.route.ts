@@ -16,10 +16,16 @@ export class Routes {
       //user-routing
     app.route('/api/users')
       .get(userController.get_users);
+
     app.route('/api/users/checklogin')
-        .get(userController.checklogin);
+      .get(userController.checklogin);
+
     app.route('/api/users/login')
       .post(userController.login);
+
+    app.route('/api/users/logout')
+      .post(userController.logout);
+
     app.route('/api/users/register')
       .post(userController.create_user);
       
