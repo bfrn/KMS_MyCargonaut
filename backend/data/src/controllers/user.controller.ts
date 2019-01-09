@@ -9,7 +9,7 @@ let bcrypt = require('bcrypt');
 let sessionId: string;
 
 class UserController{
-    
+
 
     /**
      * login without encryption
@@ -53,18 +53,19 @@ class UserController{
                 console.clear();
                 console.log("Password didn't match.");
             }
-            //let user_obj = JSON.parse(JSON.stringify(user));
-            //sessionId = req.session.id;
-            //console.clear();
-            //console.log("Eingeloggt." + req.cookies);
+
+            /*if(req.body.username == "admin") {
+                console.log("Admin logged in");
+                let response: string = "true";
+                res.send(response);
+            }*/
             req.session.username = req.body.username;
             req.session.sessionID = req.session.id;
             res.status(200);
             console.log("check in Login: "+ req.session.sessionID);
 
             res.send(JSON.stringify(req.session.username));//JSON.stringify(req.cookies['session']));           // return req.session.username;
-            //res.send(JSON.stringify(sessionId));
-            //return (sessionId);
+
 
         }).catch(function(error){
             console.clear();
@@ -74,13 +75,26 @@ class UserController{
             });
     };
 
-    checklogin (req, res):void  {
-        console.log("Debug: SessionID Checklog=> "+ req.session.sessionID)
+   checkAdmin (req, res): void {
+       console.log("Debug: SessionID Checklog=> "+ req.session.username);
+       if (req.session.username == "admin") {
+           console.log("Admin logged in");
+           res.send({success: true});
+       }
+       else {
+           console.log("Admin not logged in");
+           res.send({success: false});
+       }
+   }
+
+    checklogin (req, res): void  {
+        console.log("Debug: SessionID Checklog=> "+ req.session.sessionID);
         if (!req.session.sessionID) {
             res.send({success: false});
         }
-        else{
+        else {
             res.send({success: true});
+            console.log("Eingeloggt: " + req.session.username);
         }
     }
 
@@ -122,34 +136,38 @@ class UserController{
         let BCRYPT_SALT_ROUNDS = 12;
         let password = req.body.password;
 
-        bcrypt.hash(password, BCRYPT_SALT_ROUNDS)
-            .then(function (hashedPassword) {
+            bcrypt.hash(password, BCRYPT_SALT_ROUNDS)
+                .then(function (hashedPassword) {
 
-                let user = new User({
-                    username: req.body.username,
-                    password: hashedPassword,
-                    firstName: req.body.firstName,
-                    lastName: req.body.lastName,
-                    //birthdate: req.body.birthdate,
-                    bio: req.body.bio,
-                    street: req.body.street,
-                    houseNumber: req.body.houseNumber,
-                    zip: req.body.zip,
-                    city: req.body.city
-                });
+                    let user = new User({
+                        username: req.body.username,
+                        password: hashedPassword,
+                        firstName: req.body.firstName,
+                        lastName: req.body.lastName,
+                        birthdate: req.body.birthdate,
+                        img: req.body.img,
+                        bio: req.body.bio,
+                        street: req.body.street,
+                        houseNumber: req.body.houseNumber,
+                        zip: req.body.zip,
+                        city: req.body.city,
+                        pkw: req.body.pkw,
+                        transporter: req.body.transporter,
+                        lkw: req.body.lkw,
+                    });
 
-                return user.save((err, user) => {
-                    if (err) {
-                        return next(err)
-                    }
-                    console.clear();
-                    console.log("User:\n" + JSON.stringify(user));
-                    res.status(200);
-                    //res.send({success: 'user successfully created'} )
-                    res.send(user);
+                    return user.save((err, user) => {
+                        if (err) {
+                            return next(err)
+                        }
+                        console.clear();
+                        console.log("User:\n" + JSON.stringify(user));
+                        res.status(200);
+                        //res.send({success: 'user successfully created'} )
+                        res.send(user);
+                    })
                 })
-            })
-    }
+        }
 
 
    get_user_by_id(req, res, next):void{
@@ -181,7 +199,7 @@ class UserController{
       })
    }
    setCookie(req,res){
-        console.log(req.cookies) 
+        console.log(req.cookies);
         // Set cookie var
         req.session.name = "simon";
         req.session.sessionID = req.session.id;

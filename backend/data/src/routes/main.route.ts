@@ -18,6 +18,8 @@ export class Routes {
       .get(userController.get_users);
     app.route('/api/users/checklogin')
         .get(userController.checklogin);
+      app.route('/api/users/checkadmin')
+          .get(userController.checkAdmin);
     app.route('/api/users/login')
       .post(userController.login);
     app.route('/api/users/register')
@@ -32,18 +34,21 @@ export class Routes {
     app.route('/api/users/:userId/drivingOffers')
       .get(drivingOfferController.get_drivingOffers)
       .post(drivingOfferController.create_drivingOffer);    
-
+    app.route('/api/users/:userId/drivingOffers/:drivingOfferId')
+      .delete(drivingOfferController.delete_drivingOffer_by_id)
     //driving-request routing
     app.route('/api/users/:userId/drivingRequests')
       .get(drivingRequestController.get_drivingRequests)
       .post(drivingRequestController.create_drivingRequest);
+    app.route('/api/users/:userId/drivingRequests/:drivingRequestId')
+      .delete(drivingRequestController.delete_drivingRequest_by_id)
     //booking-request routing
     app.route('/api/bookings')
       .post(bookingController.create_booking);
     app.route('/api/bookings/:bookingId')
-      .get(bookingController.get_booking_by_id)     
+      .get(bookingController.get_booking_by_id);
 
     app.route('/api/setcookie')
       .get(userController.setCookie)
-  }   
+  }
 }

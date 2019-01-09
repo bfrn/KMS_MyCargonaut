@@ -49,17 +49,16 @@ class UserController {
                 console.clear();
                 console.log("Password didn't match.");
             }
-            //let user_obj = JSON.parse(JSON.stringify(user));
-            //sessionId = req.session.id;
-            //console.clear();
-            //console.log("Eingeloggt." + req.cookies);
+            /*if(req.body.username == "admin") {
+                console.log("Admin logged in");
+                let response: string = "true";
+                res.send(response);
+            }*/
             req.session.username = req.body.username;
             req.session.sessionID = req.session.id;
             res.status(200);
             console.log("check in Login: " + req.session.sessionID);
             res.send(JSON.stringify(req.session.username)); //JSON.stringify(req.cookies['session']));           // return req.session.username;
-            //res.send(JSON.stringify(sessionId));
-            //return (sessionId);
         }).catch(function (error) {
             console.clear();
             console.log("Error authenticating user: ");
@@ -68,6 +67,17 @@ class UserController {
         });
     }
     ;
+    checkAdmin(req, res) {
+        console.log("Debug: SessionID Checklog=> " + req.session.username);
+        if (req.session.username == "admin") {
+            console.log("Admin logged in");
+            res.send({ success: true });
+        }
+        else {
+            console.log("Admin not logged in");
+            res.send({ success: false });
+        }
+    }
     checklogin(req, res) {
         console.log("Debug: SessionID Checklog=> " + req.session.sessionID);
         if (!req.session.sessionID) {
@@ -75,6 +85,7 @@ class UserController {
         }
         else {
             res.send({ success: true });
+            console.log("Eingeloggt: " + req.session.username);
         }
     }
     /**
@@ -120,12 +131,16 @@ class UserController {
                 password: hashedPassword,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
-                //birthdate: req.body.birthdate,
+                birthdate: req.body.birthdate,
+                img: req.body.img,
                 bio: req.body.bio,
                 street: req.body.street,
                 houseNumber: req.body.houseNumber,
                 zip: req.body.zip,
-                city: req.body.city
+                city: req.body.city,
+                pkw: req.body.pkw,
+                transporter: req.body.transporter,
+                lkw: req.body.lkw,
             });
             return user.save((err, user) => {
                 if (err) {

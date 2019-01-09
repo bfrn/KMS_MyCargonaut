@@ -26,23 +26,52 @@ class DriviningRequestController {
             personCnt: req.body.personCnt,
             owner: req.params.userId,
         });
-        drivingRequest.save((err, drivingRequest) => {
-            if (err) {
-                return next(err);
-            }
+        drivingRequest.save().then((drivingRequest) => {
             User.findById(req.params.userId, (err, user) => {
                 if (err) {
                     res.status(500);
                     return next(err);
                 }
                 user.drivingRequests.push(drivingRequest._id);
-                user.save((err, user) => {
+                user.save().then((user) => {
+                    res.status(200);
+                    res.send({ success: 'drivingRequest successfully created' });
+                }, (err) => {
                     if (err) {
                         res.status(500);
                         return next(err);
                     }
+                });
+            });
+        }, (err) => {
+            if (err) {
+                res.status(500);
+                return next(err);
+            }
+        });
+    }
+    delete_drivingRequest_by_id(req, res, next) {
+        DriviningRequest.findByIdAndDelete(req.params.drivingRequestId, (err, drivingRequest) => {
+            if (err) {
+                res.status(500);
+                return next(err);
+            }
+            if (drivingRequest.booking != null) {
+                res.status(500);
+                res.send({ failure: 'Cant`t delete Drivingrequest, because it`s still a part of a Booking' });
+            }
+        }).then(() => {
+            User.findById(req.params.userId, (err, user) => {
+                if (err)
+                    return next(err);
+                const index = user.drivingRequests.indexOf(req.params.drivingRequestId, 0);
+                user.drivingRequests.splice(index, 1);
+                user.save((err, user) => {
+                    if (err) {
+                        return next(err);
+                    }
                     res.status(200);
-                    res.send({ success: 'drivingRequest successfully created' });
+                    res.send({ success: 'Drivingrequest successfully deleted' });
                 });
             });
         });

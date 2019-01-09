@@ -23,8 +23,8 @@ export class AuthGuard implements CanActivate {
     const url = `${this.userURL}/checklogin`;
     return this.http.get(url,{withCredentials: true })
       .toPromise().then((response) => {
-        response = JSON.parse(JSON.stringify(response)).success
-        console.log("Response "+response)
+        response = JSON.parse(JSON.stringify(response)).success;
+        console.log("Response "+response);
         if (response != true) {
           this.alertService.error("Bitte zuerst einloggen.", true);
           this.router.navigate(['/homepage']);

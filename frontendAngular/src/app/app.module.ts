@@ -11,6 +11,10 @@ import {MatFormFieldModule} from '@angular/material';
 import {MatNativeDateModule} from '@angular/material';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatInputModule} from '@angular/material';
+import {MatRadioModule} from '@angular/material';
+import { MatSelectModule } from '@angular/material';
+import {MatTabsModule} from '@angular/material';
+
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -26,6 +30,9 @@ import { AlertComponent } from './components/alert/alert.component';
 import { UserService } from './services/user.service';
 import { AlertService } from './services/alert.service';
 import { AuthGuard } from './guard/auth.guard';
+import { AdminGuard } from './guard/admin.guard';
+
+import { ProfilepageComponent } from './components/profilepage/profilepage.component';
 
 
 @NgModule({
@@ -40,6 +47,7 @@ import { AuthGuard } from './guard/auth.guard';
     HomepageComponent,
     RegisterComponent,
     AlertComponent,
+    ProfilepageComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,12 +61,16 @@ import { AuthGuard } from './guard/auth.guard';
     MatFormFieldModule,
     MatNativeDateModule,
     MatMomentDateModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatTabsModule
   ],
   providers: [
     UserService,
     AlertService,
-    AuthGuard
+    AuthGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [

@@ -39,9 +39,7 @@ export class HomepageComponent implements OnInit {
         console.log("User was logged in successfully: " + data);
         this.alertService.success("Eingeloggt.", true);
         //this.router.navigate(['/dashboard']); //muss angepasst werden
-        //this.loggedIn = true;
-        //console.log(sessionId);
-        //return sessionId;
+
       },
       (error) => {
         console.log("Error logging in the user:");

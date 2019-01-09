@@ -13,6 +13,7 @@
     "@types/express-session": "^1.15.11",
     "@types/jquery": "^3.3.29",
     "bcrypt": "^3.0.3",
+    "cookie-parser": "^1.4.3",
     "express-session": "^1.15.6",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
