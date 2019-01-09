@@ -168,10 +168,11 @@ Ziel im Backend war es die folgenden Funktionalitäten zu implementieren:
 - Refactoring-Fallbeispiel durchführen und dokumentieren
 
 ### Sprint_3 Backend
-Im dritten Sprint weitere grundlegenden Schemata der Datenverwaltung nach Klassendiagramm im Backend implementiert. So ist es nun möglich Fahrtgesuche und Buchungen zu erstellen und diese auch zu betrachten. Es wurden zudem die Routen zum löschen von Fahrtangeboten und Fahrtgesuchen implementiert.
-Außerdem wurde für die neuen Schemata Unit-Tests implementiert, die überprüfen ob die gesendeten Daten richtig gespeichert wurden und ob die einzelnen Objekte richtig miteinander verknüpft wurden. 
+Im dritten Sprint wurden weitere grundlegenden Schemata der Datenverwaltung nach Klassendiagramm im Backend implementiert. So ist es nun möglich Fahrtgesuche und Buchungen zu erstellen und diese auch zu betrachten. Es wurden zudem die Routen zum löschen von Fahrtangeboten und Fahrtgesuchen implementiert.
+Außerdem wurde für die neuen Schemata Unit-Tests implementiert, die überprüfen ob die gesendeten Daten richtig gespeichert wurden und ob die einzelnen Objekte richtig miteinander verknüpft wurden.
 
-Weiterhin wurden die Unit-Tests und die Controller von Fahrtgesuchen und Fahrtangeboten mehrmals refactored um den Programmfluss besser abzubilden. Durch diese Refactorings wird bei aufeinander folgende Abfragen auf Schemata von Mongoose nun die Funktion `then()` verwendet. Diese sorgt dafür dass im Code ersichtlich ist in welcher Reihenfolge aufeinander folgende Abfragen durchgeführt werden, wie in folgendem Beispiel zu sehen ist.
+Weiterhin wurden die Unit-Tests und die Controller-Klasse von Fahrtgesuchen und Fahrtangeboten mehrmals refactored um den Programmfluss besser abzubilden. Durch diese Refactorings wird bei aufeinander folgende Abfragen auf Schemata von Mongoose nun die Funktion `then()` verwendet. Diese sorgt dafür dass im Code ersichtlich ist in welcher Reihenfolge aufeinander folgende Abfragen durchgeführt werden, wie in folgendem Beispiel zu sehen ist.
+
 
 ``` typescript
 drivingOffer.save().then((drivingOffer)=>{
@@ -199,7 +200,9 @@ drivingOffer.save().then((drivingOffer)=>{
   })
 ```
 
-Während der Implementierung kam es auch immer wieder zu Komplikationen, so wurden unteranderem Daten bei dem Anlegen von Fahrtangeboten nicht richtig gespeichert. Die Quelle des Problems konnte nach genauerem Betrachten des Quellcodes jedoch ermittelt werden, denn beim Abfragen der Request-Body-Daten im Backend waren die Namen der Body-Attribute falsch geschrieben, da sich ein Buchstabendreher eingeschlichen hatte. Diese Art der Fehler traten innerhalb der Implementierung noch häufiger auf, da die Attributnamen öfters etwas länger gewählt wurden. Ansonsten konnten die anderen Programmierfehler meist sehr schnell durch die Unit-Tests aufgedeckt werden und die Unit-Test haben eine gute Möglichkeit geboten Änderungen im Backend 
+Während der Implementierung kam es auch immer wieder zu Komplikationen, so wurden unteranderem Daten bei dem Anlegen von Fahrtangeboten nicht richtig gespeichert. Die Quelle des Problems konnte nach genauerem Betrachten des Quellcodes jedoch ermittelt werden, denn beim Abfragen der Request-Body-Daten im Backend waren die Namen der Body-Attribute falsch geschrieben, da sich ein Buchstabendreher eingeschlichen hatte. Diese Art der Fehler traten innerhalb der Implementierung noch häufiger auf, da die Attributnamen öfters etwas länger gewählt wurden. Ansonsten konnten die anderen Programmierfehler meist sehr schnell durch die Unit-Tests aufgedeckt werden und die Unit-Test haben eine gute Möglichkeit geboten Änderungen im Backend zu verifizieren.
+
+Außerdem wurde ein Refactoring für das Driving-Request Schema durchgeführt, welches bereits in der Doku beschrieben wurde. 
 
 Das Routing fasst nun die folgenden Funktionalitäten des Backend zusammen:
 
