@@ -32,7 +32,7 @@ import { AlertService } from './services/alert.service';
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
 
-import { ProfilepageComponent } from './components/profilepage/profilepage.component';
+//import { ProfilepageComponent } from './components/profilepage/profilepage.component';
 
 
 @NgModule({
@@ -47,7 +47,7 @@ import { ProfilepageComponent } from './components/profilepage/profilepage.compo
     HomepageComponent,
     RegisterComponent,
     AlertComponent,
-    ProfilepageComponent,
+   // ProfilepageComponent,
   ],
   imports: [
     BrowserModule,

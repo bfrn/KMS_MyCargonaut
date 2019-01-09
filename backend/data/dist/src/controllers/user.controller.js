@@ -40,25 +40,33 @@ class UserController {
      */
     login(req, res, next) {
         let password = req.body.password;
+        let userNotFound = false;
         User.findOne({ 'username': req.body.username })
             .then(function (user) {
-            return bcrypt.compare(password, user.password);
+            if (user != null)
+                return bcrypt.compare(password, user.password);
+            else {
+                userNotFound = true;
+            }
         }).then(function (samePassword) {
-            if (!samePassword) {
+            if (!samePassword || userNotFound) {
                 res.status(403).send();
                 console.clear();
-                console.log("Password didn't match.");
+                console.log("Username and/or Password didn't match.");
+                next();
+            }
+            else {
+                req.session.username = req.body.username;
+                req.session.sessionID = req.session.id;
+                console.log("check in Login: " + req.session.sessionID);
+                res.status(200);
+                res.send(JSON.stringify(req.session.username)); //JSON.stringify(req.cookies['session']));           // return req.session.username;    
             }
             /*if(req.body.username == "admin") {
                 console.log("Admin logged in");
                 let response: string = "true";
                 res.send(response);
             }*/
-            req.session.username = req.body.username;
-            req.session.sessionID = req.session.id;
-            res.status(200);
-            console.log("check in Login: " + req.session.sessionID);
-            res.send(JSON.stringify(req.session.username)); //JSON.stringify(req.cookies['session']));           // return req.session.username;
         }).catch(function (error) {
             console.clear();
             console.log("Error authenticating user: ");
