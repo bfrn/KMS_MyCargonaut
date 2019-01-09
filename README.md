@@ -140,9 +140,23 @@ Ziel des ersten Sprintes war es:
 - Den Technologiestack und die verwendete Infrastruktur festlegen
 - Einen ersten Entwurf der Backend-Api zu erstellen, in der Form eines Domänendiagramms
 
-### 
+### Mockup
+Es wurde ein Mockup für die Webansicht der Applikation erstellt, welches  alle zentralen Geschäftsprozesse abbildet.
+
+### Technolgiestack
+Zu Beginn der Arbeit hat jedes Gruppenmitglied in Einzelarbeit Ideen gesamelt,mit welchen Technologien die Applikation implementiert werden soll. Nach dieser Phase wurden die gesammelten Ideen zusammengetragen und man konnte sich innerhalb der Gruppe auf einen Technologiestack einigen. Bei der Backend Api fiel die Wahl auf  NodeJs und bei der Datenbank hat man sich für MongoDb entschieden. Diese Technologien brachten den Vorteil mit, dass sie schon teilweise unter den Teammitgliedern bekannt waren. Zudem waren sie sehr leicht in Docker zu containerisieren, sodass die Installation bei den meisten Gruppenmitgliedern sehr schnell möglich war. Bei Auswahl der Frontendtechnologie konnte man sich auch schnell auf Angular einigen, da manche Gruppenmitglieder bereits mit der Technologi vertraut waren. Jedoch wurden auch die Frameworks VueJs und React in Betracht gezogen. 
+
+Nachdem der Technologiestack ausgewählt wurde, hat man zunächst einen Prototypen für das Backend erarbeitet. Mit diesem ist es möglich gewesen über eine Rest-Api ein Objekt von einer primitiven User-Klasse zu erstellen welches  dann in der MongoDb Datenbank gespeichert worden ist.
+
+### Infrastruktur
+Um den Code des Projekts zu verwalten, wurde zunächst ein GitHub-Repo erstellt und in dieses wurde TravisCi für CI/CD und Hound als Linter hinzugefügt. TravisCi konnte auch schnelle Verwendung finden, den für den Prototypen wurde eine Unit-Testumgebung mit Mocha und Chai-Http aufgesetzt.
+
+### Backend Api-Design (UML)
+Um ein Domänendiagramm für die Applikation zu erstellen wurden zunächst die Anforderungen des Kunden analysiert, danach wurden abstrakte Modelle der einzelnen Objekte der Problemdomäne erstellt, die die wichtigsten Attribute enthielten. Daraufhin hat man diese Objekte in DrawIo übertragen und sie miteinander in Beziehung gesetzt.
+
 
 ### Review & Retrospective Sprint_1
+Der erste Sprint lief sehr gut ab, da man alle Ziele erreichen konnte die zu Beginn des Sprints festgelegt wurden. Weiterhin hat man zusätzlich eine Testumgebung aufsetzen können und des wurde ein erster primitiver Prototyp implementiert. Die Kommunikation innerhalb der Gruppe lief sehr gut und man konnte produktiv miteinander arbeiten.
 
 ## Sprint_2
 Entwickelt wird im Sinne von Scrum. Das Ziel des 2. Sprints, welcher bis Donnerstag den 20.12 um 8 Uhr morgens läuft, ist die Umsetzung einer grundlegenden Projekt-Infrastruktur. Der Kunde soll die Möglichkeit haben, sich einen ersten Eindruck von der Applikation verschaffen zu können. Daher soll die Applikation zum einen visuell dem Mockup entsprechen und zum anderen folgende Funktionalität aufweisen:
