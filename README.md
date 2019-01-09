@@ -90,6 +90,7 @@ Drive.discriminator('DrivingRequest',new Schema ({
 }));
 ```
 Daher wurde überprüft ob das Model überhaupt noch vonnöten ist, jedoch ist dabei schnell eine Unstimmigkeit im API-Design entdeckt worden. Denn sowohl das Model Driving-Request als auch das Model Driving-Offer erben vom Drive Model das Attribut bookings, ein Array aus Object_IDs welches die Assoziation zu mehreren Buchungen darstellt.
+
 ```typescript
 const drive = mongoose.model('Drive', new Schema({
    date: {type: Date, required: true},
@@ -131,7 +132,15 @@ Drive.discriminator('DrivingRequest',new Schema ({
 Diese Änderungen wurden mithilfe des schon bereits vorhandenen Unit-Tests `api_booking_test.ts` verifiziert, welcher eine Buchung erstellt und überprüft ob die Assoziationen zwischen Buchung, Fahrtgesuch und Fahrtangebot übereinstimmen. Somit hat der Code-Smell und das anschließende Refactoring ermöglicht einen tieferen Logikfehler im Design der Applikation aufzudecken und zu beheben.
 
 ## Sprint_1
-**TODO**
+Ziel des ersten Sprintes war es:
+- Sich einen Überblick über den Projektauftrag zu verschaffen
+- Ein Mockup für die spätere Benutzeroberfläche zu erstellen
+- Den Technologiestack und die verwendete Infrastruktur festlegen
+- Ein ersten Entwurf der Backend-Api erstellen in Form eines Domänendiagramms
+
+
+
+### Review & Retrospective Sprint_3
 
 ## Sprint_2
 Entwickelt wird im Sinne von Scrum. Das Ziel des 2. Sprints, welcher bis Donnerstag den 20.12 um 8 Uhr morgens läuft, ist die Umsetzung einer grundlegenden Projekt-Infrastruktur. Der Kunde soll die Möglichkeit haben, sich einen ersten Eindruck von der Applikation verschaffen zu können. Daher soll die Applikation zum einen visuell dem Mockup entsprechen und zum anderen folgende Funktionalität aufweisen:
