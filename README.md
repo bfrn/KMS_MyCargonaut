@@ -199,7 +199,7 @@ drivingOffer.save().then((drivingOffer)=>{
   })
 ```
 
-Während der Implementierung kam es auch immer wieder zu Komplikationen, so wurden unteranderem Daten bei dem Anlegen von Fahrtangeboten nicht richtig gespeichert. Die Quelle des Problems konnte nach genauerem Betrachten des Quellcodes jedoch ermittelt werden, denn beim Abfragen der Request-Body-Daten im Backend waren die Namen der Body-Attribute falsch geschrieben, da sich ein Buchstabendreher eingeschlichen hatte. Diese Art der Fehler traten innerhalb der Implementierung noch häufiger auf, da die Attributnamen öfters etwas länger gewählt wurden.
+Während der Implementierung kam es auch immer wieder zu Komplikationen, so wurden unteranderem Daten bei dem Anlegen von Fahrtangeboten nicht richtig gespeichert. Die Quelle des Problems konnte nach genauerem Betrachten des Quellcodes jedoch ermittelt werden, denn beim Abfragen der Request-Body-Daten im Backend waren die Namen der Body-Attribute falsch geschrieben, da sich ein Buchstabendreher eingeschlichen hatte. Diese Art der Fehler traten innerhalb der Implementierung noch häufiger auf, da die Attributnamen öfters etwas länger gewählt wurden. Ansonsten konnten die anderen Programmierfehler meist sehr schnell durch die Unit-Tests aufgedeckt werden und die Unit-Test haben eine gute Möglichkeit geboten Änderungen im Backend 
 
 Das Routing fasst nun die folgenden Funktionalitäten des Backend zusammen:
 
