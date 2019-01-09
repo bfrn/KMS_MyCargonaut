@@ -186,9 +186,8 @@
 <div id="welcome" class="container-fluid mt-sm-6">
   <div class="row">
     <div class="col-7 default-color fontO">
-      <h3>Willkommen {{user.username}}</h3>
-      <h5>Hier kannst du dein Profil bearbeiten.</h5>
-      <h5>Du kannst in die entsprechenden Felder schreiben und mit "Bestätigen" speichern.</h5>
+      <h3>Willkommen {{user.username}} !</h3>
+      <h4>Hier kannst du dein Profil bearbeiten.</h4>
     </div>
     <div class="col-5">
       <img src={{user.img}} height="150px" width="250px">
@@ -196,69 +195,90 @@
   </div>
 
     <div class="row">
-    <div class="col-4 mt-4">
+    <div class="col-2 mt-4">
       <div class="form-row">
-        <div class="md-form default-color">
-          <input id="firstname" class="form-control form-control-sm " type="text" placeholder="Vorname" name="firstName" [(ngModel)]="user.firstName">
-        </div>
-        <div class="md-form default-color">
-          <input id="lastname" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Nachname" name="lastName" [(ngModel)]="user.lastName">
+        <div class="md-form">
+          <i class="fa fa-user default-color"></i>
+          <div class="ml-4 fontO">
+            <h5>{{user.firstName}} {{user.lastName}}</h5>
+          </div>
         </div>
       </div>
-      <br>
-      <div class="form-row">
-        <div class="md-form default-color">
-          <input id="street" class="form-control form-control-sm " type="text" placeholder="Straße" name="street" [(ngModel)]="user.street">
-        </div>
-        <div class="md-form default-color">
-          <input id="number" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Hausnummer" name="houseNumber" [(ngModel)]="user.houseNumber">
-        </div>
-      </div>
-      <br>
-      <div class="form-row">
-        <div class="md-form default-color">
-          <input id="city" class="form-control form-control-sm " type="text" placeholder="Stadt" name="city" [(ngModel)]="user.city">
-        </div>
-        <div class="md-form default-color">
-          <input id="zip" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Postleitzahl" name="zip" [(ngModel)]="user.zip">
-        </div>
-      </div>
-      <br>
-      <div class="form-row">
-        <div class="md-form default-color">
-          <input id="phone" class="form-control form-control-sm " type="text" placeholder="Handynummer" name="phone" [(ngModel)]="user.phone">
-        </div>
-        <div class="md-form default-color">
-          <input id="mail" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Email" name="mail" [(ngModel)]="user.mail">
-        </div>
-      </div>
-      <br>
 
       <div class="form-row">
-        <div class="md-form default-color">
-          <input id="bio" class="form-control form-control-sm " type="text" placeholder="Erzähl der Community etwas über dich" name="bio" [(ngModel)]="user.bio">
+        <div class="md-form">
+          <i class="fa fa-heart default-color"></i>
+          <div class="ml-4 fontO">
+            <h5>{{user.bio}}</h5>
+          </div>
         </div>
       </div>
+
+      <div class="form-row">
+        <div class="md-form">
+          <i class="fa fa-birthday-cake default-color"></i>
+          <div class="ml-4 fontO">
+            <h5>{{user.birthdate}}</h5>
+          </div>
+        </div>
+      </div>
+
     </div>
+      <br>
 
-      <div class="col-3 mt-4"><span>Diese Fahrzeuge besitzt du:</span>
-        <div class="form-check mt-2" *ngIf="user.pkw != 'false'">
-          <input type="radio" class="form-check-input" id="pkw" name="materialExampleRadios">
-          <label class="form-check-label" for="pkw">PKW</label>
+      <div class="col-2 mt-4">
+      <div class="form-row">
+        <div class="md-form">
+          <i class="fa fa-home default-color"></i>
+          <div class="ml-4 fontO">
+            <h5>{{user.street}} {{user.houseNumber}}</h5><br>
+            <h5>{{user.city}} {{user.zip}}</h5>
+          </div>
         </div>
-        <div class="form-check mt-2" *ngIf="user.transporter != 'false'">
-          <input type="radio" class="form-check-input" id="transporter" name="materialExampleRadios">
-          <label class="form-check-label" for="transporter">Transporter</label>
-        </div>
-        <div class="form-check mt-2" *ngIf="user.lkw != 'false'">
-          <input type="radio" class="form-check-input" id="lkw" name="materialExampleRadios">
-          <label class="form-check-label" for="lkw">LKW</label>
-        </div>
-        <button id="deleteCarBtn" class="btn default-color btn-link btn-sm mt-5" style="color:gray" (click)="deleteCars()">
-          Auswahl löschen</button>
       </div>
 
-      <div class="col-3 mt-4"><span>Weitere Fahrzeuge hinzufügen:</span>
+        <div class="form-row">
+          <div class="md-form">
+            <i class="fa fa-phone default-color"></i>
+            <div class="ml-4 fontO">
+              <h5>{{user.mail}}</h5><br>
+              <h5>{{user.phone}}</h5>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+        <div class="col-6 mt-4">
+          <div class="form-row">
+            <div class="md-form">
+              <i class="fa fa-car default-color"></i>
+              <div class="ml-4 fontO">
+                <h5>Diese Fahrzeuge besitzt du:</h5>
+                <ul class="list-group">
+                  <li class="list-group-item" *ngIf="user.pkw != 'false'">- PKW</li>
+                  <li class="list-group-item" *ngIf="user.transporter != 'false'">- Transporter</li>
+                  <li class="list-group-item" *ngIf="user.lkw != 'false'">- LKW</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      <!--<div class="mt-4">
+      <div class="col-8 cars"><span>Diese Fahrzeuge besitzt du:</span>
+        <div class="md-form fontO">
+        <ul class="list-group">
+          <li class="list-group-item" *ngIf="user.pkw != 'false'">- PKW</li>
+          <li class="list-group-item" *ngIf="user.transporter != 'false'">- Transporter</li>
+          <li class="list-group-item" *ngIf="user.lkw != 'false'">- LKW</li>
+        </ul>
+        </div>
+      </div>
+      </div>-->
+
+      <!--<div class="col-3 mt-4"><span>Weitere Fahrzeuge hinzufügen:</span>
         <div class="form-check mt-2">
           <input type="checkbox" class="form-check-input" id="pkwNew" name="materialExampleRadios">
           <label class="form-check-label" for="pkwNew">PKW</label>
@@ -271,13 +291,14 @@
           <input type="checkbox" class="form-check-input" id="lkwNew" name="materialExampleRadios">
           <label class="form-check-label" for="lkwNew">LKW</label>
         </div>
+      </div>-->
       </div>
 
-    </div>
+
   <div class="row">
-    <div id="buttons" class="col-2 mt-4 btn-group">
-      <button id="editBtn" class="btn default-color btn-md mr-3"  (click)="editUser()">Bearbeiten</button>
-      <button id="deleteBtn" class="btn default-color btn-link btn-sm" style="color:gray" ng-click="deleteUser(user)">Konto löschen</button>
+    <div id="buttons" class="col-2 btn-group">
+      <button id="editBtn" class="btn default-color btn-md mr-md-5"  (click)="editUser()">Bearbeiten</button>
+      <button id="deleteBtn" class="btn default-color btn-link btn-sm mr-lg-5" style="color:gray" ng-click="deleteUser(user)">Konto löschen</button>
     </div>
   </div>
 </div>

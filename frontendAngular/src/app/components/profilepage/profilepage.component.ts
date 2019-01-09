@@ -26,9 +26,9 @@ export class ProfilepageComponent implements OnInit {
   public houseNumber: number;
   public zip: number;
   public city: string = '';
-  public pkw: string = 'f';
-  public transporter: string = 'f';
-  public lkw: string = 'f';
+  public pkw: string = 'false';
+  public transporter: string = 'false';
+  public lkw: string = 'false';
 
   constructor(
     private route: ActivatedRoute,
@@ -74,36 +74,25 @@ export class ProfilepageComponent implements OnInit {
     })
   }
 
-  deleteCars(): void {
+  /*deleteCars(): void {
     if (this.pkw) {
-      this.pkw = 'false';
+      this.pkw = 'true';
     } if (this.transporter) {
-      this.transporter = 'false';
+      this.transporter = 'true';
     } if (this.lkw) {
-      this.lkw = 'false';
+      this.lkw = 'true';
     }
     let user: User = new User(
-      this.username,
-      this.password,
-      this.firstName,
-      this.lastName,
-      this.birthdate,
-      this.img,
-      this.bio,
-      this.street,
-      this.houseNumber,
-      this.zip,
-      this.city,
       this.pkw,
       this.transporter,
       this.lkw);
     //const id = this.route.snapshot.paramMap.get('id');
-    this.userService.editUser(user).subscribe(
+    this.userService.editCars(user).subscribe(
       (user) => {
         this.user = user;
         this.getUserProfile();
       });
-  }
+  }*/
 
   logout() {
     this.userService.logout();

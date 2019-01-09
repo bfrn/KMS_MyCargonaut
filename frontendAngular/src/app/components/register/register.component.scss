@@ -31,7 +31,10 @@ $my-app-primary: mat-palette($mat-deep-orange);
 }
 
 #registerBtn {
-  float: right;
+margin-top: 40%;
+  margin-left: 70%;
+  position: fixed;
+
 }
 
 #welcome {

@@ -92,12 +92,26 @@ export class UserService {
     return this.http.put<User>(url, userToEdit, {
       withCredentials: true  // <=========== important!
     }).subscribe(() => {
-        console.log("User from UserService successfully updated.");
+        console.log("User from Userservice successfully updated.");
       }, (err) => {
         console.log('Error:', err);
 
       }
     );
+  }
+
+  editCars(user: User): Observable<User>{
+    const url = `${this.userURL}/cars`;
+    return this.http.put<User>(url, user, {
+      withCredentials: true  // <=========== important!
+    }).subscribe(() => {
+        console.log("User cars from Userservice successfully updated.");
+      }, (err) => {
+        console.log('Error:', err);
+
+      }
+    );
+
   }
 
   deleteUser (id: String) {

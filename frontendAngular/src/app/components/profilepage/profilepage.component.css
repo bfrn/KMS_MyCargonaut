@@ -113,7 +113,11 @@
 }
 
 #buttons {
-  margin-top: 10%;
+  margin-top: 1%;
+  margin-left: 60%;
+}
+
+.cars {
   margin-left: 75%;
 }
 

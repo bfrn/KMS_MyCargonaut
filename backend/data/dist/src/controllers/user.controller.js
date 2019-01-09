@@ -140,6 +140,8 @@ class UserController {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 birthdate: req.body.birthdate,
+                phone: req.body.phone,
+                mail: req.body.mail,
                 img: req.body.img,
                 bio: req.body.bio,
                 street: req.body.street,
@@ -220,6 +222,19 @@ class UserController {
                     }
                 });
             });
+        });
+    }
+    update_user_cars(req, res, next) {
+        User.findOneAndUpdate({ 'username': req.session.username }, { $set: req.body }, (err, user) => {
+            if (err) {
+                console.log("Update failed.");
+                return next(err);
+            }
+            else {
+                console.log("Update worked.");
+                console.log(user);
+                res.send(user);
+            }
         });
     }
     setCookie(req, res) {

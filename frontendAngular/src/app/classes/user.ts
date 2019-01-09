@@ -7,7 +7,8 @@ export class User {
   firstName: string;
   lastName: string;
   birthdate: string;
-  // cellPhoneNumber: number;
+  phone: number;
+  mail: string;
  img: string;
   bio: string;
   street: string;
@@ -17,10 +18,10 @@ export class User {
   pkw: string;
   transporter: string;
   lkw: string;
-  // drivingOffers: DrivingOffers;
+  drivingOffers: DrivingOffers;
   loggedIn: boolean = false;
 
-  constructor(username?: string, password?: string, firstName?: string, lastName?: string, birthdate?: string, img?: string, bio?: string, street?: string,
+  constructor(username?: string, password?: string, firstName?: string, lastName?: string, birthdate?: string, phone?: number, mail?: string, img?: string, bio?: string, street?: string,
               houseNumber?: number, zip?: number, city?: string, pkw?: string, transporter?: string, lkw?: string, loggedIn?: boolean) {
   //  this._id = _id;
    this.username = username;
@@ -28,7 +29,8 @@ export class User {
     this.firstName = firstName;
     this.lastName = lastName;
    this.birthdate = birthdate;
-   // this.cellPhoneNumber = cellPhoneNumber;
+   this.phone = phone;
+   this.mail = mail;
    this.img = img;
     this.bio = bio;
     this.street = street;
