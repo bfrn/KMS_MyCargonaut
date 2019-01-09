@@ -49,7 +49,8 @@ Jedoch schlägt diese Anfrage fehl, da ;Mongoose keinen User mit dem Namen `{$gt
 ![owasp_1_2](/images/OWASP_1_1.PNG)
 
 ### Broken Authentication
-**TODO**
+In unserer Applikation ist es derzeit möglich sich mit schwachen Passwörten zu  registrieren und innerhalb des Systems gibt es keinen Schutz vor automatischen Angriffen auf die Applikation. Weiterhin verfügen wir über keine multi-factor authentication und unsere Session-Ids werden nicht kontinuierlich abgeändert. Jedoch ist es dem Nutzer nicht möglich die Session-Id in der Url auszulesen und die Session-Ids werden sicher in einer Datenbank gespeichert. Die Session-Ids der Cookies werden serverseitig mittels Secret verschlüsselt.
+
 ### Sensitive Data Exposure
 Derzeitig verschlüsseln wir wichtige Daten, wie Passwörter mithilfe von Bcrypt innerhalb unserer Datenbank. Diese Methode ist relativ sicher, und sie beugt Brute-Force- und Dictionary-Attacken vor.
 
@@ -59,7 +60,8 @@ Bei der Übertragung von Daten besteht derzeit noch eine starke Sicherheitslück
 Dieses Risiko stellt für unsere Applikation keine Gefahr da, denn wir verwenden in keiner Form das XML Datenformat oder das SOAP-Protokoll.
 
 ### Broken Access Control
-**TODO**
+In unserer Implementierung haben wir für Cors einen Endpunkt spezifiziert der Anfragen an das Backend stellen darf. Dadurch wird vermieden das Angreifer ungehinderten Zugriff auf die Backend-Api erhalten. Weiterhin ist es als User nicht möglich die Daten eines anderen Users abzuändern oder sich die Zugriffsrechte eines Administrators zu verschaffen. Jedoch verfügt unsere Applikation über kein Schutzmaßnamen gegen API-Attack-Tools.
+
 ### Security Misconfiguration
 Bei den von uns verwendeten Frameworks, haben wir keine eigene Konfiguration der Sicherheitseinstellungen vorgenommen und wir filtern auch nicht die Error-Nachrichten, die wir an den Client senden. Jedoch enthält die Applikation keine vor angelegten Accounts und es werden nur die Ports verwendet, die auch wirklich benötigt werden.
 
