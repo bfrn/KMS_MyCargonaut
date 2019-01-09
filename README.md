@@ -1,19 +1,27 @@
 [![Build Status](https://travis-ci.org/Bfrn/KMS_MyCargonaut.svg?branch=master)](https://travis-ci.org/Bfrn/KMS_MyCargonaut)
 
-# Node-Express Server
-Der Server bietet einfache CRUD Funktionalitäten.
-Aktuell gibt es nur User die als Daten behandelt werden.
+# MyCargonaut Platform
 
-## User
-User bestehen aus:
-  * username
-  * password
+## Vorrausetzung:
+* Docker
+* Node
+# Mongo Datenbank
+```
+cd ./database
+./starting_container
+```
 
-User werden mittels mongoose als schema definiert und können erstellt, geändert, gelöscht oder gelesen werden. Dies geschieht über die Kommunikation mit der MongoDB
+## Node-Express Server
 
+```
+cd ./backend/dataa
+npm install
+npm run dev
+```
+## Angular Frontend
 
-# Entwicklungsnotizen:
-
-Design Pattern des Server: [MVC](https://de.wikipedia.org/wiki/Model_View_Controller)
-
-TDD Nachträglich
+```
+cd ./frontendAngular
+npm install
+ng serve
+```
