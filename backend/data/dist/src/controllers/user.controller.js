@@ -176,7 +176,7 @@ class UserController {
                 console.log("No user found");
             }
             res.send(user);
-            console.log("User found" + user);
+            //console.log("User found" + user);
         });
     }
     get_users(req, res, next) {
@@ -194,11 +194,17 @@ class UserController {
             res.send({ success: 'User successfully deleted.' });
         });
     }
-    update_user_by_id(req, res, next) {
-        User.findByIdAndUpdate(req.params.userId, { $set: req.body }, (err, user) => {
-            if (err)
+    update_user_by_username(req, res, next) {
+        User.findOneAndUpdate({ 'username': req.session.username }, { $set: req.body }, (err, user) => {
+            console.log(req.session.username);
+            if (err) {
+                console.log("Update failed.");
                 return next(err);
-            res.send({ success: 'user successfully udpated' });
+            }
+            else {
+                console.log("Update worked.");
+                res.send(user);
+            }
         });
     }
     setCookie(req, res) {

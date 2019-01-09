@@ -186,7 +186,7 @@
 <div id="welcome" class="container-fluid mt-sm-6">
   <div class="row">
     <div class="col-7 default-color fontO">
-      <h3>Willkommen {{user.firstName}}</h3>
+      <h3>Willkommen {{user.username}}</h3>
       <h5>Hier kannst du dein Profil bearbeiten.</h5>
       <h5>Du kannst in die entsprechenden Felder schreiben und mit "Bestätigen" speichern.</h5>
     </div>
@@ -254,7 +254,7 @@
           <input type="radio" class="form-check-input" id="lkw" name="materialExampleRadios">
           <label class="form-check-label" for="lkw">LKW</label>
         </div>
-        <button id="deleteCarBtn" class="btn default-color btn-link btn-sm mt-5" style="color:gray" ng-click="deleteUser(user)">
+        <button id="deleteCarBtn" class="btn default-color btn-link btn-sm mt-5" style="color:gray" (click)="deleteCars()">
           Auswahl löschen</button>
       </div>
 
@@ -276,7 +276,7 @@
     </div>
   <div class="row">
     <div id="buttons" class="col-2 mt-4 btn-group">
-      <button id="editBtn" class="btn default-color btn-md mr-3"  ng-click="updateUser(user)">Bestätigen</button>
+      <button id="editBtn" class="btn default-color btn-md mr-3"  (click)="editUser()">Bearbeiten</button>
       <button id="deleteBtn" class="btn default-color btn-link btn-sm" style="color:gray" ng-click="deleteUser(user)">Konto löschen</button>
     </div>
   </div>

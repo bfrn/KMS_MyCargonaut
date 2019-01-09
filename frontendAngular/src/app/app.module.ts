@@ -26,6 +26,7 @@ import { RatingsComponent } from './components/ratings/ratings.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserService } from './services/user.service';
 import { AlertService } from './services/alert.service';
@@ -33,6 +34,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
 
 import { ProfilepageComponent } from './components/profilepage/profilepage.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -48,6 +50,7 @@ import { ProfilepageComponent } from './components/profilepage/profilepage.compo
     RegisterComponent,
     AlertComponent,
     ProfilepageComponent,
+    UserEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import { ProfilepageComponent } from './components/profilepage/profilepage.compo
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
-    MatTabsModule
+    MatTabsModule,
+
   ],
   providers: [
     UserService,
@@ -78,7 +82,8 @@ import { ProfilepageComponent } from './components/profilepage/profilepage.compo
     HomepageComponent,
     DrivingOffersComponent,
     RegisterComponent,
-    ProfilepageComponent
+    ProfilepageComponent,
+    UserEditComponent
   ],
 })
 export class AppModule { }

@@ -79,6 +79,27 @@ export class UserService {
     return this.http.post<User>(url, user);
   }
 
+  /*editUser(user: User): Observable<User> {
+    const url = `${this.userURL}/username`;
+    return this.http.put<User>(url, user, {
+      withCredentials: true  // <=========== important!
+    });
+  }*/
+
+  editUser(userToEdit: User): Observable<User> {
+    console.log("editUser() User:", userToEdit);
+    const url = `${this.userURL}/username`;
+    return this.http.put<User>(url, userToEdit, {
+      withCredentials: true  // <=========== important!
+    }).subscribe(() => {
+        console.log("User from UserService successfully updated.");
+      }, (err) => {
+        console.log('Error:', err);
+
+      }
+    );
+  }
+
   deleteUser (id: String) {
     return this.http.delete<User>(this.userURL + '/' + id);
   }

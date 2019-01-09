@@ -26,8 +26,10 @@ class Routes {
             .get(userController.get_user_Profile);
         app.route('/api/users/:userId')
             .get(userController.get_user_by_id)
-            .put(userController.update_user_by_id)
+            //.put(userController.update_user_by_id)
             .delete(userController.delete_user_by_id);
+        app.route('/api/users/username')
+            .put(userController.update_user_by_username);
         //driving-offer routing
         app.route('/api/users/:userId/drivingOffers')
             .get(drivingOfferController.get_drivingOffers)
