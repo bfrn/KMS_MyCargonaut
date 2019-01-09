@@ -194,17 +194,32 @@ class UserController {
             res.send({ success: 'User successfully deleted.' });
         });
     }
+    /**
+     * update Function is used to update an existing Document in the DB
+     * The PUT-Request uses the body of the request to update the existing data
+     * Then the password is being hashed and saved correctly
+     */
     update_user_by_username(req, res, next) {
         User.findOneAndUpdate({ 'username': req.session.username }, { $set: req.body }, (err, user) => {
-            console.log(req.session.username);
-            if (err) {
-                console.log("Update failed.");
-                return next(err);
-            }
-            else {
-                console.log("Update worked.");
-                res.send(user);
-            }
+            let password = req.body.password;
+            console.log("Neues password: " + password);
+            let BCRYPT_SALT_ROUNDS = 12;
+            bcrypt.hash(password, BCRYPT_SALT_ROUNDS)
+                .then(function (hashedPassword) {
+                //console.log(req.session.username);
+                User.updateOne({ 'username': req.session.username }, { $set: { 'password': hashedPassword } }, (err, user) => {
+                    console.log(hashedPassword);
+                    if (err) {
+                        console.log("Update failed.");
+                        return next(err);
+                    }
+                    else {
+                        console.log("Update worked.");
+                        console.log(user);
+                        res.send(user);
+                    }
+                });
+            });
         });
     }
     setCookie(req, res) {
