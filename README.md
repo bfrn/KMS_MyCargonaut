@@ -107,7 +107,9 @@ const drive = mongoose.model('Drive', new Schema({
 }, baseOptions));  
 ```
 Bei den Driving-Offers macht dies auch durchaus Sinn, da es Usern möglich ist nur einen Teil des verfügbaren Frachtraums bzw. einen Teil der verfügbaren Plätze zu buchen. Jedoch ist dies bei den Driving-Requests nicht sinnvoll, da diese immer nur einer Buchung zugeordnet werden sollte. Denn eine Fracht kann nicht von zwei Fahrzeugen parallel transportiert werden. Daher wurde zunächst die Assoziation innerhalb des UML-Klassendiagramms abgeändert, sodass ein Fahrtgesuch nur noch eine Buchung kennt.
+
 ![refactor_uml_1](/images/refactor_uml_1.PNG)
+
 Danach wurde diese Änderung in den Code übertragen, indem das Attribut bookings aus dem Model Drive entfernt wurde und im Model Driving-Offer eingefügt. 
 
 ```typescript
@@ -128,39 +130,80 @@ Drive.discriminator('DrivingRequest',new Schema ({
 
 Diese Änderungen wurden mithilfe des schon bereits vorhandenen Unit-Tests `api_booking_test.ts` verifiziert, welcher eine Buchung erstellt und überprüft ob die Assoziationen zwischen Buchung, Fahrtgesuch und Fahrtangebot übereinstimmen. Somit hat der Code-Smell und das anschließende Refactoring ermöglicht einen tieferen Logikfehler im Design der Applikation aufzudecken und zu beheben.
 
-
 ## Sprint_1
-Entwickelt wird im Sinne von Scrum. Das Ziel des 1. Sprints, welcher bis Donnerstag den 20.12 um 8 Uhr morgens läuft, ist die Umsetzung einer grundlegenden Projekt-Infrastruktur. Der Kunde soll die Möglichkeit haben, sich einen ersten Eindruck von der Applikation verschaffen zu können. Daher soll die Applikation zum einen visuell dem Mockup entsprechen und zum anderen folgende Funktionalität aufweisen:
+**TODO**
+
+## Sprint_2
+Entwickelt wird im Sinne von Scrum. Das Ziel des 2. Sprints, welcher bis Donnerstag den 20.12 um 8 Uhr morgens läuft, ist die Umsetzung einer grundlegenden Projekt-Infrastruktur. Der Kunde soll die Möglichkeit haben, sich einen ersten Eindruck von der Applikation verschaffen zu können. Daher soll die Applikation zum einen visuell dem Mockup entsprechen und zum anderen folgende Funktionalität aufweisen:
 - der User soll sich registrieren können und auf der Website einloggen können
 - der User soll eine Fahrt einstellen können
 - der User soll nach einer Fahrt filtern können
 
 Die Aufgaben werden innerhalb der Entwickler in der Gruppe verteilt. Zwar ist diese Aufteilung nicht vollkommen strikt, jedoch erhält jedes Gruppenmitglied einen Bereich, auf den es sich fokussieren kann.
 
-### Sprint_1 Backend
+### Sprint_2 Backend
 
-Das Backend wurde in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden *DrivingOffers* und *User* nach Klassendiagramm umgesetzt und es wurden für sie die  Create,Delete und Get Routen implementiert.
+Das Backend wurde in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden *DrivingOffers* und *User* nach Klassendiagramm umgesetzt und es wurden für sie die  Create und Get Routen implementiert.
 
 Dazu wurden zunächst die Schemas für MongoDB angelegt, welche die Klassen aus dem Klassendiagramm abbilden. Die Implementierung dazu verlief sehr reibungslos, so war es unteranderem möglich mithilfe von [Discriminatorn](https://mongoosejs.com/docs/discriminators.html) die Vereerbungsstruktur zwischen Fahrt und Fahrtangebot darzustellen.
 Jedoch hat sich im Laufe der Entwicklung das Problem ergeben, dass die Änderung im Code nicht mehr beim starten des Servers übernommen wurden, jedoch bei den Unit-Tests ist dieses Verhalten nicht aufgetreten. Dieses Problem konnte nach sehr vielen Stunden der Fehlersuche damit behoben werden, dass man die Datei zum starten des Servers (index.ts) in den Elternordner von `src` verschoben hat. Jedoch ließ sich nicht der genaue Grund für dieses Verhalten ermitteln. 
 
 Außerdem wurden im Backend Unit-Tests implementiert, um die Funktionen während der Entwicklung im Backend testen zu können. Die Unit Tests wurden mit Hilfe von TypeScript Test Frameworks [Chai](https://www.chaijs.com/plugins/chai-http/) und Mocha umgesetzt und überprüfen, die implementierten Http-Requests die erwarteten Ergebnisse zurückliefern.
 
-### Sprint_1 Frontend
+### Sprint_2 Frontend
 
 In der Frontend-Entwicklung wurde die Design-Entwicklung hauptsächlich nach dem vorher entwickelten Mockup orientiert. Die folgende Darstellung gilt als Prototyp, um dem Kunde eine Überblick auf den Produkt zu verschaffen. Im Frontend-Prototyp wurden die Hauptfunktionalitäten der Seite für die Nutzersicht dargestellt, dazu gehören Registrierungsvorgang und Login.
 
-### Review & Retrospective Sprint_1
+### Review & Retrospective Sprint_2
 
-Einige unserer definierten Ziele konnten nicht im ersten Sprint umgesetzt werden. Der organisatorische Aspekt wurde oft aufgeschoben. Die Kommunikation innerhalb der Gruppe war sehr gut. Es entstanden oft konstruktive Diskussionen.
+Einige unserer definierten Ziele konnten nicht im zweiten Sprint umgesetzt werden. Der organisatorische Aspekt wurde oft aufgeschoben. Die Kommunikation innerhalb der Gruppe war sehr gut. Es entstanden oft konstruktive Diskussionen.
 
-## Sprint_2
+## Sprint_3
+Innerhalb des dritten Sprints wurde das Frontend und das Backend um mehrere Funktionalitäten erweitert.
 
-Die grundlegenden Schemata der Datenverwaltung wurden nach Klassendiagramms implementiert. Das Backend verfügt über CRUD-Funktionalitäten im Bezug auf den Benutzer. Ausserdem diverse Möglichkeiten Buchungsdaten und Fahrgesuch bzw. Fahrangebot zu verwalten.
+Ziel im Backend war es die folgenden Funktionalitäten zu implementieren:
+- Das Erstellen und Betrachten von Fahrgesuchen
+- Das Erstellen und Betrachten von Buchungen
+- Das Erstellen von Unit-Tests für dien neuen Routen
+- Refactoring-Fallbeispiel durchführen und dokumentieren
 
-Das Routing fasst die Funktionalitäten des Backend zusammen:
+### Sprint_3 Backend
+Im dritten Sprint weitere grundlegenden Schemata der Datenverwaltung nach Klassendiagramm im Backend implementiert. So ist es nun möglich Fahrtgesuche und Buchungen zu erstellen und diese auch zu betrachten. Es wurden zudem die Routen zum löschen von Fahrtangeboten und Fahrtgesuchen implementiert.
+Außerdem wurde für die neuen Schemata Unit-Tests implementiert, die überprüfen ob die gesendeten Daten richtig gespeichert wurden und ob die einzelnen Objekte richtig miteinander verknüpft wurden. 
 
+Weiterhin wurden die Unit-Tests und die Controller von Fahrtgesuchen und Fahrtangeboten mehrmals refactored um den Programmfluss besser abzubilden. Durch diese Refactorings wird bei aufeinander folgende Abfragen auf Schemata von Mongoose nun die Funktion `then()` verwendet. Diese sorgt dafür dass im Code ersichtlich ist in welcher Reihenfolge aufeinander folgende Abfragen durchgeführt werden, wie in folgendem Beispiel zu sehen ist.
+
+``` typescript
+drivingOffer.save().then((drivingOffer)=>{
+  User.findById(req.params.userId,(err, user)=>{
+    if (err){
+      res.status(500);
+      return next(err)
+    }
+    user.drivingOffers.push(drivingOffer._id);
+    user.save().then((user) =>{
+      res.status(200);
+      res.send ({success: 'drivingOffer successfully created'})
+    },(err)=>{
+      if (err){
+        res.status(500);
+        return next(err)
+      }
+    })
+  }) 
+  },(err) => {
+    if (err){
+      res.status(500);
+      return next(err)
+    } 
+  })
 ```
+
+Während der Implementierung kam es auch immer wieder zu Komplikationen, so wurden unteranderem Daten bei dem Anlegen von Fahrtangeboten nicht richtig gespeichert. Die Quelle des Problems konnte nach genauerem Betrachten des Quellcodes jedoch ermittelt werden, denn beim Abfragen der Request-Body-Daten im Backend waren die Namen der Body-Attribute falsch geschrieben, da sich ein Buchstabendreher eingeschlichen hatte. Diese Art der Fehler traten innerhalb der Implementierung noch häufiger auf, da die Attributnamen öfters etwas länger gewählt wurden.
+
+Das Routing fasst nun die folgenden Funktionalitäten des Backend zusammen:
+
+``` typescript
 //user-routing
 
     app.route('/api/users')
@@ -194,8 +237,8 @@ Das Routing fasst die Funktionalitäten des Backend zusammen:
       .get(bookingController.get_booking_by_id) 
 
 ``` 
-
+### Sprint_3 Frontend
 Das Frontend ist in der Lage den Login anzusprechen. Auch eine Registrierung ist möglich. Diese Registrierung erfragt alle nötigen Informationen und speichert diese in die Datenbank. Das Password wird dabei verschlüsselt. Der Login kann diese Verschlüsselung behandeln. 
 
 
-### Review & Retrospective Sprint_2
+### Review & Retrospective Sprint_3
