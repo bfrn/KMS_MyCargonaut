@@ -35,7 +35,7 @@ export class UserService {
   user: User;
 
   /** login function that passes the username and password within a data object to the login route */
-    login(data: any) {
+  login(data: any) {
     //this.log('UserService: added new user');
     console.log("User is being logged in.");
     const url = `${this.userURL}/login`;
@@ -43,14 +43,21 @@ export class UserService {
       withCredentials: true  // <=========== important!
     });
   }
+  logout(data) {
+    //this.log('UserService: added new user');
+    console.log("User is being logged out.");
+    const url = `${this.userURL}/logout`;
+    console.log(url)
+    return this.http.post(url,data,{
+      withCredentials: true,  // <=========== important!
+    });
+  }
 
-    getUsers(): Observable<User[]>{
-    //this.log('UserService: fetched users');
+  getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.userURL);
   }
 
   getUser(id: String): Observable<User>{
-    //this.log('UserService: fetched user');
     return this.http.get<User>(this.userURL + '/' + id);
   }
 

@@ -46,4 +46,20 @@ export class HomepageComponent implements OnInit {
         this.alertService.error("Fehler beim Einloggen.", error)
     })
   }
+  logout() {
+    let data: Object = {username: this.username};
+    this.userService.logout(data).subscribe(
+      (data) => {
+        console.log("User was logged out successfully: "+ data);
+        this.alertService.success("Ausgeloggt.", true);
+        //this.router.navigate(['/dashboard']); //muss angepasst werden
+        //this.loggedIn = true;
+        //console.log(sessionId);
+        //return sessionId;
+      },
+      (error) => {
+        console.log("Error logging out the user:");
+        this.alertService.error("Fehler beim Ausloggen.", error)
+    })
+  }
 }

@@ -77,7 +77,7 @@ class UserController{
                 console.log("Error authenticating user: ");
                 console.log(error);
                 next();
-            });
+        });
     };
 
    checkAdmin (req, res): void {
@@ -100,6 +100,16 @@ class UserController{
         else {
             res.send({success: true});
             console.log("Eingeloggt: " + req.session.username);
+        }
+    };
+    logout(req, res, next){
+        console.log("Debug: SessionID LOGOUT Checklog=> "+ req.session.sessionID)
+        if (!req.session.sessionID) {
+            res.send({success: false});
+        }
+        else{
+            req.session.destroy()
+            res.send({success: true});
         }
     }
 

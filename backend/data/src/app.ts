@@ -36,7 +36,7 @@ class App{
         //--- session management -----------------------------------------------------
         this.app.use(session({
             maxAge: 1000 * 60 * 15, // would expire after 15 minutes
-            httpOnly: true, // The cookie only accessible by the web server
+            httpOnly: false, // The cookie only accessible by the web server
             signed: false, // Indicates if the cookie should be signed
             resave: true,    // save session even if not modified
             saveUninitialized: false,    // save session even if not used
