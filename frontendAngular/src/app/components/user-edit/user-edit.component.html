@@ -1,0 +1,114 @@
+<div>
+<div class="modal-header">
+  <h4 class="modal-title">Hier kannst du deine Daten bearbeiten, {{user.username}}.</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <div class="input-group">
+    <div class="input-group-prepend col-lg-4 pl-0 pr-0">
+      <span class="input-group-text col-lg-12">Passwort </span>
+    </div>
+    <input type="text" class="form-control col-lg-8" id="profile_password" [(ngModel)]="user.password">
+  </div>
+  <br/>
+
+  <div class="input-group">
+    <div class="input-group-prepend col-lg-4 pl-0 pr-0">
+      <span class="input-group-text col-lg-12">Geburtsdatum </span>
+    </div>
+    <input type="text" class="form-control col-lg-8" id="profile_birthdate" [(ngModel)]="user.birthdate">
+  </div>
+  <br/>
+
+  <div class="input-group">
+    <div class="input-group-prepend col-lg-4 pl-0 pr-0">
+      <span class="input-group-text col-lg-12">Vorname </span>
+    </div>
+    <input type="text" class="form-control col-lg-8" id="profile_name" [(ngModel)]="user.firstName">
+  </div>
+  <br/>
+
+  <div class="input-group">
+    <div class="input-group-prepend col-lg-4 pl-0 pr-0">
+      <span class="input-group-text col-lg-12">Nachname </span>
+    </div>
+    <input type="text" class="form-control col-lg-8" id="profile_lastname" [(ngModel)]="user.lastName">
+  </div>
+  <br/>
+
+  <div class="input-group">
+    <div class="input-group-prepend col-lg-4 pl-0 pr-0">
+      <span class="input-group-text col-lg-12">Straße </span>
+    </div>
+    <input type="text" class="form-control col-lg-8" id="profile_street" [(ngModel)]="user.street">
+  </div>
+  <br/>
+
+  <div class="input-group">
+    <div class="input-group-prepend col-lg-4 pl-0 pr-0">
+      <span class="input-group-text col-lg-12">Hausnummer </span>
+    </div>
+    <input type="text" class="form-control col-lg-8" id="profile_number" [(ngModel)]="user.houseNumber">
+  </div>
+  <br/>
+
+  <div class="input-group">
+    <div class="input-group-prepend col-lg-4 pl-0 pr-0">
+      <span class="input-group-text col-lg-12">Wohnort </span>
+    </div>
+    <input type="text" class="form-control col-lg-8" id="profile_city" [(ngModel)]="user.city">
+  </div>
+  <br/>
+
+  <div class="input-group">
+    <div class="input-group-prepend col-lg-4 pl-0 pr-0">
+      <span class="input-group-text col-lg-12">PLZ </span>
+    </div>
+    <input type="text" class="form-control col-lg-8" id="profile_zip" [(ngModel)]="user.zip">
+  </div>
+  <br/>
+
+  <div class="input-group">
+    <div class="input-group-prepend col-lg-4 pl-0 pr-0">
+      <span class="input-group-text col-lg-12">Bio </span>
+    </div>
+    <input type="text" class="form-control col-lg-8" id="profile_bio" [(ngModel)]="user.bio">
+  </div>
+  <br/>
+
+  <div class="input-group"><span>Weitere Fahrzeuge hinzufügen oder löschen:</span>
+    <div class="input-group-prepend col-lg-4 pl-0 pr-0">
+    <div class="form-check mt-2">
+      <input type="checkbox" class="form-check-input" id="pkwNew" [(ngModel)]="user.pkw">
+      <label class="form-check-label" for="pkwNew">PKW</label>
+    </div>
+    <div class="form-check mt-2 ml-2">
+      <input type="checkbox" class="form-check-input" id="transporterNew" name="materialExampleRadios" [(ngModel)]="user.transporter">
+      <label class="form-check-label" for="transporterNew">Transporter</label>
+    </div>
+    <div class="form-check mt-2 ml-2">
+      <input type="checkbox" class="form-check-input" id="lkwNew" name="materialExampleRadios" [(ngModel)]="user.lkw">
+      <label class="form-check-label" for="lkwNew">LKW</label>
+    </div>
+  </div>
+  </div>
+
+  <!--<div class="input-group">
+    <div class="input-group-prepend col-lg-4 pl-0 pr-0">
+      <span class="input-group-text col-lg-12">PLZ </span>
+    </div>>
+  </div>
+  <br/>
+</div>-->
+
+<div class="modal-footer">
+  <div class="d-inline-flex flex-row-reverse">
+    <button class="btn btn-outline-dark" data-toggle="button"
+            (click)="saveUser(user)">Speichern<i class="fa fa-save"></i></button>
+  </div>
+</div>
+</div>
+</div>
