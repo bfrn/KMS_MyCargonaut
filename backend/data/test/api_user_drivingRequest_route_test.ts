@@ -18,12 +18,17 @@ describe('create drivinig-request test', () => {
         password: 'test123',
         firstName: 'Jan',
         lastName: 'Schneider',
+        birthdate: '2019-01-30T23:00:00Z',
         bio: 'Ich bin Student an der THM',
         street: 'Hauptstraße',
         houseNumber: '2c',
+        img: 'testimage/image',
         zip: '4353',
         city: 'Hamburg',
-      });
+        pkw: 'true',
+        transporter: 'true',
+        lkw: 'true',
+    });
 
     testUser.save().then((testUser) => {
       

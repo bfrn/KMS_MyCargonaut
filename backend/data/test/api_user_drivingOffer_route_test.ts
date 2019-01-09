@@ -13,19 +13,24 @@ const DrivingOffer = require('../src/models/drivingOffer.model');
 
 describe('create drivinig-offer test', () => {
     it('create a user and a driving-offer for him', (done) => {
-      let tstUser = new User({
-        username: 'kai123' ,
+      let testUser = new User({
+        username: 'jan123' ,
         password: 'test123',
         firstName: 'Jan',
         lastName: 'Schneider',
-        bio: 'Ich bin Student an der JLU',
+        birthdate: '2019-01-30T23:00:00Z',
+        bio: 'Ich bin Student an der THM',
         street: 'Hauptstraße',
+        img: 'testimage/image',
         houseNumber: '2c',
         zip: '4353',
         city: 'Hamburg',
+        pkw: 'true',
+        transporter: 'true',
+        lkw: 'true',
       });
 
-      tstUser.save().then((testUser) =>{
+      testUser.save().then((testUser) =>{
         let testDrivingOffer = new DrivingOffer({
           date: '2014-08-15T22:00:00.000Z',
           origin: 'Hamburg',
