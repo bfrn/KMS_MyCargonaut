@@ -40,7 +40,7 @@ Das Mockup lässt sich interaktiv mit der [HTML-Seite](https://github.com/Bfrn/K
 ## OWASP Top 10
 
 ### Injection
-Da wir für die aktuell implementierten Routen ausschließlich Schemas von Mongoose verwenden, werden einfach Injection-Angriffe abgewehrt. Den die vom Angreifer gesendeten Queries, werden in die Datentyp des jeweiligen Feldes umgewandelt.
+Da wir für die aktuell implementierten Routen ausschließlich Schemas von Mongoose verwenden, werden einfach Injection-Angriffe abgewehrt. Den die vom Angreifer gesendeten Queries, werden in die Datentyp des jewweiligen Feldes umgewandelt.
 
 Um dies zu überprüfen haben wir eine Anfrage aufgesetzt die ein Query enthält, das auf die auf die Daten des ersten gespeicherten Users zugreifen soll.
 ![owasp_1_2](/images/OWASP_1_2.PNG)
@@ -138,11 +138,11 @@ Ziel des ersten Sprintes war es:
 - Sich einen Überblick über den Projektauftrag zu verschaffen
 - Ein Mockup für die spätere Benutzeroberfläche zu erstellen
 - Den Technologiestack und die verwendete Infrastruktur festlegen
-- Ein ersten Entwurf der Backend-Api erstellen in Form eines Domänendiagramms
+- Einen ersten Entwurf der Backend-Api zu erstellen, in der Form eines Domänendiagramms
 
+### 
 
-
-### Review & Retrospective Sprint_3
+### Review & Retrospective Sprint_1
 
 ## Sprint_2
 Entwickelt wird im Sinne von Scrum. Das Ziel des 2. Sprints, welcher bis Donnerstag den 20.12 um 8 Uhr morgens läuft, ist die Umsetzung einer grundlegenden Projekt-Infrastruktur. Der Kunde soll die Möglichkeit haben, sich einen ersten Eindruck von der Applikation verschaffen zu können. Daher soll die Applikation zum einen visuell dem Mockup entsprechen und zum anderen folgende Funktionalität aufweisen:
@@ -165,6 +165,7 @@ Außerdem wurden im Backend Unit-Tests implementiert, um die Funktionen während
 
 In der Frontend-Entwicklung wurde die Design-Entwicklung hauptsächlich nach dem vorher entwickelten Mockup orientiert. Die folgende Darstellung gilt als Prototyp, um dem Kunde eine Überblick auf den Produkt zu verschaffen. Im Frontend-Prototyp wurden die Hauptfunktionalitäten der Seite für die Nutzersicht dargestellt, dazu gehören Registrierungsvorgang und Login.
 
+Weiterhin wurde ein Mockup für die mobile Version der App erstellt.
 ### Review & Retrospective Sprint_2
 
 Einige unserer definierten Ziele konnten nicht im zweiten Sprint umgesetzt werden. Der organisatorische Aspekt wurde oft aufgeschoben. Die Kommunikation innerhalb der Gruppe war sehr gut. Es entstanden oft konstruktive Diskussionen.
