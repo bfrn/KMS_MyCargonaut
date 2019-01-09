@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Bfrn/KMS_MyCargonaut.svg?branch=node_docker_scratch)](https://travis-ci.org/Bfrn/KMS_MyCargonaut)
+[![Build Status](https://travis-ci.org/Bfrn/KMS_MyCargonaut.svg?branch=master)](https://travis-ci.org/Bfrn/KMS_MyCargonaut)
 
 # Node-Express Server
 Der Server bietet einfache CRUD Funktionalitäten.
