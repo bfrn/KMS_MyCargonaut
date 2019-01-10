@@ -276,7 +276,8 @@ Das Routing fasst nun die folgenden Funktionalitäten des Backend zusammen:
 Das Sessionmanagment wird mit dem Modul 'express-session' umgesetzt. Dabei werden sessions bei dem User als cookies gespeichert, die beim einloggen gesetzt werden. Diese Cookies besitzen eine SessionID und werden in der Datenbank zur späteren Authentifizierung genutzt, z.B. '/dashboard'. Es besteht die Möglichkeit sich auszuloggen. Dabei wird der Cookie aus der Datenbank gelöscht. Beim erneuten einloggen bzw. einloggen eines anderen Benutzers vom gleichen Browser/Client wird eine neue SessionID benutzt.
  
 ### Sprint_3 Frontend
-Das Frontend ist in der Lage den Login anzusprechen. Auch eine Registrierung ist möglich. Diese Registrierung erfragt alle nötigen Informationen und speichert diese in die Datenbank. Das Password wird dabei verschlüsselt. Der Login kann diese Verschlüsselung behandeln. 
+Das Frontend ist in der Lage den Login anzusprechen. Auch eine Registrierung ist möglich. Diese Registrierung erfragt alle nötigen Informationen und speichert diese in die Datenbank. Das Password wird dabei verschlüsselt. Der Login kann diese Verschlüsselung behandeln. Der User wird nach dem Login auf sein Profil weitergeleitet. Hier kann er auch seine Daten bearbeiten, die bearbeiteten /aktuellen Daten werden in Echtzeit angezeigt. Weiterhin kann der Nutzer sein Konto löschen.
+Sofern ein Nutzer eingeloggt ist, kann er eine neue Fahrt einstellen. Diese Fahrt ist auch sofort unter "Allen Fahrten" einsehbar, auf welche Seite der Nutzer daraufhin weitergeleitet wird. Ein normaler Benutzer kann jedoch nicht das Dashboard (welches die gesamte User-Übersicht sowie die Löschen Funktionalität enthält) aufrufen - dies kann nur ein eingeloggter Admin.
 
 
 ### Review & Retrospective Sprint_3
