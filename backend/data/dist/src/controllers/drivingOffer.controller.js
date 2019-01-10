@@ -1,37 +1,8 @@
+"use strict";
 const DrivingOffer = require('../models/drivingOffer.model');
 const User = require('../models/user.model');
 const Drive = require('../models/drive.model');
 class DrivingOfferController {
-    constructor() {
-        /*delete_drivingOffer_by_id (req, res, next): void {
-            
-            DrivingOffer.findByIdAndDelete(req.params.drivingOfferId, (err,drivingOffer) => {
-                if(err){
-                    res.status(500);
-                    return next(err)
-                }
-                if(drivingOffer.bookings.length != 0){
-                    res.status(500);
-                    res.send({failure: 'Cant`t delete Drivingoffer, because its still a part of a Booking'})
-                }
-            }).then(()=>{
-                User.findById(req.params.userId,(err, user) =>{
-                    if (err) return next(err);
-                    const index = user.drivingOffers.indexOf(req.params.drivingOfferId, 0);
-                    user.drivingOffers.splice(index, 1);
-                    user.save((err,user) => {
-                        if (err){
-                            return next(err)
-                        }
-                        res.status(200)
-                        res.send({success: 'Drivingoffer successfully deleted'})
-                    })
-                })
-            })
-        }
-    }*/
-        this.export = DrivingOfferController;
-    }
     get_drivingOffers(req, res, next) {
         DrivingOffer.find({ owner: req.params.userId }, (err, drivingOffers) => {
             if (err) {
@@ -120,5 +91,17 @@ class DrivingOfferController {
             }
         });
     }
+    delete_drivingOffers(req, res, next) {
+        DrivingOffer.deleteMany({}, (err, drivingOffer) => {
+            if (err) {
+                res.status(500);
+                return next(err);
+            }
+            else {
+                res.status(200);
+            }
+        });
+    }
 }
+module.exports = DrivingOfferController;
 //# sourceMappingURL=drivingOffer.controller.js.map

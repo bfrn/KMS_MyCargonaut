@@ -9,6 +9,7 @@ import { AlertService} from './alert.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import {Drive} from '../classes/drive';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +28,9 @@ export class DrivingService {
 
   private userURL = 'http://localhost:8080/api/users';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private alertService : AlertService,
+              private router: Router) { }
 
   public drive: Drive;
 
@@ -65,6 +68,10 @@ export class DrivingService {
 
   delete(id: String) {
     return this.http.delete<Drive>(this.userURL + '/drivingOffers/' + id);
+  }
+
+  deleteAll(): Observable<Drive[]> {
+    return this.http.delete<Drive>(this.userURL + '/all/drivingOffers/delete');
   }
 
 

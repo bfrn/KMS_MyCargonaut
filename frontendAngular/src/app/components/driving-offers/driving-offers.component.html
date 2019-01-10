@@ -11,6 +11,13 @@
     <i class="fa fa-search default-color"></i>
   </button>
     </div>
+    </div>
+  <div class="row">
+    <div class="col-lg-4 ml-1">
+      <button type="button" class="btn btn-outline-primary-sm default-color" (click)="deleteAll()">
+        Alle Löschen
+      </button>
+    </div>
 </div>
 </div>
 
@@ -29,12 +36,14 @@
           <div class="card-body">
         <ul>
           <li>Datum: {{drive.date}}</li>
+          <li>Id: {{drive._id}}</li>
           <li>Präferenzen des Fahrers: {{drive.preferences}}</li>
           <li>Einschränkungen des Fahrers:{{drive.restrictions}}</li>
           <li *ngIf="drive.price">Preis pro Kilo: {{drive.price}} €</li>
           <li *ngIf="drive.hasFixedPrice">Festpreis: {{drive.hasFixedPrice}} €</li>
           <li>Platz für Personen: {{drive.personCnt}}</li>
           <li>Platz frei für: {{drive.cargoWeightInKg}} KG</li>
+          <li>Wird angeboten von: {{drive.owner}}</li>
         </ul>
           </div>
         </div>
@@ -44,10 +53,12 @@
                 [attr.aria-expanded]="!isCollapsed" aria-controls="collapse">
           Show
         </button>
+        <button type="button" class="btn btn-outline-primary mt-1" (click)="delete()"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapse">
+          Löschen
+        </button>
       </p>
-      <button type="button" class="btn btn-outline-primary mt-1" (click)="delete()">
-        Fahrt Löschen
-      </button>
+
 
     </a>
   </div>

@@ -98,6 +98,19 @@ class DrivingOfferController {
         })
     }
 
+    delete_drivingOffers (req, res, next): void {
+        DrivingOffer.deleteMany({}, (err,drivingOffer) => {
+            if(err){
+                res.status(500);
+                return next(err)
+            } else {
+                res.status(200);
+            }
+        })
+    }
+
+
+
     /*delete_drivingOffer_by_id (req, res, next): void {
         
         DrivingOffer.findByIdAndDelete(req.params.drivingOfferId, (err,drivingOffer) => {
@@ -123,7 +136,7 @@ class DrivingOfferController {
                 })
             })
         })
-    }
-}*/
+    }*/
+}
 
 export = DrivingOfferController

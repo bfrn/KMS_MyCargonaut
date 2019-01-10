@@ -59,11 +59,26 @@ export class DrivingOffersComponent implements OnInit {
       () => {
         console.log("Drives deleted.");
         this.alertService.success("Fahrt wurde erfolgreich gelöscht.", true);
+        this.router.navigate(['/offers']); //muss angepasst werden
       },
       error => {
-        console.log("Error deleting drive.", error),
+        console.log("Error deleting drive.", error);
           this.alertService.error("Fahrt konnte nicht gelöscht werden.", true);
       })
+  }
+
+  deleteAll(): void {
+    this.drivingService.deleteAll().subscribe(
+      () => {
+        console.log("Drives deleted.");
+        this.alertService.success("Fahrten wurden erfolgreich gelöscht.", true);
+        this.router.navigate(['/homepage']); //muss angepasst werden
+      },
+      error => {
+        console.log("Error deleting drive.", error);
+          this.alertService.error("Fahrten konnten nicht gelöscht werden.", true);
+      })
+
   }
 
 }

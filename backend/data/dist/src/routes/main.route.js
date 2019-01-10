@@ -40,10 +40,12 @@ class Routes {
             .post(drivingOfferController.get_drivingOffers_by_search);
         app.route('/api/users/drivingOffers')
             .post(drivingOfferController.create_drivingOffer);
-        app.route('/api/users/:userId/drivingOffers/:drivingOfferId')
-          .delete(drivingOfferController.delete_drivingOffer_by_id);
+        /* app.route('/api/users/:userId/drivingOffers/:drivingOfferId')
+       .delete(drivingOfferController.delete_drivingOffer_by_id);*/
         app.route('/api/users/drivingOffers/:drivingOfferId')
             .delete(drivingOfferController.delete_drivingOffer_by_id);
+        app.route('/api/users/all/drivingOffers/delete')
+            .delete(drivingOfferController.delete_drivingOffers);
         //driving-request routing
         app.route('/api/users/:userId/drivingRequests')
             .get(drivingRequestController.get_drivingRequests)

@@ -56,11 +56,11 @@ class DriviningRequestController {
     delete_drivingRequest_by_id(req,res,next):void {
         DriviningRequest.findByIdAndDelete(req.params.drivingRequestId,(err,drivingRequest)=>{
             if(err){
-                res.status(500)
+                res.status(500);
                 return next(err)
             }
             if(drivingRequest.booking != null) {
-                res.status(500)
+                res.status(500);
                 res.send({failure: 'Cant`t delete Drivingrequest, because it`s still a part of a Booking'})
             }
         }).then(() =>{
@@ -72,7 +72,7 @@ class DriviningRequestController {
                     if (err){
                         return next(err)
                     }
-                    res.status(200)
+                    res.status(200);
                     res.send({success: 'Drivingrequest successfully deleted'})
                 })
             })            

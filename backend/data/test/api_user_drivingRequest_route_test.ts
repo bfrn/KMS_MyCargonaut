@@ -58,7 +58,7 @@ describe('create drivinig-request test', () => {
           expect(res.body[0]).to.have.property('destination').eql('Berlin');
           User.findByIdAndDelete(testUser.id,(err, user) => {
             if (err) return err;
-            console.log(user)
+            console.log(user);
             expect(user.drivingRequests[0].toString()).to.be.eql(res.body[0]._id);
             expect(user.id).to.be.eql(res.body[0].owner)
           });
