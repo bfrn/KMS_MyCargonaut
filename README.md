@@ -177,8 +177,7 @@ Jedoch hat sich im Laufe der Entwicklung das Problem ergeben, dass die Änderung
 Außerdem wurden im Backend Unit-Tests implementiert, um die Funktionen während der Entwicklung im Backend testen zu können. Die Unit Tests wurden mit Hilfe von TypeScript Test Frameworks [Chai](https://www.chaijs.com/plugins/chai-http/) und Mocha umgesetzt und überprüfen, die implementierten Http-Requests die erwarteten Ergebnisse zurückliefern.
 
 ### Sprint_2 Frontend
-
-In der Frontend-Entwicklung wurde die Design-Entwicklung hauptsächlich nach dem vorher entwickelten Mockup orientiert. Die folgende Darstellung gilt als Prototyp, um dem Kunde eine Überblick auf den Produkt zu verschaffen. Im Frontend-Prototyp wurden die Hauptfunktionalitäten der Seite für die Nutzersicht dargestellt, dazu gehören Registrierungsvorgang und Login.
+ Zunächst wurde Angular innerhalb unserer Projektstruktur aufgesetzt und es wurde eine Log-In Seite erstellt, welche die Funktionalitäten des Registrierens und des Einloggens rein visuell abgebildet hat. Weiterhin wurde ein  ersten Version des Dashboards für die Userverwaltung des Administrators erstellt, welches auch schon mit dem Backend verbunden werden konnte. Bei dem Design dieser Seiten hat man sich am zuvor erstellten Mockup orientiert.
 
 Weiterhin wurde ein Mockup für die mobile Version der App erstellt.
 ### Review & Retrospective Sprint_2
