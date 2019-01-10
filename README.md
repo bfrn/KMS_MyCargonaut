@@ -142,7 +142,7 @@ Ziel des ersten Sprints war es:
 - Einen ersten Entwurf der Backend-Api zu erstellen, in der Form eines Domänendiagramms
 
 ### Technologiestack
-Zu Beginn der Arbeit hat jedes Gruppenmitglied in Einzelarbeit Ideen gesammelt,mit welchen Technologien die Applikation implementiert werden könnte. Nach dieser Phase wurden die gesammelten Ideen zusammengetragen und man konnte sich innerhalb der Gruppe auf einen Technologiestack einigen. Bei der Backend Api fiel die Wahl auf  NodeJs und bei der Datenbank hat man sich für MongoDb entschieden. Diese Technologien brachten den Vorteil mit, dass sie schon teilweise unter den Teammitgliedern bekannt waren. Zudem waren sie sehr leicht in Docker zu containerisieren, sodass die Installation bei den meisten Gruppenmitgliedern sehr schnell möglich war. Bei Auswahl der Frontendtechnologie konnte man sich auch schnell auf Angular einigen, da manche Gruppenmitglieder bereits mit der Technologie vertraut waren. Jedoch wurden auch die Frameworks VueJs und React für das Frontend in Betracht gezogen.
+Zu Beginn der Arbeit hat jedes Gruppenmitglied in Einzelarbeit Ideen gesammelt,mit welchen Technologien die Applikation implementiert werden könnte. Nach dieser Phase wurden die gesammelten Ideen zusammengetragen und man konnte sich innerhalb der Gruppe auf einen Technologiestack einigen. Bei der Backend Api fiel die Wahl auf  NodeJs und bei der Datenbank hat man sich für MongoDb entschieden. Diese Technologien brachten den Vorteil mit, dass sie schon teilweise unter den Teammitgliedern bekannt waren. Zudem waren sie sehr leicht in Docker zu containerisieren, sodass die Installation bei den meisten Gruppenmitgliedern sehr schnell möglich war. Bei Auswahl der Frontendtechnologie konnte man sich schnell auf Angular einigen, da manche Gruppenmitglieder bereits mit der Technologie vertraut waren. Jedoch wurden auch die Frameworks VueJs und React für das Frontend in Betracht gezogen.
 
 Nachdem der Technologiestack ausgewählt worden war, hat man zunächst einen Prototypen für das Backend erarbeitet. Mit diesem ist es möglich gewesen über eine Rest-Api ein Objekt von einer primitiven User-Klasse zu erstellen, welches dann in der MongoDb Datenbank abgespeichert wurde.
 
@@ -160,7 +160,7 @@ Der erste Sprint lief sehr gut ab, da man alle Ziele erreichen konnte die zu Beg
 
 
 ## Sprint_2
-Entwickelt wird im Sinne von Scrum. Das Ziel des 2. Sprints, welcher bis Donnerstag den 20.12 um 8 Uhr morgens läuft, ist die Umsetzung einer grundlegenden Projekt-Infrastruktur. Der Kunde soll die Möglichkeit haben, sich einen ersten Eindruck von der Applikation verschaffen zu können. Daher soll die Applikation zum einen visuell dem Mockup entsprechen und zum anderen folgende Funktionalität aufweisen:
+Das Ziel des 2. Sprints war die Umsetzung einer grundlegenden Projekt-Infrastruktur. Der Kunde sollte die Möglichkeit haben, sich einen ersten Eindruck von der Applikation verschaffen zu können. Daher sollte die Applikation zum einen visuell dem Mockup entsprechen und zum anderen folgende Funktionalität aufweisen:
 - der User soll sich registrieren können und auf der Website einloggen können
 - der User soll eine Fahrt einstellen können
 - der User soll nach einer Fahrt filtern können
