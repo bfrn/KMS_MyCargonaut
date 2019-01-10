@@ -183,9 +183,10 @@ Außerdem wurden im Backend Unit-Tests implementiert, um die Funktionen während
 
 
 ### Sprint_2 Frontend
- Zunächst wurde Angular innerhalb unserer Projektstruktur aufgesetzt und es wurde eine Log-In Seite erstellt, welche die Funktionalitäten des Registrierens und des Einloggens rein visuell abgebildet hat. Weiterhin wurde ein  ersten Version des Dashboards für die Userverwaltung des Administrators erstellt, welches auch schon mit dem Backend verbunden werden konnte. Bei dem Design dieser Seiten hat man sich am zuvor erstellten Mockup orientiert.
-
+ Zunächst wurde Angular innerhalb unserer Projektstruktur aufgesetzt und es wurde eine Log-In Seite erstellt, welche die Funktionalitäten des Registrierens und des Einloggens rein visuell abgebildet hat. Weiterhin wurde eine erste Version des Dashboards für die Userverwaltung des Administrators erstellt, welches auch schon mit dem Backend verbunden werden konnte. Bei dem Design dieser Seiten hat man sich am zuvor erstellten Mockup orientiert.
 Weiterhin wurde ein Mockup für die mobile Version der App erstellt.
+Die Herausforderung bestand zu Beginn darin, mit dem MVC Prinzip vertraut zu werden und die Models und Controller "korrekt anzusprechen". Ebenso benötigte die Einarbeitung in Angular sowie Bootstrap erneut etwas Zeit, wieso das Frontend zu Ende des 2. Sprints noch nicht ansprechend / dem Mockup entsprechend wirkte. 
+Eine grundlegende Login Funktionalität konnte innerhalb dieses Sprints umgesetzt werden. Zu Beginn sollte passport.js genutzt werden, dieser Lösungsansatz bot jedoch Schlussendlich keine Option, da die Nutzung von passport.js mit einer lokalen Strategie und einer eigenen Datenbank nicht im kostenfreien Plan enthalten war. Auch das Registrieren eines Nutzers wurde im frontend angelegt. Anfänglich jedoch nicht mit allen Attributen, da das korrekte Abspeichern der Werte aus den Checkboxen sowie vom date picker / Kalender Zeit in Anspruch genommen hat.
 ### Review & Retrospective Sprint_2
 
 Einige unserer definierten Ziele konnten nicht im zweiten Sprint umgesetzt werden. Der organisatorische Aspekt wurde oft aufgeschoben. Die Kommunikation innerhalb der Gruppe war sehr gut. Es entstanden oft konstruktive Diskussionen.
@@ -194,10 +195,13 @@ Einige unserer definierten Ziele konnten nicht im zweiten Sprint umgesetzt werde
 Innerhalb des dritten Sprints wurde das Frontend und das Backend um mehrere Funktionalitäten erweitert.
 
 Ziel im Backend war es die folgenden Funktionalitäten zu implementieren:
+- Frontend beenden (view sowie Funktionalität)
+  -> Das Anlegen eines Nutzers mit allen Attributen, bearbeiten sowie löschen des Profils
 - Das Erstellen und Betrachten von Fahrgesuchen
 - Das Erstellen und Betrachten von Buchungen
 - Das Erstellen von Unit-Tests für dien neuen Routen
 - Refactoring-Fallbeispiel durchführen und dokumentieren
+- Außerdem eine Abfrage die prüft, dass nur der Admin auf Bereiche wie das Dashboard zugreifen kann
 
 ### Sprint_3 Backend
 Im dritten Sprint wurden weitere grundlegenden Schemata der Datenverwaltung nach Klassendiagramm im Backend implementiert. So ist es nun möglich Fahrtgesuche und Buchungen zu erstellen und diese auch zu betrachten. Es wurden zudem die Routen zum löschen von Fahrtangeboten und Fahrtgesuchen implementiert.
@@ -276,8 +280,10 @@ Das Routing fasst nun die folgenden Funktionalitäten des Backend zusammen:
 Das Sessionmanagment wird mit dem Modul 'express-session' umgesetzt. Dabei werden sessions bei dem User als cookies gespeichert, die beim einloggen gesetzt werden. Diese Cookies besitzen eine SessionID und werden in der Datenbank zur späteren Authentifizierung genutzt, z.B. '/dashboard'. Es besteht die Möglichkeit sich auszuloggen. Dabei wird der Cookie aus der Datenbank gelöscht. Beim erneuten einloggen bzw. einloggen eines anderen Benutzers vom gleichen Browser/Client wird eine neue SessionID benutzt.
  
 ### Sprint_3 Frontend
-Das Frontend ist in der Lage den Login anzusprechen. Auch eine Registrierung ist möglich. Diese Registrierung erfragt alle nötigen Informationen und speichert diese in die Datenbank. Das Password wird dabei verschlüsselt. Der Login kann diese Verschlüsselung behandeln. Der User wird nach dem Login auf sein Profil weitergeleitet. Hier kann er auch seine Daten bearbeiten, die bearbeiteten /aktuellen Daten werden in Echtzeit angezeigt. Weiterhin kann der Nutzer sein Konto löschen.
-Sofern ein Nutzer eingeloggt ist, kann er eine neue Fahrt einstellen. Diese Fahrt ist auch sofort unter "Allen Fahrten" einsehbar, auf welche Seite der Nutzer daraufhin weitergeleitet wird. Ein normaler Benutzer kann jedoch nicht das Dashboard (welches die gesamte User-Übersicht sowie die Löschen Funktionalität enthält) aufrufen - dies kann nur ein eingeloggter Admin.
+Das Frontend ist in der Lage den Login anzusprechen. Auch eine Registrierung ist möglich. Diese Registrierung erfragt alle nötigen Informationen und speichert diese in die Datenbank. Das Password wird dabei verschlüsselt. Der Login kann diese Verschlüsselung behandeln. Der User wird nach dem Login auf sein Profil weitergeleitet. Hier kann er auch seine Daten bearbeiten. Weiterhin kann der Nutzer sein Konto löschen.
+Sofern ein Nutzer eingeloggt ist, kann er eine neue Fahrt einstellen. Diese Fahrt ist auch sofort unter "Allen Fahrten" einsehbar, auf welche Seite der Nutzer daraufhin weitergeleitet wird. Ein normaler Benutzer kann jedoch nicht das Dashboard (welches die gesamte User-Übersicht sowie die Löschen Funktionalität enthält) aufrufen - dies kann nur ein eingeloggter Admin. Ebenfalls kann der Admin über die Route "/offers/detail" die Fahrten einsehen und löschen.
 
 
 ### Review & Retrospective Sprint_3
+Aufgrund von Kommunikationsproblemen zwischen backend und frontend, in Bezug auf die id der Fahrtangebote, können diese nicht individuell gelöscht werden. Auch eine Filterung nach Einzelheiten der Fahrt ist nicht möglich. Dies sind unter anderem Aspekte, welche in einer zukünftigen Entwicklung umgesetzt bzw. ausgebaut werden könnten. 
+Leider war es einem Teammitglied nicht möglich, weder die Docker Container zu starten, noch die Datenbank. Dies stand der aktiven Teilnahme im Wege. Für zukünftige Projekte lässt sich daraus schließen, dass man vorab intensiv testen und überprüfen sollte, welche Betriebssysteme welche Entwicklungsumgebung unterstützen.
