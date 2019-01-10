@@ -147,7 +147,7 @@ Zu Beginn der Arbeit hat jedes Gruppenmitglied in Einzelarbeit Ideen gesammelt,m
 Nachdem der Technologiestack ausgewählt worden war, hat man zunächst einen Prototypen für das Backend erarbeitet. Mit diesem ist es möglich gewesen über eine Rest-Api ein Objekt von einer primitiven User-Klasse zu erstellen, welches dann in der MongoDb Datenbank abgespeichert wurde.
 
 ### Infrastruktur
-Um den Code des Projekts zu verwalten, wurde zunächst ein GitHub-Repo erstellt und in dieses wurde Travis-Ci für CI/CD und Hound als Linter hinzugefügt. Travis-Ci konnte auch schnell eingesetzt werden, denn für den Prototypen wurde eine Unit-Testumgebung mit Mocha und Chai-Http aufgesetzt. Welche dann bei jedem Commit von Travis durchlaufen wurde.
+Um den Code des Projekts zu verwalten, wurde ein GitHub-Repo erstellt und in dieses wurde Travis-Ci für CI/CD und Hound als Linter integriert. Travis-Ci konnte auch schnell eingesetzt werden, denn für den Prototypen wurde eine Unit-Testumgebung mit Mocha und Chai-Http aufgesetzt. Welche dann bei jedem Commit von Travis durchlaufen wurde.
 
 ### Backend Api-Design (UML)
 Um ein Domänendiagramm für die Applikation zu erstellen wurden zunächst die Anforderungen des Kunden analysiert, danach wurden abstrakte Modelle der einzelnen Objekte der Problemdomäne erstellt, die die wichtigsten Attribute enthielten. Daraufhin hat man diese Objekte in DrawIo übertragen und sie miteinander in Beziehung gesetzt.
@@ -165,16 +165,22 @@ Das Ziel des 2. Sprints war die Umsetzung einer grundlegenden Projekt-Infrastruk
 - der User soll eine Fahrt einstellen können
 - der User soll nach einer Fahrt filtern können
 
-Die Aufgaben werden innerhalb der Entwickler in der Gruppe verteilt. Zwar ist diese Aufteilung nicht vollkommen strikt, jedoch erhält jedes Gruppenmitglied einen Bereich, auf den es sich fokussieren kann.
+Außerdem sollte ein Klassendiagramm erstellt werden, welches die Backend-Api nochmal genauer spezifizieren sollte.
+
+Die Aufgaben wurden innerhalb der Teammitglieder verteilt. Zwar war diese Aufteilung nicht vollkommen strikt, jedoch hatte jedes Teammitglied seinen Spezialbereich.
 
 ### Sprint_2 Backend
+Zunächst wurde das Domänendiagramm noch einmal in Umlet umgesetzt, sodass es besser gewartet werden konnte. Denn so war es schnell möglich die Lesbarkeit des Diagramms zu verbessern, da diese bei dem letzten Kundengespräch bemängelt worden war.
+Zudem wurde ein Klassendiagramm in Umlet erstellt, welches nun auch die Datentypen der Klassenattribute und die Multiplizitäten zwischen den einzelnen Klassen enthielt.
 
-Das Backend wurde in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden *DrivingOffers* und *User* nach Klassendiagramm umgesetzt und es wurden für sie die  Create und Get Routen implementiert.
+Danach wurde das Backend in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden *DrivingOffers* und *User* nach Klassendiagramm umgesetzt und es wurden für sie die  Create und Get Routen implementiert.
 
 Dazu wurden zunächst die Schemas für MongoDB angelegt, welche die Klassen aus dem Klassendiagramm abbilden. Die Implementierung dazu verlief sehr reibungslos, so war es unteranderem möglich mithilfe von [Discriminatorn](https://mongoosejs.com/docs/discriminators.html) die Vereerbungsstruktur zwischen Fahrt und Fahrtangebot darzustellen.
 Jedoch hat sich im Laufe der Entwicklung das Problem ergeben, dass die Änderung im Code nicht mehr beim starten des Servers übernommen wurden, jedoch bei den Unit-Tests ist dieses Verhalten nicht aufgetreten. Dieses Problem konnte nach sehr vielen Stunden der Fehlersuche damit behoben werden, dass man die Datei zum starten des Servers (index.ts) in den Elternordner von `src` verschoben hat. Jedoch ließ sich nicht der genaue Grund für dieses Verhalten ermitteln. 
 
 Außerdem wurden im Backend Unit-Tests implementiert, um die Funktionen während der Entwicklung im Backend testen zu können. Die Unit Tests wurden mit Hilfe von TypeScript Test Frameworks [Chai](https://www.chaijs.com/plugins/chai-http/) und Mocha umgesetzt und überprüfen, die implementierten Http-Requests die erwarteten Ergebnisse zurückliefern.
+
+
 
 ### Sprint_2 Frontend
  Zunächst wurde Angular innerhalb unserer Projektstruktur aufgesetzt und es wurde eine Log-In Seite erstellt, welche die Funktionalitäten des Registrierens und des Einloggens rein visuell abgebildet hat. Weiterhin wurde ein  ersten Version des Dashboards für die Userverwaltung des Administrators erstellt, welches auch schon mit dem Backend verbunden werden konnte. Bei dem Design dieser Seiten hat man sich am zuvor erstellten Mockup orientiert.
@@ -267,7 +273,8 @@ Das Routing fasst nun die folgenden Funktionalitäten des Backend zusammen:
 
 ``` 
 
-Das Sessionmanagment wird mit dem Modul 'express-session' umgesetzt. Dabei werden sessions bei dem User als cookies gespeichert, die beim einloggen gesetzt werden. Diese Cookies besitzen eine SessionID und werden in der Datenbank zur späteren Authentifizierung genutzt, z.B. '/dashboard'. Es besteht die Möglichkeit sich auszuloggen. Dabei wird der Cookie aus der Datenbank gelöscht. Beim erneuten einloggen bzw. einloggen eines anderen Benutzers vom gleichen Browser/Client wird eine neue SessionID benutzt. 
+Das Sessionmanagment wird mit dem Modul 'express-session' umgesetzt. Dabei werden sessions bei dem User als cookies gespeichert, die beim einloggen gesetzt werden. Diese Cookies besitzen eine SessionID und werden in der Datenbank zur späteren Authentifizierung genutzt, z.B. '/dashboard'. Es besteht die Möglichkeit sich auszuloggen. Dabei wird der Cookie aus der Datenbank gelöscht. Beim erneuten einloggen bzw. einloggen eines anderen Benutzers vom gleichen Browser/Client wird eine neue SessionID benutzt.
+ 
 ### Sprint_3 Frontend
 Das Frontend ist in der Lage den Login anzusprechen. Auch eine Registrierung ist möglich. Diese Registrierung erfragt alle nötigen Informationen und speichert diese in die Datenbank. Das Password wird dabei verschlüsselt. Der Login kann diese Verschlüsselung behandeln. 
 
