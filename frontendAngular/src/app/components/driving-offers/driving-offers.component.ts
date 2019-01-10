@@ -72,7 +72,7 @@ export class DrivingOffersComponent implements OnInit {
       () => {
         console.log("Drives deleted.");
         this.alertService.success("Fahrten wurden erfolgreich gelöscht.", true);
-        this.router.navigate(['/homepage']); //muss angepasst werden
+        this.router.navigate(['/new']); //muss angepasst werden
       },
       error => {
         console.log("Error deleting drive.", error);

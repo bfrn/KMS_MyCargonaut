@@ -99,6 +99,7 @@ class DrivingOfferController {
             }
             else {
                 res.status(200);
+                res.send({ success: 'User successfully deleted.' });
             }
         });
     }

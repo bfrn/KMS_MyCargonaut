@@ -105,6 +105,7 @@ class DrivingOfferController {
                 return next(err)
             } else {
                 res.status(200);
+                res.send({success: 'User successfully deleted.'});
             }
         })
     }
