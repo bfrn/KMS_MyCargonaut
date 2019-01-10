@@ -171,7 +171,7 @@ Die Aufgaben wurden innerhalb der Teammitglieder verteilt. Zwar war diese Auftei
 
 ### Sprint_2 Backend
 Zunächst wurde das Domänendiagramm noch einmal in Umlet umgesetzt, sodass es besser gewartet werden konnte. Denn so war es schnell möglich die Lesbarkeit des Diagramms zu verbessern, da diese bei dem letzten Kundengespräch bemängelt worden war.
-Zudem wurde ein Klassendiagramm in Umlet erstellt, welches nun auch die Datentypen der Klassenattribute und die Multiplizitäten zwischen den einzelnen Klassen enthielt.
+Zudem wurde ein Klassendiagramm in Umlet erstellt, welches nun auch die Datentypen der Klassenattribute und die Multiplizitäten zwischen den einzelnen Klassen enthält
 
 Danach wurde das Backend in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden *DrivingOffers* und *User* nach Klassendiagramm umgesetzt und es wurden für sie die  Create und Get Routen implementiert.
 
