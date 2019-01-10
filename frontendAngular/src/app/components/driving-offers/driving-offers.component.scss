@@ -1,0 +1,139 @@
+.module .btn{
+  color: white;
+}
+
+.wrap{
+  margin-top: 5%;
+  position: fixed;
+  margin-left: 2.5%;
+}
+
+.searchTerm {
+  //float: left;
+  width: 100%;
+  border: 1px solid #2BBBAD;
+  padding: 5px;
+  height: 25px;
+  border-radius: 5px;
+  outline: none;
+  color: #888888;
+}
+
+/* search bar
+.search {
+  width: 100%;
+  position: fixed;
+  margin-top: 10%;
+}
+
+.searchTerm {
+  //float: left;
+  width: 100%;
+  border: 3px solid #2BBBAD;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #2BBBAD;
+}
+
+.searchButton {
+  position: absolute;
+  right: -50px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #2BBBAD;
+  //background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* search bar */
+
+#drive {
+  margin-top: 10%;
+  position: fixed;
+  width: 100%;
+  margin-left: 1%;
+  margin-right: 1%;
+
+}
+
+[class*='col-'] {
+  float: left;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+[class*='col-']:last-of-type {
+  padding-right: 0;
+}
+a {
+  text-decoration: none;
+}
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+h3 {
+  text-align: center;
+  margin-bottom: 0;
+  color: dimgrey;
+}
+h4 {
+  position: relative;
+}
+.grid {
+  margin: 0;
+}
+.col-1-4 {
+  width: 25%;
+}
+.module {
+  padding: 20px;
+  text-align: center;
+  color: #eee;
+  max-height: 120px;
+  min-width: 120px;
+  background-color: #2BBBAD;
+  border-radius: 2px;
+}
+.module:hover {
+  background-color: #eee;
+  cursor: pointer;
+  color: #607d8b;
+}
+.grid-pad {
+  padding: 10px 0;
+}
+.grid-pad > [class*='col-']:last-of-type {
+  padding-right: 20px;
+}
+@media (max-width: 600px) {
+  .module {
+    font-size: 10px;
+    max-height: 75px; }
+}
+@media (max-width: 1024px) {
+  .grid {
+    margin: 0;
+  }
+  .module {
+    min-width: 60px;
+  }
+}

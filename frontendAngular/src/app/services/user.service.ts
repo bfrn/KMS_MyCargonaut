@@ -17,9 +17,10 @@ export class UserService {
   password: string = '';
   firstName: string = '';
   lastName: string = '';
-  // birthdate: Date;
-  // cellPhoneNumber: number;
-  // imgUrl: string;
+  birthdate: string = '';
+  phone: number;
+  mail: string = '';
+  img: string = '';
   bio: string = '';
   street: string = '';
   houseNumber: number;
@@ -100,19 +101,6 @@ export class UserService {
     );
   }
 
-  editCars(user: User): Observable<User>{
-    const url = `${this.userURL}/cars`;
-    return this.http.put<User>(url, user, {
-      withCredentials: true  // <=========== important!
-    }).subscribe(() => {
-        console.log("User cars from Userservice successfully updated.");
-      }, (err) => {
-        console.log('Error:', err);
-
-      }
-    );
-
-  }
 
   deleteUser (id: String) {
     return this.http.delete<User>(this.userURL + '/' + id);

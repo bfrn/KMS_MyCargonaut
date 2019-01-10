@@ -35,6 +35,8 @@ import { AdminGuard } from './guard/admin.guard';
 
 import { ProfilepageComponent } from './components/profilepage/profilepage.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { InsertOfferComponent } from './components/insert-offer/insert-offer.component';
+import { DrivingService } from './services/driving.service';
 
 
 @NgModule({
@@ -51,6 +53,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     AlertComponent,
     ProfilepageComponent,
     UserEditComponent,
+    InsertOfferComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     UserService,
     AlertService,
     AuthGuard,
-    AdminGuard
+    AdminGuard,
+    DrivingService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
@@ -83,7 +87,8 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     DrivingOffersComponent,
     RegisterComponent,
     ProfilepageComponent,
-    UserEditComponent
+    UserEditComponent,
+    InsertOfferComponent
   ],
 })
 export class AppModule { }

@@ -30,6 +30,9 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {}
 
+  search() {
+    this.router.navigate(['/offers']);
+  }
 
   login(): void {
     let data: Object = {username: this.username, password: this.password};
@@ -38,7 +41,7 @@ export class HomepageComponent implements OnInit {
         data = JSON.parse(JSON.stringify(data));
         console.log("User was logged in successfully: " + data);
         this.alertService.success("Eingeloggt.", true);
-        //this.router.navigate(['/profile']); //muss angepasst werden
+        this.router.navigate(['/profile']); //muss angepasst werden
 
       },
       (error) => {

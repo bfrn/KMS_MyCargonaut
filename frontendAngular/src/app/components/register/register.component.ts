@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../classes/user';
 import { UserService } from '../../services/user.service';
 import { DrivingOffers } from '../../classes/drivingOffers';
+import { AlertService } from '../../services/alert.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -36,7 +38,9 @@ export class RegisterComponent implements OnInit {
 
   public user: User;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private alertService: AlertService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -79,7 +83,16 @@ export class RegisterComponent implements OnInit {
     this.lkw);
     console.log("New user: ", user);
     this.userService.addUser(user)
-      .subscribe(user => this.user = user)
+      .subscribe(
+        user => {
+          this.user = user;
+          this.alertService.success("Registriert. Bitte einloggen.", true);
+          this.router.navigate(['/homepage']); //muss angepasst werden
+
+        },
+        (err) => {
+          this.alertService.success("Nicht alle Pflichtfelder ausgefüllt.", true);
+        })
   }
 
 }

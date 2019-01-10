@@ -1,0 +1,225 @@
+<!--<div id="inputLeft" class="container-fluid">
+    <div class="form-row">
+      <div class="col-lg md-form default-color">
+        <input id="origin" class="form-control form-control-sm " type="text" placeholder="Wo startet deine Reise?" [(ngModel)]="origin" name="origin">
+      </div>
+    </div>
+    <br>
+
+    <div class="form-row">
+      <div class="col-lg md-form default-color">
+        <input id="destination" class="form-control form-control-sm " type="text" placeholder="Wo liegt dein Ziel?" [(ngModel)]="destination" name="destination">
+      </div>
+    </div>
+    <br>
+  <br>
+  <div class="form-inline">
+    <span id="cargoWeightInKg" class="form-control form-control-sm " type="text">Kilogram an Fracht,die du transportieren kannst?</span>
+    <div class="input-group spinner">
+      <input type="number" class="form-control form-control-sm"  value = "100" min="0" max="4000" [(ngModel)]="cargoWeightInKg">
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <span id="loadingSpaceDimensions" class="form-control form-control-sm " type="text">Maße an verfügbarem Stauraum</span>
+  <div class="form-inline">
+    <div class="input-group spinner">
+      <input type="number" class="form-control form-control-sm" value = "100" [(ngModel)]="loadingSpaceDimensions">
+    </div>
+    <div class="input-group spinner">
+      <input type="number" class="form-control form-control-sm" value = "100" [(ngModel)]="loadingSpaceDimensions">
+    </div>
+    <div class="input-group spinner">
+      <input type="number" class="form-control form-control-sm" value = "100" [(ngModel)]="loadingSpaceDimensions">
+    </div>
+  </div>
+  <br>
+  <div class="form-row">
+    <div class="col-lg md-form default-color">
+      <input id="restrictions" class="form-control form-control-sm " type="text" placeholder="Hast du Einschränkungen?" [(ngModel)]="restrictions" name="restrictions">
+    </div>
+  </div>
+  <br>
+
+  <div class="form-row">
+    <div class="col-lg md-form default-color">
+      <span id="car" class="form-control form-control-sm " type="text">Welches Fahrzeug wirst du nutzen?</span>
+    </div>
+  </div>
+  <br>
+  <div class="form-inline">
+    <div class="custom-control custom-checkbox">
+      <label class="container">PKW
+        <input type="checkbox" checked="checked" id="PKW">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="custom-control custom-checkbox">
+      <label class="container">LKW
+        <input type="checkbox" checked="checked" id="LKW">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="custom-control custom-checkbox">
+      <label class="container">Transporter
+        <input type="checkbox" checked="checked" id="Transporter">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div id="inputRight" class="container-fluid">
+  <div id="buttons" class="form-row">
+    <button id="einstellBtn" class="btn default-color btn-md ml-lg-3" (click)="addDrive()">Fahrt einstellen</button>
+    <br>
+  </div>
+
+  <mat-form-field class="mt-lg-4">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="form-group">
+    <div class="form-inline">
+      <span id="price" class="form-control form-control-sm " type="text">Wieviel berechnest du für die Fahrt pro Kilo?</span>
+      <div class="input-group spinner">
+        <input type="number" class="form-control form-control-sm"  value = "5" min="0" max="4000" [(ngModel)]="price">
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="form-inline">
+      <span id="hasFixedPrice" class="form-control form-control-sm " type="text">Oder mochtest du einen Festpreis festlegen? </span>
+      <div class="input-group spinner">
+        <input type="number" class="form-control form-control-sm"  value = "5" min="0" max="4000" [(ngModel)]="hasFixedPrice">
+      </div>
+    </div>
+    <br>
+  </div>
+  <div class="form-group">
+    <div class="col-lg md-form default-color">
+      <input id="preferences" class="form-control form-control-sm " type="text" placeholder="Hinweise? Hörst du vielleicht Musik?" [(ngModel)]="preferences" name="preferences">
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <div class="col-lg md-form default-color">
+      <input id="cellphonenumber" class="form-control form-control-sm " type="text" placeholder="Anzahl an Personen?" name="prsnCount" [(ngModel)]="personCnt">
+    </div>
+  </div>
+
+
+
+</div>-->
+
+<div id="welcome" class="container-fluid mt-sm-6">
+  <div class="row">
+    <div class="col-7 default-color fontO">
+      <h3>Neue Fahrt einstellen</h3>
+    </div>
+  </div>
+
+  <!--row1-->
+  <div class="row">
+    <div class="col-4 mt-4">
+        <div class="md-form">
+          <i class="fa fa-home default-color"></i>
+          <div class="form-row">
+            <div class="col-lg md-form default-color">
+              <input class="form-control form-control-sm " type="text" placeholder="Start" name="start" [(ngModel)]="origin">
+            </div>
+            <div class="col-lg md-form default-color">
+              <input class="form-control form-control-sm ml-lg-4" type="text" placeholder="Ziel" name="ziel" [(ngModel)]="destination">
+            </div>
+          </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="col-4 mt-4 ml-5">
+      <div class="md-form">
+        <i class="fa fa-euro default-color"></i>
+        <div class="form-row input-group-spinner">
+          <div class="col-lg sm-form default-color">
+            <input class="form-control form-control-sm " type="number" placeholder="Preis pro Kilo" name="preisKilo" [(ngModel)]="price">
+          </div>
+          <div class="col-lg sm-form default-color">
+            <input  class="form-control form-control-sm ml-lg-4" type="number" placeholder="Oder Festpreis?" name="festpreis" [(ngModel)]="hasFixedPrice">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--row1-->
+  <div class="row">
+    <div class="col-4 mt-4">
+      <div class="md-form">
+        <i class="fa fa-heart default-color"></i>
+        <div class="form-row">
+          <div class="col-lg md-form default-color">
+            <input id="start" class="form-control form-control-sm " type="text" placeholder="Präferenzen?" name="präferenzen" [(ngModel)]="preferences">
+          </div>
+          <div class="col-lg md-form default-color">
+            <input id="ziel" class="form-control form-control-sm ml-lg-4" type="text" placeholder="Einschränkungen?" name="einschränkungen" [(ngModel)]="restrictions">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="col-4 mt-4 ml-5">
+      <div class="md-form">
+        <i class="fa fa-balance-scale default-color"></i>
+        <div class="form-row input-group-spinner">
+          <div class="col-lg sm-form default-color">
+            <input class="form-control form-control-sm " type="number" placeholder="Offene Kg an Fracht" name="kg" [(ngModel)]="cargoWeightInKg">
+          </div>
+          <!--<div class="col-lg sm-form default-color">
+            <input class="form-control form-control-sm ml-lg-4" type="number" placeholder="Stauraum Maße" name="maße" [(ngModel)]="loadingSpaceDimensions">
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--row3-->
+  <div class="row">
+    <div class="col-2 mt-4">
+      <div class="md-form">
+        <i class="fa fa-user-times default-color"></i>
+        <div class="form-row">
+          <div class="col-lg md-form default-color">
+            <input class="form-control form-control-sm " type="number" placeholder="Anzahl Personen" name="prscount" [(ngModel)]="personCnt">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="col-6">
+      <mat-form-field class="mt-lg-4" id="date">
+        <input matInput [matDatepicker]="picker" placeholder="Datum der Fahrt" [(ngModel)]="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="buttons" class="form-row">
+      <button id="submit" class="btn default-color btn-md ml-lg-3 mt-lg-5" (click)="addDrive()">Fahrt einstellen</button>
+      <br>
+    </div>
+  </div>
+
+
+</div>
+
+

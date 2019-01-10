@@ -35,18 +35,30 @@ export class Routes {
 
       app.route('/api/users/username')
           .put(userController.update_user_by_username);
-      app.route('/api/users/cars')
-          .put(userController.update_user_cars);
-        
+
     //driving-offer routing
     app.route('/api/users/:userId/drivingOffers')
-      .get(drivingOfferController.get_drivingOffers)
-      .post(drivingOfferController.create_drivingOffer);    
+      .get(drivingOfferController.get_drivingOffers);
 
+    // IN USAGE
+    app.route('/api/users/drivingRequests/all')
+        .get(drivingOfferController.get_all_drivingOffers);
+      app.route('/api/users/drivingRequests/search')
+          .post(drivingOfferController.get_drivingOffers_by_search);
+        app.route('/api/users/drivingOffers')
+      .post(drivingOfferController.create_drivingOffer);
+
+    /*app.route('/api/users/:userId/drivingOffers/:drivingOfferId')
+      .delete(drivingOfferController.delete_drivingOffer_by_id);*/
+
+      app.route('/api/users/drivingOffers/:drivingOfferId')
+          .delete(drivingOfferController.delete_drivingOffer_by_id);
     //driving-request routing
     app.route('/api/users/:userId/drivingRequests')
       .get(drivingRequestController.get_drivingRequests)
       .post(drivingRequestController.create_drivingRequest);
+    app.route('/api/users/:userId/drivingRequests/:drivingRequestId')
+      .delete(drivingRequestController.delete_drivingRequest_by_id);
     //booking-request routing
     app.route('/api/bookings')
       .post(bookingController.create_booking);

@@ -4,7 +4,10 @@ import { UserService } from '../../services/user.service';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../classes/user';
+import {Drive} from '../../classes/drive';
 import { UserEditComponent} from '../user-edit/user-edit.component';
+import { AlertService } from '../../services/alert.service';
+import {DrivingService} from '../../services/driving.service';
 
 @Component({
   selector: 'app-profilepage',
@@ -13,6 +16,7 @@ import { UserEditComponent} from '../user-edit/user-edit.component';
 })
 export class ProfilepageComponent implements OnInit {
   @Input() user: User;
+  drives: Drive[];
 
   public username: string = '';
   public password: string = '';
@@ -32,14 +36,17 @@ export class ProfilepageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService,
+    public userService: UserService,
     private location: Location,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private alertService: AlertService,
+    public drivingService: DrivingService,
   ) {}
 
   ngOnInit() {
     this.getUserProfile();
+    this.showDrives();
   }
   getUserProfile(): void{
     /*Was macht route.snapshot.paramMap.get(id)??*/
@@ -49,14 +56,17 @@ export class ProfilepageComponent implements OnInit {
   }
 
   deleteUser(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id: string = this.user._id;
+    console.log(id);
     this.userService.deleteUser(id).subscribe(
       () => {
         console.log("User successfully deleted.");
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/homepage']);
+        this.alertService.success("Profil wurde erfolgreich gelöscht.", true);
       },
       error => {
-        console.log("Error deleting user.", error)
+        console.log("Error deleting user.", error),
+          this.alertService.error("Profil konnte nicht gelöscht werden.", true);
       })
   }
 
@@ -74,29 +84,14 @@ export class ProfilepageComponent implements OnInit {
     })
   }
 
-  /*deleteCars(): void {
-    if (this.pkw) {
-      this.pkw = 'true';
-    } if (this.transporter) {
-      this.transporter = 'true';
-    } if (this.lkw) {
-      this.lkw = 'true';
-    }
-    let user: User = new User(
-      this.pkw,
-      this.transporter,
-      this.lkw);
-    //const id = this.route.snapshot.paramMap.get('id');
-    this.userService.editCars(user).subscribe(
-      (user) => {
-        this.user = user;
-        this.getUserProfile();
-      });
-  }*/
 
-  logout() {
-    this.userService.logout();
+  showDrives(): void {
+    const id: string = this.user._id;
+    console.log("User: "+ id);
+    this.drivingService.showDrives(id).subscribe(
+      drives => this.drives = drives);
   }
+
 
 
 }

@@ -9,6 +9,7 @@ import { RegisterComponent} from './components/register/register.component';
 import {ProfilepageComponent} from './components/profilepage/profilepage.component';
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin.guard';
+import { InsertOfferComponent } from './components/insert-offer/insert-offer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full'},
@@ -16,9 +17,11 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AdminGuard]},
   { path: 'detail/:id', component: UserDetailComponent, canActivate: [AdminGuard]},
   { path: 'homepage', component: HomepageComponent},
-  { path: 'drivingOffers', component: DrivingOffersComponent, canActivate: [AuthGuard]},
+  { path: 'offers', component: DrivingOffersComponent, canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent},
   { path: 'profile', component: ProfilepageComponent, canActivate: [AuthGuard] },
+  { path: 'new', component: InsertOfferComponent, canActivate: [AuthGuard]  },
+
 
 ];
 @NgModule({

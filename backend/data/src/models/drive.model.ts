@@ -11,12 +11,12 @@ const drive = mongoose.model('Drive', new Schema({
    destination: {type: String, required:true},//zielort
    restrictions: {type: [String], required: true},
    preferences: {type: [String],required: true},//hinweise
-   price: {type: String,required: true},
-   hasFixedPrice: {type: Boolean,required: true},
+   price: {type: Number, required: false},
+   hasFixedPrice: {type: Number,required: false},
    cargoWeightInKg: {type: Number,required: true},
-   loadingSpaceDimensions:  {type: [Number],required:true},
+   loadingSpaceDimensions:  {type: [Number],required:false},
    personCnt: {type: Number, required: true} ,
-   owner: { type: Schema.Types.ObjectId, ref: 'User' ,required: false},
+   owner: { type: String, ref: 'User' ,required: false},
 },baseOptions));
 
 module.exports = mongoose.model('Drive');

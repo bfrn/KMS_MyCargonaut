@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col default-color fontO">
       <h3>Willkommen bei MyCargonaut</h3>
-      <h2>Trage hier bitte deine Kontaktdaten ein.</h2>
+      <h4>Trage hier bitte deine Kontaktdaten ein.</h4>
+      <h5>Es handelt sich um Pflichtfelder.</h5>
     </div>
   </div>
 </div>
@@ -97,9 +98,9 @@
 
   <div class="form mt-2">
     <input type="radio" id="radio1" value="girl" [(ngModel)]="radio1">
-    <label for="radio1"><img id="imgGirl" src={{imgGirl}} height="50px" width="100px"></label>
+    <label for="radio1" class="ml-2"><img id="imgGirl" src={{imgGirl}} height="50px" width="100px"></label>
     <input type="radio" id="radio2" value="boy" [(ngModel)]="radio2">
-    <label for="radio2"><img src={{imgBoy}} height="50px" width="150px"></label>
+    <label for="radio2" class="ml-2"><img src={{imgBoy}} height="50px" width="150px"></label>
   </div>
   <br>
 
@@ -109,7 +110,8 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 </div>
-<button id="registerBtn" class="btn default-color btn-md ml-lg-3" data-toggle="button" (click)="addUser()">Registrier dich!</button>
-<br>
+
+<button id="registerBtn" class="btn default-color btn-md" (click)="addUser()">Registrier dich!</button>
+
 
 

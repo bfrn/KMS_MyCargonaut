@@ -1,4 +1,4 @@
-import { DrivingOffers } from './drivingOffers'
+import { DrivingOffers } from './drivingOffers';
 
 export class User {
  // _id: string;

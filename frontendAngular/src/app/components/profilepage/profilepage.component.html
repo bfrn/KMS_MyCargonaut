@@ -294,11 +294,24 @@
       </div>-->
       </div>
 
+  <div class="row">
+    <div class="grid grid-pad">
+    <div class="col-1-4" *ngFor="let drive of drives">
+        <div class ="module user">
+          <button class="btn" type="button">
+            {{drive.origin}} <i class="fa fa-arrow-right"></i>
+            {{drive.destination}}
+          </button>
+        </div>
+    </div>
+    </div>
+  </div>
+
 
   <div class="row">
     <div id="buttons" class="col-2 btn-group">
       <button id="editBtn" class="btn default-color btn-md mr-md-5"  (click)="editUser()">Bearbeiten</button>
-      <button id="deleteBtn" class="btn default-color btn-link btn-sm mr-lg-5" style="color:gray" ng-click="deleteUser(user)">Konto löschen</button>
+      <button id="deleteBtn" class="btn default-color btn-link btn-sm mr-lg-5" style="color:gray" (click)="deleteUser()">Konto löschen</button>
     </div>
   </div>
 </div>

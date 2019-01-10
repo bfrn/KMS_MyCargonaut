@@ -48,17 +48,17 @@ class UserController{
         let password = req.body.password;
         User.findOne({'username':req.body.username})
             .then(function(user) {
-                let userId : string = user._id;
+                //let userId : string = user._id;
                 req.session.sessionID = req.session.id;
                 req.session.username = req.body.username;
                 console.log(req.session.username + ", Session id: " + req.session.sessionID);
-                res.send(JSON.stringify(
-                    user,
+                /*res.send(JSON.stringify(
+                    user
                     //req.session.sessionID,
                     //req.session.username
-                ));
+                ));*/
                 return bcrypt.compare(password, user.password)
-        }).then(function(samePassword) {
+        }).then(function(samePassword,user) {
             if(!samePassword) {
                 res.status(403).send();
                 console.clear();
@@ -72,7 +72,11 @@ class UserController{
             }*/
             req.session.username = req.body.username;
             req.session.sessionID = req.session.id;
-            res.status(200);
+            res.status(200);res.send(JSON.stringify(
+                user
+                //req.session.sessionID,
+                //req.session.username
+            ));
             console.log("Login, check: "+ req.session.username);
 
             //res.send(JSON.stringify(req.session.username), );//JSON.stringify(req.cookies['session']));           // return req.session.username;

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var User = /** @class */ (function () {
-    function User() {
+var Drive = /** @class */ (function () {
+    function Drive() {
     }
-    return User;
+    return Drive;
 }());
-exports.User = User;
+exports.Drive = Drive;
