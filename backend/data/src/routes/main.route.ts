@@ -71,7 +71,7 @@ export class Routes {
 
     app.route('/api/setcookie')
       .get(userController.setCookie);
-      app.route('/api/users/logout')
-          .get(userController.logout);
+      app.route('/api/users/session/logout')
+          .post(userController.logout);
   }
 }

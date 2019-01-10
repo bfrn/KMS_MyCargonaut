@@ -28,13 +28,16 @@ class App {
         this.app.use(cookieParser());
         //--- session management -----------------------------------------------------
         this.app.use(session({
-            maxAge: 1000 * 60,
+            originalmaxAge: 1000 * 60,
             httpOnly: true,
             signed: false,
             resave: false,
             saveUninitialized: false,
             //rolling: true,    // forces cookie set on every response
             secret: "secret",
+            cookie: {
+                maxAge: 10000 * 60
+            },
             store: new MongoStore({ url: this.mongoURL })
         }));
     }

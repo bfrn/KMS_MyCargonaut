@@ -280,7 +280,7 @@ class UserController{
             if (err) {
                 console.log("Logout not possible. " + err);
             } else {
-                console.log("Logged out successfully.");
+                req.session.destroy();
                 res.clearCookie();
                 res.send({success: true});
             }

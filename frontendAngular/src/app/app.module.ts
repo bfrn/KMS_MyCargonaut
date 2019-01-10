@@ -37,6 +37,7 @@ import { ProfilepageComponent } from './components/profilepage/profilepage.compo
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { InsertOfferComponent } from './components/insert-offer/insert-offer.component';
 import { DrivingService } from './services/driving.service';
+import { OffersDetailComponent } from './components/offers-detail/offers-detail.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { DrivingService } from './services/driving.service';
     ProfilepageComponent,
     UserEditComponent,
     InsertOfferComponent,
+    OffersDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +90,8 @@ import { DrivingService } from './services/driving.service';
     RegisterComponent,
     ProfilepageComponent,
     UserEditComponent,
-    InsertOfferComponent
+    InsertOfferComponent,
+
   ],
 })
 export class AppModule { }

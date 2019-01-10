@@ -1,0 +1,65 @@
+<div class="wrap">
+  <div class="row">
+    <div class="search col-lg-4 ml-1">
+      <input id="start" type="text" class="searchTerm" placeholder="Von / Start?" name="start" [(ngModel)]="start">
+    </div>
+    <div class="search col-lg-4 ml-1">
+      <input id="finish" type="text" class="searchTerm" placeholder="Nach / Ziel?" name="finish"  [(ngModel)]="finish">
+    </div>
+    <div class="col-lg-3 ml-2">
+      <button class="btn btn-sm" (click)="searchDrive()">
+        <i class="fa fa-search default-color"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 ml-1">
+      <button type="button" class="btn btn-outline-primary-sm default-color" (click)="deleteAll()">
+        Alle Löschen
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="drive">
+  <h3>Liste aller Angebote</h3>
+  <div class="grid grid-pad">
+    <a *ngFor="let drive of drives" class="col-1-4">
+      <div class ="module user">
+        <button class="btn" type="button">
+          {{drive.origin}} <i class="fa fa-arrow-right"></i>
+          {{drive.destination}}
+        </button>
+      </div>
+      <div id="collapse" class="collapse" [ngbCollapse]="isCollapsed">
+        <div class="card">
+          <div class="card-body">
+            <ul>
+              <li>Datum: {{drive.date}}</li>
+              <li>Id: {{drive._id}}</li>
+              <li>Präferenzen des Fahrers: {{drive.preferences}}</li>
+              <li>Einschränkungen des Fahrers: {{drive.restrictions}}</li>
+              <li *ngIf="drive.price">Preis pro Kilo: {{drive.price}} €</li>
+              <li *ngIf="drive.hasFixedPrice">Festpreis: {{drive.hasFixedPrice}} €</li>
+              <li>Platz für Personen: {{drive.personCnt}}</li>
+              <li>Platz frei für: {{drive.cargoWeightInKg}} KG</li>
+              <li>Wird angeboten von: {{drive.owner}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p>
+        <button type="button" class="btn btn-outline-primary mt-1" (click)="isCollapsed = !isCollapsed"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapse">
+          Show
+        </button>
+        <!--<button type="button" class="btn btn-outline-primary mt-1" (click)="delete()"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapse">
+          Löschen
+        </button>-->
+      </p>
+
+
+    </a>
+  </div>
+</div>

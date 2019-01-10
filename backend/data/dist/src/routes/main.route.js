@@ -59,8 +59,8 @@ class Routes {
             .get(bookingController.get_booking_by_id);
         app.route('/api/setcookie')
             .get(userController.setCookie);
-        app.route('/api/users/logout')
-            .get(userController.logout);
+        app.route('/api/users/session/logout')
+            .post(userController.logout);
     }
 }
 exports.Routes = Routes;

@@ -35,13 +35,16 @@ class App{
 
         //--- session management -----------------------------------------------------
         this.app.use(session({
-            maxAge: 1000 * 60, // would expire after 15 minutes
+            originalmaxAge: 1000 * 60, // would expire after 15 minutes
             httpOnly: true, // The cookie only accessible by the web server
             signed: false, // Indicates if the cookie should be signed
             resave: false,    // save session even if not modified
             saveUninitialized: false,    // save session even if not used
             //rolling: true,    // forces cookie set on every response
             secret: "secret", // encrypt session-id in cookie using "secret"
+            cookie: {
+                maxAge: 10000 * 60
+            },
             store: new MongoStore({ url: this.mongoURL })
 
         }));

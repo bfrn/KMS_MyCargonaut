@@ -51,8 +51,8 @@ export class UserService {
   }
 
   logout() {
-      const url = `${this.userURL}/logout`;
-      return this.http.get(url, {
+      const url = `${this.userURL}/session/logout`;
+      return this.http.post(url, {
         withCredentials: true  // <=========== important!
   });
   }
