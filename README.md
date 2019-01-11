@@ -131,7 +131,7 @@ Drive.discriminator('DrivingRequest',new Schema ({
 }));
 ```
 
-Diese Änderungen wurden mithilfe des schon bereits vorhandenen Unit-Tests `api_booking_test.ts` verifiziert, welcher eine Buchung erstellt und überprüft ob die Assoziationen zwischen Buchung, Fahrtgesuch und Fahrtangebot übereinstimmen. Somit hat der Code-Smell und das anschließende Refactoring ermöglicht einen tieferen Logikfehler im Design der Applikation aufzudecken und zu beheben.
+Diese Änderungen wurden mithilfe des schon bereits vorhandenen Unit-Tests `api_booking_test.ts` verifiziert, welcher eine Buchung erstellt und überprüft ob die Assoziationen zwischen Buchung, Fahrtgesuch und Fahrtangebot übereinstimmen. Somit hat der Code-Smell und das anschließende Refactoring es ermöglicht einen tieferen Logikfehler im Design der Applikation aufzudecken und zu beheben.
 
 ## Sprint_1
 
@@ -142,7 +142,7 @@ Ziel des ersten Sprints war es:
 - Einen ersten Entwurf der Backend-Api zu erstellen, in der Form eines Domänendiagramms
 
 ### Technologiestack
-Zu Beginn der Arbeit hat jedes Gruppenmitglied in Einzelarbeit Ideen gesammelt,mit welchen Technologien die Applikation implementiert werden könnte. Nach dieser Phase wurden die gesammelten Ideen zusammengetragen und man konnte sich innerhalb der Gruppe auf einen Technologiestack einigen. Bei der Backend Api fiel die Wahl auf  NodeJs und bei der Datenbank hat man sich für MongoDb entschieden. Diese Technologien brachten den Vorteil mit, dass sie schon teilweise unter den Teammitgliedern bekannt waren. Zudem waren sie sehr leicht in Docker zu containerisieren, sodass die Installation bei den meisten Gruppenmitgliedern sehr schnell möglich war. Bei Auswahl der Frontendtechnologie konnte man sich schnell auf Angular einigen, da manche Gruppenmitglieder bereits mit der Technologie vertraut waren. Jedoch wurden auch die Frameworks VueJs und React für das Frontend in Betracht gezogen.
+Zu Beginn der Arbeit hat jedes Gruppenmitglied in Einzelarbeit Ideen gesammelt,mit welchen Technologien die Applikation implementiert werden könnte. Nach dieser Phase wurden die gesammelten Ideen zusammengetragen und man konnte sich innerhalb der Gruppe auf einen Technologiestack einigen. Bei der Backend Api fiel die Wahl auf  NodeJs und bei der Datenbank hat man sich für MongoDb entschieden. Diese Technologien brachten den Vorteil mit, dass sie schon teilweise unter den Teammitgliedern bekannt waren. Zudem waren sie sehr leicht in Docker zu containerisieren, sodass die Installation bei den meisten Gruppenmitgliedern sehr schnell möglich war. Bei der Auswahl der Frontendtechnologie konnte man sich schnell auf Angular einigen, da manche Gruppenmitglieder bereits mit der Technologie vertraut waren. Jedoch wurden auch die Frameworks VueJs und React für das Frontend in Betracht gezogen.
 
 Nachdem der Technologiestack ausgewählt worden war, hat man zunächst einen Prototypen für das Backend erarbeitet. Mit diesem ist es möglich gewesen über eine Rest-Api ein Objekt von einer primitiven User-Klasse zu erstellen, welches dann in der MongoDb Datenbank abgespeichert wurde.
 
@@ -165,7 +165,7 @@ Das Ziel des 2. Sprints war die Umsetzung einer grundlegenden Projekt-Infrastruk
 - der User soll eine Fahrt einstellen können
 - der User soll nach einer Fahrt filtern können
 
-Außerdem sollte ein Klassendiagramm erstellt werden, welches die Backend-Api nochmal genauer spezifizieren sollte.
+Außerdem sollte ein Klassendiagramm erstellt werden, welches die Backend-Api genauer spezifizieren sollte.
 
 Die Aufgaben wurden innerhalb der Teammitglieder verteilt. Zwar war diese Aufteilung nicht vollkommen strikt, jedoch hatte jedes Teammitglied seinen Spezialbereich.
 
@@ -173,12 +173,12 @@ Die Aufgaben wurden innerhalb der Teammitglieder verteilt. Zwar war diese Auftei
 Zunächst wurde das Domänendiagramm noch einmal in Umlet umgesetzt, sodass es besser gewartet werden konnte. Denn so war es schnell möglich die Lesbarkeit des Diagramms zu verbessern, da diese bei dem letzten Kundengespräch bemängelt worden war.
 Zudem wurde ein Klassendiagramm in Umlet erstellt, welches nun auch die Datentypen der Klassenattribute und die Multiplizitäten zwischen den einzelnen Klassen enthält
 
-Danach wurde das Backend in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden *DrivingOffers* und *User* nach Klassendiagramm umgesetzt und es wurden für sie die  Create und Get Routen implementiert.
+Danach wurde das Backend in Typescript umgeschrieben. Ziel war es die interne Qualität des Backend zu steigern. Zudem wurden DrivingOffers und User nach Klassendiagramm umgesetzt und es wurden für sie die  Create und Get Routen implementiert.
 
 Dazu wurden zunächst die Schemas für MongoDB angelegt, welche die Klassen aus dem Klassendiagramm abbilden. Die Implementierung dazu verlief sehr reibungslos, so war es unteranderem möglich mithilfe von [Discriminatorn](https://mongoosejs.com/docs/discriminators.html) die Vereerbungsstruktur zwischen Fahrt und Fahrtangebot darzustellen.
 Jedoch hat sich im Laufe der Entwicklung das Problem ergeben, dass die Änderung im Code nicht mehr beim starten des Servers übernommen wurden, jedoch bei den Unit-Tests ist dieses Verhalten nicht aufgetreten. Dieses Problem konnte nach sehr vielen Stunden der Fehlersuche damit behoben werden, dass man die Datei zum starten des Servers (index.ts) in den Elternordner von `src` verschoben hat. Jedoch ließ sich nicht der genaue Grund für dieses Verhalten ermitteln. 
 
-Außerdem wurden im Backend Unit-Tests implementiert, um die Funktionen während der Entwicklung im Backend testen zu können. Die Unit Tests wurden mit Hilfe von TypeScript Test Frameworks [Chai](https://www.chaijs.com/plugins/chai-http/) und Mocha umgesetzt und überprüfen, die implementierten Http-Requests die erwarteten Ergebnisse zurückliefern.
+Außerdem wurden im Backend Unit-Tests implementiert, um die Funktionen während der Entwicklung im Backend testen zu können. Die Unit Tests wurden mit Hilfe von TypeScript Test Frameworks [Chai](https://www.chaijs.com/plugins/chai-http/) und Mocha umgesetzt und sie  überprüfen ob die implementierten Http-Requests die erwarteten Ergebnisse zurückliefern.
 
 
 
@@ -243,37 +243,66 @@ Außerdem wurde ein Refactoring für das Driving-Request Schema durchgeführt, w
 Das Routing fasst nun die folgenden Funktionalitäten des Backend zusammen:
 
 ``` typescript
-//user-routing
-
+  //user-routing
     app.route('/api/users')
       .get(userController.get_users);
-
+    app.route('/api/users/checklogin')
+        .get(userController.checklogin);
+      app.route('/api/users/checkadmin')
+          .get(userController.checkAdmin);
     app.route('/api/users/login')
       .post(userController.login);
-
     app.route('/api/users/register')
       .post(userController.create_user);
+
+    app.route('/api/users/profile')
+          .get(userController.get_user_Profile);
       
     app.route('/api/users/:userId')
       .get(userController.get_user_by_id)
-      .put(userController.update_user_by_id)
+      //.put(userController.update_user_by_id)
       .delete(userController.delete_user_by_id);
-        
-//driving-offer routing
-    app.route('/api/users/:userId/drivingOffers')
-      .get(drivingOfferController.get_drivingOffers)
-      .post(drivingOfferController.create_drivingOffer);    
 
-//driving-request routing
+      app.route('/api/users/username')
+          .put(userController.update_user_by_username);
+
+    //driving-offer routing
+    app.route('/api/users/:userId/drivingOffers')
+      .get(drivingOfferController.get_drivingOffers);
+
+    // IN USAGE
+    app.route('/api/users/drivingRequests/all')
+        .get(drivingOfferController.get_all_drivingOffers);
+      app.route('/api/users/drivingRequests/search')
+          .post(drivingOfferController.get_drivingOffers_by_search);
+        app.route('/api/users/drivingOffers')
+      .post(drivingOfferController.create_drivingOffer);
+
+       /* app.route('/api/users/:userId/drivingOffers/:drivingOfferId')
+      .delete(drivingOfferController.delete_drivingOffer_by_id);*/
+
+
+      app.route('/api/users/drivingOffers/:drivingOfferId')
+          .delete(drivingOfferController.delete_drivingOffer_by_id);
+      app.route('/api/users/all/drivingOffers/delete')
+          .delete(drivingOfferController.delete_drivingOffers);
+
+    //driving-request routing
     app.route('/api/users/:userId/drivingRequests')
       .get(drivingRequestController.get_drivingRequests)
       .post(drivingRequestController.create_drivingRequest);
-
-//booking-request routing
+    app.route('/api/users/:userId/drivingRequests/:drivingRequestId')
+      .delete(drivingRequestController.delete_drivingRequest_by_id);
+    //booking-request routing
     app.route('/api/bookings')
       .post(bookingController.create_booking);
     app.route('/api/bookings/:bookingId')
-      .get(bookingController.get_booking_by_id) 
+      .get(bookingController.get_booking_by_id);
+
+    app.route('/api/setcookie')
+      .get(userController.setCookie);
+      app.route('/api/users/session/logout')
+          .post(userController.logout);
 
 ``` 
 
