@@ -38,7 +38,7 @@ describe('register user test', () => {
         let testUser = new User({
             username: 'jan123' ,
             password: 'test123',
-            firstName: 'Jan',
+            firstName: 'jan',
             lastName: 'Schneider',
             birthdate: '2019-01-04T23:00:00Z',
             phone: '123',
@@ -51,7 +51,9 @@ describe('register user test', () => {
             city: 'Hamburg',
             pkw: 'true',
             transporter: 'true',
-            lkw: 'true'
+            lkw: 'true',
+            drivingOffers: [],
+            drivingRequests: [],
         });
         //console.log(testUser)
         chai.request(app)
@@ -67,7 +69,7 @@ describe('register user test', () => {
                 expect(res).to.have.status(200);
                 expect(res.body).to.be.a('array');
                 //expect(res.body.length).to.be.eql(1)
-                expect(res.body[0]).to.have.property('firstName').eql('Jan');
+                expect(res.body[0]).to.have.property('firstName').eql('jan');
                 expect(res.body[0]).to.have.property('lastName').eql('Schneider');
                 User.findByIdAndDelete(res.body[0]._id,(err, user) =>{
                     if (err) return err;

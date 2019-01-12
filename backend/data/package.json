@@ -7,7 +7,7 @@
     "tsc": "tsc",
     "dev": "tsc --watch & nodemon dist",
     "start": "node ./dist/index.js",
-    "test": "mocha -r ts-node/register test/**/*.ts"
+    "test": "mocha -r ts-node/register test/**/*.ts --exit"
   },
   "author": "",
   "license": "ISC",

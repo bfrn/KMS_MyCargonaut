@@ -14,17 +14,17 @@ let userSchema = new Schema({
    lastName: {type: String, required: true},
    birthdate: {type: Date, required: true},
    phone: {type: Number, required: true},
-    mail: {type: String, required: true},
+   mail: {type: String, required: true},
    img: {type: String, required: true},
    bio: {type:String,required: true},           
    street: {type: String, required: true},      //Straße
    houseNumber: {type: String, required: true}, //Hausnummer
    zip: {type: Number, required: true},         //PLZ
    city: {type: String, required: true},       //Ort
-    pkw: {type: String, required: true},
-    transporter:  {type: String, required: true},
-    lkw:  {type: String, required: true},
-    drivingOffers: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingOffer' }],required: false },
+   pkw: {type: String, required: true},
+   transporter:  {type: String, required: true},
+   lkw:  {type: String, required: true},
+   drivingOffers: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingOffer' }],required: false },
    drivingRequests: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingRequest' }],required: false},
 });
 

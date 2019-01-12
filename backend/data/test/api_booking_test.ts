@@ -21,29 +21,24 @@ describe('create booking test', () => {
             password: 'test123',
             firstName: 'Jan',
             lastName: 'Schneider',
-            birthdate: '2019-01-04T23:00:00Z',
-            phone: '123',
-            mail: 'a@b.com',
-            img:  'http://www.clipartmax.com/png/middle/11-115689_cars-2-clip-art-cartoon-car-side-view.png',
+            birthdate: '2019-01-30T23:00:00Z',
             bio: 'Ich bin Student an der THM',
             street: 'Hauptstraße',
+            img: 'testimage/image',
             houseNumber: '2c',
             zip: '4353',
             city: 'Hamburg',
             pkw: 'true',
             transporter: 'true',
-            lkw: 'true'
-        });
+            lkw: 'true',
+          });
 
-        let testUser2 = new User({
-            username: 'kai123' ,
+          let testUser2 = new User({
+            username: 'dieter123' ,
             password: 'test123',
-            firstName: 'kai',
-            lastName: 'koohl',
-            birthdate: '2019-01-04T23:00:00Z',
-            phone: '123',
-            mail: 'a@b.com',
-            img:  'http://www.clipartmax.com/png/middle/11-115689_cars-2-clip-art-cartoon-car-side-view.png',
+            firstName: 'Jan',
+            lastName: 'Schneider',
+            birthdate: '2019-01-30T23:00:00Z',
             bio: 'Ich bin Student an der THM',
             street: 'Hauptstraße',
             houseNumber: '2c',
@@ -51,8 +46,8 @@ describe('create booking test', () => {
             city: 'Hamburg',
             pkw: 'true',
             transporter: 'true',
-            lkw: 'true'
-        });
+            lkw: 'true',
+          });
 
         let testDrivingRequest = new DrivingRequest({
             date: '2014-08-15T22:00:00.000Z',

@@ -29,7 +29,9 @@ describe('create drivinig-request test', () => {
         city: 'Hamburg',
         pkw: 'true',
         transporter: 'true',
-        lkw: 'true'
+        lkw: 'true',
+        drivingOffers: [],
+        drivingRequests: [],
     });
 
     testUser.save().then((testUser) => {
