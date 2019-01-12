@@ -14,10 +14,11 @@ cd ./database
 ## Node-Express Server
 
 ```
-cd ./backend/dataa
+cd ./backend/data
 npm install
 npm run dev
 ```
+
 ## Angular Frontend
 
 ```
