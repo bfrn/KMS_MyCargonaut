@@ -18,12 +18,19 @@ describe('create drivinig-request test', () => {
         password: 'test123',
         firstName: 'Jan',
         lastName: 'Schneider',
+        birthdate: '2019-01-04T23:00:00Z',
+        phone: '123',
+        mail: 'a@b.com',
+        img:  'http://www.clipartmax.com/png/middle/11-115689_cars-2-clip-art-cartoon-car-side-view.png',
         bio: 'Ich bin Student an der THM',
         street: 'Hauptstraße',
         houseNumber: '2c',
         zip: '4353',
         city: 'Hamburg',
-      });
+        pkw: 'true',
+        transporter: 'true',
+        lkw: 'true'
+    });
 
     testUser.save().then((testUser) => {
       

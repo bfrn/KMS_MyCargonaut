@@ -21,23 +21,37 @@ describe('create booking test', () => {
             password: 'test123',
             firstName: 'Jan',
             lastName: 'Schneider',
+            birthdate: '2019-01-04T23:00:00Z',
+            phone: '123',
+            mail: 'a@b.com',
+            img:  'http://www.clipartmax.com/png/middle/11-115689_cars-2-clip-art-cartoon-car-side-view.png',
             bio: 'Ich bin Student an der THM',
             street: 'Hauptstraße',
             houseNumber: '2c',
             zip: '4353',
             city: 'Hamburg',
+            pkw: 'true',
+            transporter: 'true',
+            lkw: 'true'
         });
 
         let testUser2 = new User({
-            username: 'tom123' ,
+            username: 'kai123' ,
             password: 'test123',
-            firstName: 'Tom',
-            lastName: 'Müller',
-            bio: 'Ich bin Schüler',
-            street: 'Teststraße',
-            houseNumber: '4b',
-            zip: '4754',
-            city: 'Berlin',
+            firstName: 'kai',
+            lastName: 'koohl',
+            birthdate: '2019-01-04T23:00:00Z',
+            phone: '123',
+            mail: 'a@b.com',
+            img:  'http://www.clipartmax.com/png/middle/11-115689_cars-2-clip-art-cartoon-car-side-view.png',
+            bio: 'Ich bin Student an der THM',
+            street: 'Hauptstraße',
+            houseNumber: '2c',
+            zip: '4353',
+            city: 'Hamburg',
+            pkw: 'true',
+            transporter: 'true',
+            lkw: 'true'
         });
 
         let testDrivingRequest = new DrivingRequest({

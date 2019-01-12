@@ -11,4 +11,4 @@ before_install:
 script:
   - cd ./backend/data
   - npm install 
-- npm run test || travis_terminate 1
+  - npm run test || travis_terminate 1

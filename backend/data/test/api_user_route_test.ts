@@ -10,6 +10,29 @@ chai.use(chaiHttp);
 
 const expect = chai.expect;
 
+/**
+ * let userSchema = new Schema({
+   username: {type: String, required: true},
+   password: {type: String, required: true},
+   firstName: {type: String, required: true},
+   lastName: {type: String, required: true},
+   birthdate: {type: Date, required: true},
+   phone: {type: Number, required: true},
+   mail: {type: String, required: true},
+   img: {type: String, required: true},
+   bio: {type:String,required: true},           
+   street: {type: String, required: true},      //Straße
+   houseNumber: {type: String, required: true}, //Hausnummer
+   zip: {type: Number, required: true},         //PLZ
+   city: {type: String, required: true},       //Ort
+   pkw: {type: String, required: true},
+   transporter:  {type: String, required: true},
+   lkw:  {type: String, required: true},
+   drivingOffers: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingOffer' }],required: false },
+   drivingRequests: {type:[{ type: Schema.Types.ObjectId, ref: 'DrivingRequest' }],required: false},
+});
+
+ */
 describe('register user test', () => {
     it('should successfully add a user and delete it afterwards ', (done) => {
         let testUser = new User({
@@ -17,11 +40,18 @@ describe('register user test', () => {
             password: 'test123',
             firstName: 'Jan',
             lastName: 'Schneider',
+            birthdate: '2019-01-04T23:00:00Z',
+            phone: '123',
+            mail: 'a@b.com',
+            img:  'http://www.clipartmax.com/png/middle/11-115689_cars-2-clip-art-cartoon-car-side-view.png',
             bio: 'Ich bin Student an der THM',
             street: 'Hauptstraße',
             houseNumber: '2c',
             zip: '4353',
             city: 'Hamburg',
+            pkw: 'true',
+            transporter: 'true',
+            lkw: 'true'
         });
         //console.log(testUser)
         chai.request(app)
